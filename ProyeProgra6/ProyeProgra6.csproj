@@ -187,6 +187,9 @@
     <Compile Include="Models\sp_RetornaMarcaVehiculo_ID_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_RetornaMarcaVehiculo_Result.cs">
+      <DependentUpon>ProyectoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_RetornaPaísFabricante_ID_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
