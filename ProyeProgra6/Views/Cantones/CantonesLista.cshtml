@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "CantonesLista";
+}
+
+<h2>CantonesLista</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Provincia</th>
+        <th>Nombre</th>
+        <th>Usuario Crea</th>
+        <th>Fecha Creacion</th>
+        <th>Usuario Modifica</th>
+        <th>Fecha Modifica</th>
+        <th>VC Estado</th>
+        <th>Canton Inec</th>
+
+
+    </tr>
+
+    @{ foreach (ProyeProgra6.Models.sp_RetornaCantones_Result posicionModelo
+                  in this.Model)
+        {
+            <tr>
+                <td>@posicionModelo.Provincia</td>
+                <td>@posicionModelo.nombre</td>
+                <td>@posicionModelo.usuarioCrea</td>
+                <td>@posicionModelo.fechaCrea</td>
+                <td>@posicionModelo.usuarioModifica</td>
+                <td>@posicionModelo.fechaModifica</td>
+                <td>@posicionModelo.vc_Estado</td>
+                <td>@posicionModelo.id_CantonInec</td>
+
+            </tr>
+        }
+    }
+</table>

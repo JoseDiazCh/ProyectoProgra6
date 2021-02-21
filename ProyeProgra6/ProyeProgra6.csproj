@@ -127,6 +127,8 @@
     <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CantonesController.cs" />
+    <Compile Include="Controllers\DistritosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\PaisFabricanteController.cs" />
@@ -311,6 +313,8 @@
     <Content Include="Views\Provincias\ProvinciasLista.cshtml" />
     <Content Include="Views\PaisFabricante\PaisFabricanteLista.cshtml" />
     <Content Include="Views\MarcaVehiculo\MarcaVehiculoLista.cshtml" />
+    <Content Include="Views\Distritos\DistritosLista.cshtml" />
+    <Content Include="Views\Cantones\CantonesLista.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
