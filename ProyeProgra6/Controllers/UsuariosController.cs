@@ -46,20 +46,20 @@ namespace ProyeProgra6.Controllers
         /// </summary>
         void AgregaProvinciasViewBag()
         {
-            this.ViewBag.UsuariosLista =
+            this.ViewBag.ListaProvincias =
                     this.modeloBD.sp_RetornaProvincias("").ToList();
         }
 
         void AgregaCantonesViewBag()
         {
-            this.ViewBag.UsuariosLista =
+            this.ViewBag.ListaCantones =
                     this.modeloBD.sp_RetornaCantones("",null).ToList();
         
         }
 
         void AgregaDistritosViewgBag()
         {
-            this.ViewBag.UsuariosLista =
+            this.ViewBag.ListaDistritos =
                 this.modeloBD.sp_RetornaDistritos("", null);
         }
         /// <summary>
@@ -77,17 +77,19 @@ namespace ProyeProgra6.Controllers
             try
             {
                 cantRegistrosafectados =
-                    this.modeloBD.sp_InsertaPersona(
-                        modeloVista.primerApellido,
-                        modeloVista.segundoApellido,
-                        modeloVista.nombre,
-                        modeloVista.telefono,
-                        modeloVista.correo,
+                    this.modeloBD.sp_InsertaUsuarios(
+                        modeloVista.Cedula,
+                        modeloVista.descripcionGenero,
+                        modeloVista.FechaNacimiento,
+                        modeloVista.Nombre,
+                        modeloVista.Apellido1,
+                        modeloVista.Apellido2,
+                        modeloVista.Correo,
+                        modeloVista.TipoUsuario ,
                         modeloVista.id_Provincia,
-                        modeloVista.sexo,
-                        modeloVista.poseeCarro,
-                        modeloVista.poseeBici,
-                        modeloVista.poseeMoto
+                        modeloVista.id_Canton,
+                        modeloVista.id_Distrito,
+                        modeloVista.Contrasenia
                         );
             }
             catch (Exception error)
@@ -110,6 +112,8 @@ namespace ProyeProgra6.Controllers
 
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
             this.AgregaProvinciasViewBag();
+            this.AgregaCantonesViewBag();
+            this.AgregaDistritosViewgBag();
             return View();
         }
 
