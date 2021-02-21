@@ -6,14 +6,12 @@ using System.Web.Mvc;
 
 namespace ProyeProgra6.Controllers
 {
-    public class PruebaController : Controller
+    public class UsuariosController : Controller
     {
-        // GET: Prueba
+        // GET: Usuarios
         public ActionResult Index()
         {
             return View();
         }
     }
 }
-
-///////////prueba
