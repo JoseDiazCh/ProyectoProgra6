@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "VehiculosLista";
+}
+
+<h2>VehiculosLista</h2>
+
+<table class="table">
+    <tr>
+        <th>Placa</th>
+        <th>Numero de Puertas</th>
+        <th>Numero de Ruedas</th>
+        <th>Marca Vehiculo</th>
+        <th>Tipo de Vehiculo</th>
+        
+    </tr>
+
+    @{ foreach (ProyeProgra6.Models.sp_RetornaVehiculos_Result posicionModelo
+                in this.Model)
+        {
+            <tr>
+                <td>@posicionModelo.Placa</td>
+                <td>@posicionModelo.NumeroPuertas</td>
+                <td>@posicionModelo.NumeroRuedas</td>
+                <td>@posicionModelo.Marca_Vehiculo</td>
+                <td>@posicionModelo.Tipo_Vehiculo</td>
+
+            </tr>
+        }
+    }
+</table>
+

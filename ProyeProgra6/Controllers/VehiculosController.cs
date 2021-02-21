@@ -7,26 +7,23 @@ using ProyeProgra6.Models;
 
 namespace ProyeProgra6.Controllers
 {
-    public class UsuariosController : Controller
+    public class VehiculosController : Controller
     {
-        
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
 
-        public ActionResult UsuariosLista()
+        public ActionResult VehiculosLista()
         {
             //creamos la variable que contiene los registros obtenidos
             ///al invocar los procesos almacenados
-            List<sp_RetornaUsuarios_Result> modeloVista =
-                new List<sp_RetornaUsuarios_Result>();
+            List<sp_RetornaVehiculos_Result> modeloVista =
+                new List<sp_RetornaVehiculos_Result>();
 
             ///asignar a la variable el resultado de 'llamas el procedimiento almacenado
 
-            modeloVista = this.modeloBD.sp_RetornaUsuarios("", "").ToList();
+            modeloVista = this.modeloBD.sp_RetornaVehiculos("", "").ToList();
             //enviar a la vista el modelo
             return View(modeloVista);
 
         }
-
-
     }
 }
