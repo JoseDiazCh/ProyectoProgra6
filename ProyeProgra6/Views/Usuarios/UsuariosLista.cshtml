@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "UsuariosLista";
+}
+
+<h2>UsuariosLista</h2>
+<table class="table">
+    <tr>
+        @*<th>Primer Apellido</th>
+        <th>Segundo Apellido</th>*@
+        <th>Cedula</th>
+        <th>Genero</th>
+        <th>Fecha Nacimiento</th>
+        <th>Nombre Completo</th>
+        <th>Correo</th>
+        <th>Tipo de Usuario</th>
+        <th>Provincia</th>
+        <th>Canton</th>
+        <th>Distrito</th>
+        <th>Contrasena</th>
+    </tr>
+
+    @{ foreach (ProyeProgra6.Models.sp_RetornaUsuarios_Result posicionModelo
+               in this.Model)
+        {
+        <tr>
+            <td>@posicionModelo.Cedula</td>
+            <td>@posicionModelo.descripcionGenero</td>
+            <td>@posicionModelo.FechaNacimiento</td>
+            <td>@posicionModelo.Nombre @posicionModelo.Apellido1 @posicionModelo.Apellido2/th>
+            <td>@posicionModelo.Correo</td>
+            <td>@posicionModelo.TipoUsuario</td>
+            <td>@posicionModelo.nombreProvincia</td>
+            <td>@posicionModelo.nombreCanton</td>
+            <td>@posicionModelo.nombreDistrito</td>
+            <td>@posicionModelo.Contrasenia</td>
+
+
+        </tr>
+        }
+    }
+</table>
