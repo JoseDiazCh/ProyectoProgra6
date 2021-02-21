@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "ProvinciasLista";
+}
+
+<h2>ProvinciasLista</h2>
+
+<table class="table">
+    <tr>
+        <th>Nombre</th>
+        <th>Usuario de Creacion</th>
+        <th>Fecha Cracion</th>
+        <th>Usuario Modifica</th>
+        <th>Fecha Modifica</th>
+        <th>VC Estado</th>
+        
+    </tr>
+
+    @{ foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result posicionModelo
+                   in this.Model)
+        {
+            <tr>
+                <td>@posicionModelo.nombre</td>
+                <td>@posicionModelo.usuarioCrea</td>
+                <td>@posicionModelo.fechaCrea</td>
+                <td>@posicionModelo.usuarioModifica</td>
+                <td>@posicionModelo.fechaModifica</td>
+                <td>@posicionModelo.vc_Estado</td>
+
+
+            </tr>
+        }
+    }
+</table>

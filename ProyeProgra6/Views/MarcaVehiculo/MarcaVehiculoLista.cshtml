@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "MarcaVehiculoLista";
+}
+
+<h2>MarcaVehiculoLista</h2>
+
+<table class="table">
+    <tr>
+        <th>Codigo</th>
+        <th>Tipo</th>
+
+        @*<th>Pais</th>*@
+
+
+    </tr>
+
+    @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
+                     in this.Model)
+        {
+        <tr>
+            <td>@posicionModelo.Codigo</td>
+            <td>@posicionModelo.Tipo</td>
+
+            @*<td>@posicionModelo.pais</td>*@
+
+
+        </tr>
+        }
+    }
+</table>
+
