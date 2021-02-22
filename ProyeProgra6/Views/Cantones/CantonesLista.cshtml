@@ -1,4 +1,5 @@
-﻿
+﻿@model List<ProyeProgra6.Models.sp_RetornaCantones_Result>
+
 @{
     ViewBag.Title = "CantonesLista";
 }
@@ -21,7 +22,7 @@
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaCantones_Result posicionModelo
-                  in this.Model)
+                   in this.Model)
         {
             <tr>
                 <td>@posicionModelo.Provincia</td>

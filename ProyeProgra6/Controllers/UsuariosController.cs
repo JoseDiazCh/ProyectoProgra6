@@ -12,6 +12,10 @@ namespace ProyeProgra6.Controllers
         
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
 
+        /// <summary>
+        /// Controlador que me LISTA las personas
+        /// </summary>
+        /// <returns></returns>
         public ActionResult UsuariosLista()
         {
             //creamos la variable que contiene los registros obtenidos
@@ -26,10 +30,12 @@ namespace ProyeProgra6.Controllers
             return View(modeloVista);
 
         }
+  ////--------------------------------------------------------------------------------------------
 
-        ////--------------------------------------------------------------------------------------------
-        ///
-        /// 
+        /// <summary>
+      /// INSERTA la nueva persona
+   /// </summary>
+     /// <returns></returns>
 
         public ActionResult UsuarioNuevo()
         {
@@ -63,7 +69,7 @@ namespace ProyeProgra6.Controllers
                 this.modeloBD.sp_RetornaDistritos("", null);
         }
         /// <summary>
-        /// este envia la persona nueva
+        /// este INSERTA la persona nueva tipo HttpPost
         /// </summary>
         /// <returns></returns>
         [HttpPost]
@@ -79,7 +85,7 @@ namespace ProyeProgra6.Controllers
                 cantRegistrosafectados =
                     this.modeloBD.sp_InsertaUsuarios(
                         modeloVista.Cedula,
-                        modeloVista.Genero,
+                        modeloVista.descripcionGenero,
                         modeloVista.FechaNacimiento,
                         modeloVista.Nombre,
                         modeloVista.Apellido1,

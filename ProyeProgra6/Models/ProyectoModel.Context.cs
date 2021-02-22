@@ -653,6 +653,15 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaDistritos_ID_Result>("sp_RetornaDistritos_ID", id_DistritoParameter);
         }
     
+        public virtual ObjectResult<sp_RetornaUsuarios_ID_Result> sp_RetornaUsuarios_ID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_ID_Result>("sp_RetornaUsuarios_ID", idUsuarioParameter);
+        }
+    
         public virtual ObjectResult<sp_RetornaUsuarios_Result> sp_RetornaUsuarios(string apellido1, string nombre)
         {
             var apellido1Parameter = apellido1 != null ?
@@ -664,15 +673,6 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_Result>("sp_RetornaUsuarios", apellido1Parameter, nombreParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaUsuarios_ID_Result> sp_RetornaUsuarios_ID(Nullable<int> idUsuario)
-        {
-            var idUsuarioParameter = idUsuario.HasValue ?
-                new ObjectParameter("idUsuario", idUsuario) :
-                new ObjectParameter("idUsuario", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_ID_Result>("sp_RetornaUsuarios_ID", idUsuarioParameter);
         }
     }
 }

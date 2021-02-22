@@ -1,27 +1,35 @@
-﻿
+﻿@model List<ProyeProgra6.Models.sp_RetornaPaísFabricante_Result>
 @{
     ViewBag.Title = "PaisFabricanteLista";
 }
 
-<h2>PaisFabricanteLista</h2>
+<h2> Lista Del Pais  De Fabricacion</h2>
 
 <table class="table">
     <tr>
         <th>Codigo</th>
         <th>Pais</th>
+        <th>Acciones</th>
 
 
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result posicionModelo
-                    in this.Model)
+                      in this.Model)
         {
-            <tr>
-                <td>@posicionModelo.Codigo</td>
-                <td>@posicionModelo.Pais</td>
+        <tr>
+            <td>@posicionModelo.Codigo</td>
+            <td>@posicionModelo.Pais</td>
 
+            <td>
+                <a href="~/Personas/PersonaModifica?id_Persona=@posicionModelo.idPaisFabricante">Modificar</a>
+                <br />
+                <a href="~/Personas/PersonaElimina?id_Persona=@posicionModelo.idPaisFabricante">Eliminar</a>
 
-            </tr>
+            </td>
+
+        </tr>
         }
     }
 </table>
+<a href="~/PaisFabricante/PaisFabricacionNuevo"> Registar Nuevo Pais De Fabricacion</a>
