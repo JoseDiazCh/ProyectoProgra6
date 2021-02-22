@@ -106,7 +106,7 @@ namespace ProyeProgra6.Controllers
                 }
                 else
                 {
-                    resultado += ".No se Pudo insertas";
+                    resultado += ".No se Pudo insertar";
                 }
             }
 
