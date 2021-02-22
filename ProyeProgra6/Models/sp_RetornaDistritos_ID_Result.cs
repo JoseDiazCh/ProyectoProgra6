@@ -11,7 +11,7 @@ namespace ProyeProgra6.Models
 {
     using System;
     
-    public partial class sp_RetornaDistritos_Result
+    public partial class sp_RetornaDistritos_ID_Result
     {
         public int id_Distrito { get; set; }
         public Nullable<int> id_Canton { get; set; }

@@ -498,28 +498,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaCantones_ID_Result>("sp_RetornaCantones_ID", id_CantonParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaDistritos_Result> sp_RetornaDistritos(string nombre, Nullable<int> id_Canton)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var id_CantonParameter = id_Canton.HasValue ?
-                new ObjectParameter("id_Canton", id_Canton) :
-                new ObjectParameter("id_Canton", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaDistritos_Result>("sp_RetornaDistritos", nombreParameter, id_CantonParameter);
-        }
-    
-        public virtual int sp_RetornaDistritos_ID(Nullable<int> id_Distrito)
-        {
-            var id_DistritoParameter = id_Distrito.HasValue ?
-                new ObjectParameter("id_Distrito", id_Distrito) :
-                new ObjectParameter("id_Distrito", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RetornaDistritos_ID", id_DistritoParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaMarcaVehiculo_ID_Result> sp_RetornaMarcaVehiculo_ID(Nullable<int> idMarcaVehiculos)
         {
             var idMarcaVehiculosParameter = idMarcaVehiculos.HasValue ?
@@ -613,19 +591,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTiposVehículos_ID_Result>("sp_RetornaTiposVehículos_ID", idTipoVehiculoParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaUsuarios_Result> sp_RetornaUsuarios(string apellido1, string nombre)
-        {
-            var apellido1Parameter = apellido1 != null ?
-                new ObjectParameter("Apellido1", apellido1) :
-                new ObjectParameter("Apellido1", typeof(string));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_Result>("sp_RetornaUsuarios", apellido1Parameter, nombreParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaUsuarios_ID_Result> sp_RetornaUsuarios_ID(Nullable<int> idUsuario)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
@@ -673,6 +638,41 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaMarcaVehiculo_Result>("sp_RetornaMarcaVehiculo", codigoParameter, tipoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaUsuarios_Result> sp_RetornaUsuarios(string apellido1, string nombre)
+        {
+            var apellido1Parameter = apellido1 != null ?
+                new ObjectParameter("Apellido1", apellido1) :
+                new ObjectParameter("Apellido1", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_Result>("sp_RetornaUsuarios", apellido1Parameter, nombreParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaDistritos_Result> sp_RetornaDistritos(string nombre, Nullable<int> id_Canton)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var id_CantonParameter = id_Canton.HasValue ?
+                new ObjectParameter("id_Canton", id_Canton) :
+                new ObjectParameter("id_Canton", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaDistritos_Result>("sp_RetornaDistritos", nombreParameter, id_CantonParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaDistritos_ID_Result> sp_RetornaDistritos_ID(Nullable<int> id_Distrito)
+        {
+            var id_DistritoParameter = id_Distrito.HasValue ?
+                new ObjectParameter("id_Distrito", id_Distrito) :
+                new ObjectParameter("id_Distrito", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaDistritos_ID_Result>("sp_RetornaDistritos_ID", id_DistritoParameter);
         }
     }
 }

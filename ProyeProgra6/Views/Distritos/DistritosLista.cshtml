@@ -1,38 +1,30 @@
-﻿
+﻿@model List<ProyeProgra6.Models.sp_RetornaDistritos_Result>
 @{
     ViewBag.Title = "DistritosLista";
 }
 
-<h2>DistritosLista</h2>
+<h2> Lista de los Distritos </h2>
 
 <table class="table">
     <tr>
-        <th>Canton</th>
-        <th>Nombre</th>
-        <th>Usuario Crea</th>
-        <th>Fecha Creacion</th>
-        <th>Usuario Modifica</th>
-        <th>Fecha Modifica</th>
+        <th> Nombre Canton</th>
+        <th>Nombre Distrito</th>
         <th>VC Estado</th>
         <th>distrito Inec</th>
-        
+
 
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result posicionModelo
-                 in this.Model)
+                  in this.Model)
         {
-        <tr>
-            <td>@posicionModelo.Canton</td>
-            <td>@posicionModelo.nombre</td>
-            <td>@posicionModelo.usuarioCrea</td>
-            <td>@posicionModelo.fechaCrea</td>
-            <td>@posicionModelo.usuarioModifica</td>
-            <td>@posicionModelo.fechaModifica</td>
-            <td>@posicionModelo.vc_Estado</td>
-            <td>@posicionModelo.id_CantonInec</td>
+            <tr>
+                <td>@posicionModelo.Canton</td>
+                <td>@posicionModelo.nombre</td>
+                <td>@posicionModelo.vc_Estado</td>
+                <td>@posicionModelo.id_DistritoInec</td>
 
-        </tr>
+            </tr>
         }
     }
 </table>
