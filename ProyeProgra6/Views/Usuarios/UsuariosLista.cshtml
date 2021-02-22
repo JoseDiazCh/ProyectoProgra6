@@ -7,31 +7,30 @@
 <h2>Usuarios Lista</h2>
 <table class="table">
     <tr>
-
         <th>Nombre Completo</th>
-        <th>Genero</th>
+        <th>Cedula</th>
         <th>Correo</th>
         <th>Tipo de Usuario</th>
         <th>Provincia</th>
-        <th>Canton</th>
-        <th>Distrito</th>
+        @*<th>Canton</th>
+        <th>Distrito</th>*@
 
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaUsuarios_Result posicionModelo
-                in this.Model)
+                 in this.Model)
         {
         <tr>
-         
+
 
 
             <td>@posicionModelo.Nombre @posicionModelo.Apellido1 @posicionModelo.Apellido2</td>
-            <td>@posicionModelo.descripcionGenero</td>
+            <td>@posicionModelo.Genero</td>
             <td>@posicionModelo.Correo</td>
             <td>@posicionModelo.TipoUsuario</td>
             <td>@posicionModelo.nombreProvincia</td>
-            <td>@posicionModelo.nombreCanton</td>
-            <td>@posicionModelo.nombreDistrito</td>
+            @*<td>@posicionModelo.nombreCanton</td>
+            <td>@posicionModelo.nombreDistrito</td>*@
 
 
 
@@ -39,3 +38,5 @@
         }
     }
 </table>
+<a href="~/Usuarios/UsuarioNuevo"> Registar Nueva Persona</a>
+

@@ -79,7 +79,7 @@ namespace ProyeProgra6.Controllers
                 cantRegistrosafectados =
                     this.modeloBD.sp_InsertaUsuarios(
                         modeloVista.Cedula,
-                        modeloVista.descripcionGenero,
+                        modeloVista.Genero,
                         modeloVista.FechaNacimiento,
                         modeloVista.Nombre,
                         modeloVista.Apellido1,
