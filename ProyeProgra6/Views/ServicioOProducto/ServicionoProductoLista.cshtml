@@ -1,4 +1,6 @@
 ﻿
+@model List<ProyeProgra6.Models.sp_RetornaServicioOProducto_Result>
+
 @{
     ViewBag.Title = "ServicionoProductoLista";
 }
@@ -15,16 +17,16 @@
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaServicioOProducto_Result posicionModelo
-                  in this.Model)
+                   in this.Model)
         {
-        <tr>
-            <td>@posicionModelo.Codigo</td>
-            <td>@posicionModelo.Descripción</td>
-            <td>@posicionModelo.Precio</td>
-            <td>@posicionModelo.Tipo</td>
+            <tr>
+                <td>@posicionModelo.Codigo</td>
+                <td>@posicionModelo.Descripción</td>
+                <td>@posicionModelo.Precio</td>
+                <td>@posicionModelo.Tipo</td>
 
 
-        </tr>
+            </tr>
         }
     }
 </table>

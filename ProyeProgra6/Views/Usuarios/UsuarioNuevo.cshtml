@@ -3,7 +3,7 @@
     ViewBag.Title = "UsuarioNuevo";
 }
 
-<h2>UsuarioNuevo</h2>
+<h2>Usuario Nuevo</h2>
 
 
 <form id="frmNuevoUsuario" method="post">
@@ -22,7 +22,7 @@
 
         <input type="radio" name="Genero" value="i" class="form-check-input" /> Indefinido
     </div>
-
+    <br />
     <div class="form-group">
         <label>Fecha Nacimiento:</label>
         <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" />
@@ -96,13 +96,14 @@
     </div>
 
     <div class="form-group">
-        <label>Contrasena</label>
+        <label>Contrasenia</label>
         <input type="text" name="Contrasena" id="Contrasena" class="form-control" />
     </div>
     <div class="form-group">
         <input type="submit" value="Guardar" id="btnAceptar" />
     </div>
-
+    <br />
+    <a href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
 </form>
     
 

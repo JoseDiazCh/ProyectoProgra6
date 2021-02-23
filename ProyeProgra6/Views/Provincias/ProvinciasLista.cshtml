@@ -1,4 +1,6 @@
 ﻿
+@model List<ProyeProgra6.Models.sp_RetornaProvincias_Result>
+
 @{
     ViewBag.Title = "ProvinciasLista";
 }
@@ -13,11 +15,11 @@
         <th>Usuario Modifica</th>
         <th>Fecha Modifica</th>
         <th>VC Estado</th>
-        
+
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result posicionModelo
-                   in this.Model)
+                    in this.Model)
         {
             <tr>
                 <td>@posicionModelo.nombre</td>

@@ -1,4 +1,5 @@
 ﻿
+@model List<ProyeProgra6.Models.sp_RetornaTiposVehículos_Result>
 @{
     ViewBag.Title = "TiposVehiculosLista";
 }
@@ -13,7 +14,7 @@
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaTiposVehículos_Result posicionModelo
-                 in this.Model)
+                  in this.Model)
         {
             <tr>
                 <td>@posicionModelo.Código</td>
