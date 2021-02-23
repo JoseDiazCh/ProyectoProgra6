@@ -11,7 +11,7 @@ namespace ProyeProgra6.Controllers
     {
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
 
-        public ActionResult ServicionoProductoLista()
+        public ActionResult ServicioOProductoLista()
         {
             //creamos la variable que contiene los registros obtenidos
             ///al invocar los procesos almacenados

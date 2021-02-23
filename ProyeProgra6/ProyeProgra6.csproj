@@ -312,7 +312,7 @@
     <Content Include="Views\Usuarios\UsuariosLista.cshtml" />
     <Content Include="Views\Vehiculos\VehiculosLista.cshtml" />
     <Content Include="Views\TiposVehiculos\TiposVehiculosLista.cshtml" />
-    <Content Include="Views\ServicioOProducto\ServicionoProductoLista.cshtml" />
+    <Content Include="Views\ServicioOProducto\ServicioOProductoLista.cshtml" />
     <Content Include="Views\Provincias\ProvinciasLista.cshtml" />
     <Content Include="Views\PaisFabricante\PaisFabricanteLista.cshtml" />
     <Content Include="Views\MarcaVehiculo\MarcaVehiculoLista.cshtml" />
