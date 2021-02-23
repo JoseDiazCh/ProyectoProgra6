@@ -232,7 +232,7 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaTiposVehiculos", codigoParameter, tipoParameter);
         }
     
-        public virtual int sp_InsertaUsuarios(Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string apellido1, string apellido2, string correo, string tipoUsuario, Nullable<int> id_Provincia, Nullable<int> id_Canton, Nullable<int> id_Distrito, string contrasenia)
+        public virtual int sp_InsertaUsuarios(Nullable<int> cedula, string genero, string fechaNacimiento, string nombre, string apellido1, string apellido2, string correo, string tipoUsuario, Nullable<int> id_Provincia, Nullable<int> id_Canton, Nullable<int> id_Distrito, string contrasenia)
         {
             var cedulaParameter = cedula.HasValue ?
                 new ObjectParameter("Cedula", cedula) :
@@ -242,9 +242,9 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Genero", genero) :
                 new ObjectParameter("Genero", typeof(string));
     
-            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+            var fechaNacimientoParameter = fechaNacimiento != null ?
                 new ObjectParameter("FechaNacimiento", fechaNacimiento) :
-                new ObjectParameter("FechaNacimiento", typeof(System.DateTime));
+                new ObjectParameter("FechaNacimiento", typeof(string));
     
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -557,7 +557,7 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", tipo) :
                 new ObjectParameter("Tipo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_Result>("sp_RetornaServicioOProducto",descripciónParameter, tipoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_Result>("sp_RetornaServicioOProducto", descripciónParameter, tipoParameter);
         }
     
         public virtual ObjectResult<sp_RetornaServicioOProducto_ID_Result> sp_RetornaServicioOProducto_ID(Nullable<int> idServProduc)
