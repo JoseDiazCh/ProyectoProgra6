@@ -557,7 +557,7 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", tipo) :
                 new ObjectParameter("Tipo", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_Result>("sp_RetornaServicioOProducto", descripciónParameter, tipoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_Result>("sp_RetornaServicioOProducto",descripciónParameter, tipoParameter);
         }
     
         public virtual ObjectResult<sp_RetornaServicioOProducto_ID_Result> sp_RetornaServicioOProducto_ID(Nullable<int> idServProduc)
