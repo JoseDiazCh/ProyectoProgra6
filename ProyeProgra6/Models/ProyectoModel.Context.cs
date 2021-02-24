@@ -232,59 +232,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaTiposVehiculos", codigoParameter, tipoParameter);
         }
     
-        public virtual int sp_InsertaUsuarios(Nullable<int> cedula, string genero, string fechaNacimiento, string nombre, string apellido1, string apellido2, string correo, string tipoUsuario, Nullable<int> id_Provincia, Nullable<int> id_Canton, Nullable<int> id_Distrito, string contrasenia)
-        {
-            var cedulaParameter = cedula.HasValue ?
-                new ObjectParameter("Cedula", cedula) :
-                new ObjectParameter("Cedula", typeof(int));
-    
-            var generoParameter = genero != null ?
-                new ObjectParameter("Genero", genero) :
-                new ObjectParameter("Genero", typeof(string));
-    
-            var fechaNacimientoParameter = fechaNacimiento != null ?
-                new ObjectParameter("FechaNacimiento", fechaNacimiento) :
-                new ObjectParameter("FechaNacimiento", typeof(string));
-    
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("Nombre", nombre) :
-                new ObjectParameter("Nombre", typeof(string));
-    
-            var apellido1Parameter = apellido1 != null ?
-                new ObjectParameter("Apellido1", apellido1) :
-                new ObjectParameter("Apellido1", typeof(string));
-    
-            var apellido2Parameter = apellido2 != null ?
-                new ObjectParameter("Apellido2", apellido2) :
-                new ObjectParameter("Apellido2", typeof(string));
-    
-            var correoParameter = correo != null ?
-                new ObjectParameter("Correo", correo) :
-                new ObjectParameter("Correo", typeof(string));
-    
-            var tipoUsuarioParameter = tipoUsuario != null ?
-                new ObjectParameter("TipoUsuario", tipoUsuario) :
-                new ObjectParameter("TipoUsuario", typeof(string));
-    
-            var id_ProvinciaParameter = id_Provincia.HasValue ?
-                new ObjectParameter("id_Provincia", id_Provincia) :
-                new ObjectParameter("id_Provincia", typeof(int));
-    
-            var id_CantonParameter = id_Canton.HasValue ?
-                new ObjectParameter("id_Canton", id_Canton) :
-                new ObjectParameter("id_Canton", typeof(int));
-    
-            var id_DistritoParameter = id_Distrito.HasValue ?
-                new ObjectParameter("id_Distrito", id_Distrito) :
-                new ObjectParameter("id_Distrito", typeof(int));
-    
-            var contraseniaParameter = contrasenia != null ?
-                new ObjectParameter("Contrasenia", contrasenia) :
-                new ObjectParameter("Contrasenia", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaUsuarios", cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, apellido1Parameter, apellido2Parameter, correoParameter, tipoUsuarioParameter, id_ProvinciaParameter, id_CantonParameter, id_DistritoParameter, contraseniaParameter);
-        }
-    
         public virtual int sp_InsertaVehiculos(string placa, string numeroPuertas, string numeroRuedas, Nullable<int> idMarcaVehiculos, Nullable<int> idTipoVehiculo)
         {
             var placaParameter = placa != null ?
@@ -669,6 +616,59 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTiposVehículos_Result>("sp_RetornaTiposVehículos", tipoParameter);
+        }
+    
+        public virtual int sp_InsertaUsuarios(Nullable<int> cedula, string genero, Nullable<System.DateTime> fechaNacimiento, string nombre, string apellido1, string apellido2, string correo, string tipoUsuario, Nullable<int> id_Provincia, Nullable<int> id_Canton, Nullable<int> id_Distrito, string contrasenia)
+        {
+            var cedulaParameter = cedula.HasValue ?
+                new ObjectParameter("Cedula", cedula) :
+                new ObjectParameter("Cedula", typeof(int));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("Genero", genero) :
+                new ObjectParameter("Genero", typeof(string));
+    
+            var fechaNacimientoParameter = fechaNacimiento.HasValue ?
+                new ObjectParameter("FechaNacimiento", fechaNacimiento) :
+                new ObjectParameter("FechaNacimiento", typeof(System.DateTime));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var apellido1Parameter = apellido1 != null ?
+                new ObjectParameter("Apellido1", apellido1) :
+                new ObjectParameter("Apellido1", typeof(string));
+    
+            var apellido2Parameter = apellido2 != null ?
+                new ObjectParameter("Apellido2", apellido2) :
+                new ObjectParameter("Apellido2", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("Correo", correo) :
+                new ObjectParameter("Correo", typeof(string));
+    
+            var tipoUsuarioParameter = tipoUsuario != null ?
+                new ObjectParameter("TipoUsuario", tipoUsuario) :
+                new ObjectParameter("TipoUsuario", typeof(string));
+    
+            var id_ProvinciaParameter = id_Provincia.HasValue ?
+                new ObjectParameter("id_Provincia", id_Provincia) :
+                new ObjectParameter("id_Provincia", typeof(int));
+    
+            var id_CantonParameter = id_Canton.HasValue ?
+                new ObjectParameter("id_Canton", id_Canton) :
+                new ObjectParameter("id_Canton", typeof(int));
+    
+            var id_DistritoParameter = id_Distrito.HasValue ?
+                new ObjectParameter("id_Distrito", id_Distrito) :
+                new ObjectParameter("id_Distrito", typeof(int));
+    
+            var contraseniaParameter = contrasenia != null ?
+                new ObjectParameter("Contrasenia", contrasenia) :
+                new ObjectParameter("Contrasenia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaUsuarios", cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, apellido1Parameter, apellido2Parameter, correoParameter, tipoUsuarioParameter, id_ProvinciaParameter, id_CantonParameter, id_DistritoParameter, contraseniaParameter);
         }
     }
 }
