@@ -82,6 +82,7 @@ namespace ProyeProgra6.Controllers
 
             try
             {
+                
                 cantRegistrosafectados =
                     this.modeloBD.sp_InsertaUsuarios(
                         modeloVista.Cedula,

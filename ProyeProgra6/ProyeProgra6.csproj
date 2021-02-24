@@ -320,6 +320,7 @@
     <Content Include="Views\Cantones\CantonesLista.cshtml" />
     <Content Include="Views\Usuarios\UsuarioNuevo.cshtml" />
     <Content Include="Views\PaisFabricante\PaisFabricacionNuevo.cshtml" />
+    <Content Include="Views\Vehiculos\VehiculoNuevo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,7 +17,7 @@ namespace ProyeProgra6.Models
         public int Cedula { get; set; }
         public string Genero { get; set; }
         public string descripcionGenero { get; set; }
-        public string FechaNacimiento { get; set; }
+        public System.DateTime FechaNacimiento { get; set; }
         public string Apellido1 { get; set; }
         public string Apellido2 { get; set; }
         public string Nombre { get; set; }

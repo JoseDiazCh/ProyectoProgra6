@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "VehiculoNuevo";
+}
+
+<h2>Agregar Nuevo Vehiculo</h2>
+
+<form id="frmNuevoVehiculo" method="post">
+    <div class="form-group">
+        <label>Placa:</label>
+        <input type="text" name="placa" id="placa" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Numero de Puertas:</label>
+        <input type="text" name="numeropuertas" id="numeropuertas" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Numero de Ruedas:</label>
+        <input type="text" name="numeroruedas" id="numeroruedas" class="form-control" />
+    </div>
+ 
+    <div class="form-group">
+        <label>Marca del Vehiculo :</label>
+        <select name="idMarcaVehiculos" id="idMarcaVehiculos" class="form-control">
+            <option value=""> Seleccione una Marca</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_ID_Result marcas
+                    in this.ViewBag.ListaMarca)
+                {
+                    <option value="@marcas.idMarcaVehiculos">@marcas.Tipo</option>
+                    
+                }
+
+            }
+
+        </select>
+    </div>
+        <div class="form-group">
+            <label>Tipo del Vehiculo :</label>
+            <select name="idTipoVehiculo" id="idTipoVehiculo" class="form-control">
+                <option value=""> Seleccione un Tipo</option>
+                @{
+                    foreach (ProyeProgra6.Models.sp_RetornaTiposVehículos_Result tipos
+                        in this.ViewBag.ListaTipos)
+                    {
+                        <option value="@tipos.idTipoVehiculo">@tipos.Tipo</option>
+                       
+                    }
+
+                }
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar" id="btnAceptar" />
+        </div>
+        <a href="~/Vehiculos/VehiculosLista"> Lista de Vehiculos</a>
+</form>
+@section scripts{
+    <script src="~/Scripts/ValidacionesGenericas.js"></script>
+}
+
