@@ -61,7 +61,7 @@
                 foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
                     in this.ViewBag.ListaProvincias)
                 {
-                    <option value="@provincia.id_Provincia">@provincia.nombre.ToUpper()</option>
+                    <option value="@provincia.id_Provincia">@provincia.nombre</option>
                 }
             }
         </select>
@@ -75,7 +75,7 @@
                 foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
                     in this.ViewBag.ListaCantones)
                 {
-                    <option value="@canton.id_Canton">@canton.nombre.ToUpper()</option>
+                    <option value="@canton.id_Canton">@canton.nombre</option>
                 }
             }
         </select>
@@ -89,7 +89,7 @@
                 foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
                     in this.ViewBag.ListaDistritos)
                 {
-                    <option value="@distrito.id_Distrito">@distrito.nombre.ToUpper()</option>
+                    <option value="@distrito.id_Distrito">@distrito.nombre)</option>
                 }
             }
         </select>
