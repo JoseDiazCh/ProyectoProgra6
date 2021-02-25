@@ -20,7 +20,7 @@ namespace ProyeProgra6.Controllers
 
             ///asignar a la variable el resultado de 'llamas el procedimiento almacenado
 
-            modeloVista = this.modeloBD.sp_RetornaMarcaVehiculo("", "").ToList();
+            modeloVista = this.modeloBD.sp_RetornaMarcaVehiculo("").ToList();
             //enviar a la vista el modelo
             return View(modeloVista);
 

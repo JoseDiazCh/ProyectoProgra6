@@ -26,7 +26,7 @@
         <select name="idMarcaVehiculos" id="idMarcaVehiculos" class="form-control">
             <option value=""> Seleccione una Marca</option>
             @{
-                foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_ID_Result marcas
+                foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result marcas
                     in this.ViewBag.ListaMarca)
                 {
                     <option value="@marcas.idMarcaVehiculos">@marcas.Tipo</option>
@@ -42,7 +42,7 @@
             <select name="idTipoVehiculo" id="idTipoVehiculo" class="form-control">
                 <option value=""> Seleccione un Tipo</option>
                 @{
-                    foreach (ProyeProgra6.Models.sp_RetornaTiposVehículos_Result tipos
+                    foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result tipos
                         in this.ViewBag.ListaTipos)
                     {
                         <option value="@tipos.idTipoVehiculo">@tipos.Tipo</option>
