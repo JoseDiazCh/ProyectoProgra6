@@ -21,9 +21,9 @@ namespace ProyeProgra6.Models
     
         public int idServProduc { get; set; }
         public string Codigo { get; set; }
-        public string Descripción { get; set; }
         public string Precio { get; set; }
         public string Tipo { get; set; }
+        public string Descripcion { get; set; }
     
         public virtual ICollection<DetalleFactura> DetalleFactura { get; set; }
     }

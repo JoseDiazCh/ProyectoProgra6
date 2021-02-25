@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="proyectoprogra6Model.PaisFabricante" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.Provincia" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.ServicioOProducto" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="proyectoprogra6Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.TiposVehiculos" Width="1.5" PointX="10.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.Usuarios" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.Vehiculos" Width="1.5" PointX="12.75" PointY="4.625" IsExpanded="true" />

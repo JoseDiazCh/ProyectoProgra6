@@ -218,10 +218,10 @@
     <Compile Include="Models\sp_RetornaServicioOProducto_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_RetornaTiposVehículos_ID_Result.cs">
+    <Compile Include="Models\sp_RetornaTiposVehiculos_ID_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sp_RetornaTiposVehículos_Result.cs">
+    <Compile Include="Models\sp_RetornaTiposVehiculos_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaUsuarios_ID_Result.cs">
@@ -237,9 +237,6 @@
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_SelectVehiculo_Result.cs">
-      <DependentUpon>ProyectoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TiposVehiculos.cs">

@@ -35,12 +35,12 @@
 
     <div class="form-group">
         <label>Primer Apellido:</label>
-        <input type="text" name="primerApellido" id="primerApellido" class="form-control" />
+        <input type="text" name="Apellido1" id="Apellido1" class="form-control" />
     </div>
 
     <div class="form-group">
         <label>Segundo Apellido:</label>
-        <input type="text" name="segundoApellido" id="segundoApellido" class="form-control" />
+        <input type="text" name="Apellido2" id="Apellido2" class="form-control" />
     </div>
 
     <div class="form-group">
@@ -89,7 +89,7 @@
                 foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
                     in this.ViewBag.ListaDistritos)
                 {
-                    <option value="@distrito.id_Distrito">@distrito.nombre)</option>
+                    <option value="@distrito.id_Distrito">@distrito.nombre</option>
                 }
             }
         </select>
@@ -97,7 +97,7 @@
 
     <div class="form-group">
         <label>Contrasenia</label>
-        <input type="text" name="Contrasena" id="Contrasena" class="form-control" />
+        <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" />
     </div>
     <div class="form-group">
         <input type="submit" value="Guardar" id="btnAceptar" />

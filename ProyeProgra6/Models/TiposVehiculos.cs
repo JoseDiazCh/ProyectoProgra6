@@ -20,8 +20,8 @@ namespace ProyeProgra6.Models
         }
     
         public int idTipoVehiculo { get; set; }
-        public string Código { get; set; }
         public string Tipo { get; set; }
+        public string Codigo { get; set; }
     
         public virtual ICollection<Vehiculos> Vehiculos { get; set; }
     }

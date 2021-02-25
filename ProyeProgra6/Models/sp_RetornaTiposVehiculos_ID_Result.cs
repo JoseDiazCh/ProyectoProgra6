@@ -11,10 +11,10 @@ namespace ProyeProgra6.Models
 {
     using System;
     
-    public partial class sp_RetornaTiposVehículos_ID_Result
+    public partial class sp_RetornaTiposVehiculos_ID_Result
     {
         public int idTipoVehiculo { get; set; }
-        public string Código { get; set; }
+        public string Codigo { get; set; }
         public string Tipo { get; set; }
     }
 }

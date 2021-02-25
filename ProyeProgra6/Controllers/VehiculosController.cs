@@ -43,13 +43,13 @@ namespace ProyeProgra6.Controllers
         void AgregaMarcaVehiculoViewBag()
         {
             this.ViewBag.ListaMarca =
-             this.modeloBD.sp_RetornaMarcaVehiculo_ID(null).ToList();
+             this.modeloBD.sp_RetornaMarcaVehiculo("","").ToList();
 
         }
         void AgregaTipoVehiculoViewBag()
         {
             this.ViewBag.ListaTipos =
-             this.modeloBD.sp_RetornaTiposVehículos("").ToList();
+             this.modeloBD.sp_RetornaTiposVehiculos("").ToList();
 
         }
 
