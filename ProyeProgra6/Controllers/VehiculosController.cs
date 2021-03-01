@@ -26,7 +26,7 @@ namespace ProyeProgra6.Controllers
 
         }
         /// <summary>
-        /// controlador que meINSERTA un nuevo Vehiculo
+        /// controlador que me INSERTA un nuevo Vehiculo
         /// </summary>
         /// <returns></returns>
         public ActionResult VehiculoNuevo()
