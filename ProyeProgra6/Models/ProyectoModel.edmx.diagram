@@ -29,6 +29,7 @@
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.VehiculoCliente" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="proyectoprogra6Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

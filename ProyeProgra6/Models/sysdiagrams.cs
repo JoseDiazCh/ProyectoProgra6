@@ -10,16 +10,14 @@
 namespace ProyeProgra6.Models
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_RetornaVehiculos_Result
+    public partial class sysdiagrams
     {
-        public int idVehiculo { get; set; }
-        public string Placa { get; set; }
-        public Nullable<int> NumeroPuertas { get; set; }
-        public Nullable<int> NumeroRuedas { get; set; }
-        public int idMarcaVehiculos { get; set; }
-        public string Marca_Vehiculo { get; set; }
-        public int idTipoVehiculo { get; set; }
-        public string Tipo_Vehiculo { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

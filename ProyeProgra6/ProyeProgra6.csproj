@@ -124,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CantonesController.cs" />
@@ -237,6 +236,9 @@
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_SelectVehiculo_Result.cs">
+      <DependentUpon>ProyectoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TiposVehiculos.cs">

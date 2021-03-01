@@ -93,6 +93,16 @@
           <Property Name="Precio" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Tipo" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="TiposVehiculos">
           <Key>
             <PropertyRef Name="idTipoVehiculo" />
@@ -135,10 +145,10 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           </Key>
           <Property Name="idVehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Placa" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NumeroPuertas" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NumeroRuedas" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="idMarcaVehiculos" Type="int" Nullable="false" />
           <Property Name="idTipoVehiculo" Type="int" Nullable="false" />
+          <Property Name="NumeroRuedas" Type="int" />
+          <Property Name="NumeroPuertas" Type="int" />
         </EntityType>
         <Association Name="Canton_ref_Provincia">
           <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
@@ -517,6 +527,7 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <EntitySet Name="PaisFabricante" EntityType="Self.PaisFabricante" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provincia" EntityType="Self.Provincia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServicioOProducto" EntityType="Self.ServicioOProducto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TiposVehiculos" EntityType="Self.TiposVehiculos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" Schema="dbo" store:Type="Tables" />
@@ -716,7 +727,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="id_Provincia" Type="Int32" Nullable="false" />
           <Property Name="id_Canton" Type="Int32" Nullable="false" />
           <Property Name="id_Distrito" Type="Int32" Nullable="false" />
-          <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Canton" Relationship="Self.FK_Usuarios_Canton" FromRole="Usuarios" ToRole="Canton" />
           <NavigationProperty Name="Distrito" Relationship="Self.FK_Usuarios_Distrito" FromRole="Usuarios" ToRole="Distrito" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Usuarios" FromRole="Usuarios" ToRole="EncabezadoFactura" />
@@ -729,8 +740,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           </Key>
           <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NumeroPuertas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NumeroRuedas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroPuertas" Type="Int32" Nullable="false" />
+          <Property Name="NumeroRuedas" Type="Int32" Nullable="false" />
           <Property Name="idMarcaVehiculos" Type="Int32" Nullable="false" />
           <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Vehiculos" FromRole="Vehiculos" ToRole="EncabezadoFactura" />
@@ -1129,6 +1140,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <FunctionImport Name="sp_RetornaMarcaVehiculo" ReturnType="Collection(proyectoprogra6Model.sp_RetornaMarcaVehiculo_Result)">
           <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="sysdiagrams" EntityType="proyectoprogra6Model.sysdiagrams" />
           <FunctionImport Name="sp_RetornaUsuarios" ReturnType="Collection(proyectoprogra6Model.sp_RetornaUsuarios_Result)">
             <Parameter Name="Apellido1" Mode="In" Type="String" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
@@ -1285,11 +1297,21 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <ComplexType Name="sp_RetornaUsuarios_Result">
           <Property Type="Int32" Name="idUsuario" Nullable="false" />
           <Property Type="Int32" Name="Cedula" Nullable="false" />
           <Property Type="String" Name="Genero" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="descripcionGenero" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="descripcionGenero" Nullable="true" MaxLength="10" />
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="false" />
           <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
@@ -1307,8 +1329,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
         <ComplexType Name="sp_RetornaVehiculos_Result">
           <Property Type="Int32" Name="idVehiculo" Nullable="false" />
           <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="NumeroPuertas" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="NumeroRuedas" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="NumeroPuertas" Nullable="true" />
+          <Property Type="Int32" Name="NumeroRuedas" Nullable="true" />
           <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
           <Property Type="String" Name="Marca_Vehiculo" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
@@ -1447,10 +1469,10 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <EntitySetMapping Name="Vehiculos">
             <EntityTypeMapping TypeName="proyectoprogra6Model.Vehiculos">
               <MappingFragment StoreEntitySet="Vehiculos">
+                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroRuedas" />
+                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroPuertas" />
                 <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
                 <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroPuertas" />
-                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroRuedas" />
                 <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
                 <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
               </MappingFragment>
@@ -1689,6 +1711,17 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="proyectoprogra6Model.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornaUsuarios" FunctionName="proyectoprogra6Model.Store.sp_RetornaUsuarios">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaUsuarios_Result">

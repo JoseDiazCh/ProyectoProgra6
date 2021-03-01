@@ -39,6 +39,7 @@ namespace ProyeProgra6.Models
         public DbSet<TiposVehiculos> TiposVehiculos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Vehiculos> Vehiculos { get; set; }
+        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     
         public virtual int sp_selectUsuFactu(string cedula)
         {
