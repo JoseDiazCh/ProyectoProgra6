@@ -30,6 +30,8 @@ namespace ProyeProgra6
              "~/Scripts/jquery-3.4.1.js",
              "~/Scripts/jquery.validate.js",
               "~/Scripts/ValidacionesGenericas.js"
+
+
              )
              );
         }

@@ -38,47 +38,151 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-    
-    /// insert Pais Fabricacion tipo httpPost
-    [HttpPost]
-    public ActionResult PaisFabricacionNuevo(sp_RetornaPaísFabricante_Result modeloVista)
-    {
-        ///registra la cantidad de  registros afectados
-        ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
-        ///no afecta registros implica que hubo un error
 
-        int cantRegistrosAfectados = 0;
-        string resultado = "";
-        try
+        /// insert Pais Fabricacion tipo httpPost
+        [HttpPost]
+        public ActionResult PaisFabricacionNuevo(sp_RetornaPaísFabricante_Result modeloVista)
         {
-            cantRegistrosAfectados =
-                this.modeloBD.sp_InsertaPaísFabricante(
-                    modeloVista.Codigo,
-                    modeloVista.Pais
-                   
-                    );
-        }
-        catch (Exception error)
-        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
 
-            resultado = "Ocurrio un error: " + error.Message;
-        }
-        finally
-        {
-            if (cantRegistrosAfectados > 0)
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
             {
-                resultado = "Registro insertado correctamente";
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_InsertaPaísFabricante(
+                        modeloVista.Codigo,
+                        modeloVista.Pais
+
+                        );
             }
-            else
+            catch (Exception error)
             {
-                resultado = "No se pudo insertar";
+
+                resultado = "Ocurrio un error: " + error.Message;
             }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+                {
+                    resultado = "Registro insertado correctamente";
+                }
+                else
+                {
+                    resultado = "No se pudo insertar";
+                }
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+
+
+            return View();
         }
-        Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+        /// <summary>
+        /// controlador que MODIFICA un Pais de fabricacion
+        /// </summary>
+        /// <param name="idPaisFabricante"></param>
+        /// <returns></returns>
+        public ActionResult ModificaPaisFabricacion(int idPaisFabricante)
+        {
+            ///obtener el registro que se debe modificar
+            ///utilizando el parametro idPaisFabricante
+            sp_RetornaPaísFabricante_ID_Result modeloVista = new sp_RetornaPaísFabricante_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaPaísFabricante_ID(idPaisFabricante).FirstOrDefault();
 
+            //enviar el modelo a la vista
+            return View(modeloVista);
+        }
+        /// Modifica Pais tipo httpPost
+        [HttpPost]
+        public ActionResult ModificaPaisFabricacion(sp_RetornaPaísFabricante_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
 
-        return View();
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_ModificaPaisFabricante(
+                        modeloVista.idPaisFabricante,
+                        modeloVista.Codigo,
+                        modeloVista.Pais
+                        );
+            }
+            catch (Exception error)
+            {
+
+                resultado = "Ocurrio un error: " + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+
+                    resultado = "Registro Modificado Correctamente";
+
+                else
+                    resultado = "No se pudo Modificar el Dato";
+
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+
+            return View(modeloVista);
+        }
+        /// <summary>
+        /// controlador que ELIMINA una Pais de fabricacion
+        /// </summary>
+        /// <param name="id_Persona"></param>
+        /// <returns></returns>
+        public ActionResult EliminaPaisFabricacion(int idPaisFabricante)
+        {
+            ///obtener el registro que se debe eliminar
+            ///utilizando el parametro idPaisFabricante
+            sp_RetornaPaísFabricante_ID_Result modeloVista = new sp_RetornaPaísFabricante_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaPaísFabricante_ID(idPaisFabricante).FirstOrDefault();
+
+            //enviar el modelo a la vista
+            return View(modeloVista);
+        }
+        /// ELIMINA Pais tipo httpPost
+        [HttpPost]
+        public ActionResult EliminaPaisFabricacion(sp_RetornaPaísFabricante_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
+
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_EliminaPaisFabricante(modeloVista.idPaisFabricante);
+
+            }
+            catch (Exception error)
+            {
+
+                resultado = "Ocurrio un error: " + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+
+                    resultado = "Registro Eliminado Correctamente";
+
+                else
+                    resultado = "No se pudo Eliminar el Registro";
+
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+            return View(modeloVista);
+        }
     }
-}  }
+}
+
 
     

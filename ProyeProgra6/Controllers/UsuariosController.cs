@@ -12,6 +12,7 @@ namespace ProyeProgra6.Controllers
         
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
 
+
         /// <summary>
         /// Controlador que me LISTA las personas
         /// </summary>
@@ -25,23 +26,60 @@ namespace ProyeProgra6.Controllers
 
             ///asignar a la variable el resultado de 'llamas el procedimiento almacenado
 
-            modeloVista = this.modeloBD.sp_RetornaUsuarios("", "").ToList();
+            modeloVista = this.modeloBD.sp_RetornaUsuarios(null, null).ToList();
             //enviar a la vista el modelo
             return View(modeloVista);
 
         }
-  ////--------------------------------------------------------------------------------------------
+        ////--------------------------------------------------------------------------------------------
 
         /// <summary>
-      /// INSERTA la nueva persona
-   /// </summary>
-     /// <returns></returns>
+        /// retorna todas las provincias
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult RetornaProvincias()
+        {
+            List<sp_RetornaProvincias_Result> provincias =
+                this.modeloBD.sp_RetornaProvincias(null).ToList();
+            return Json(provincias);
+        }
+        /// <summary>
+        ///  Metodo que retorna todos los cantones cuando se selecciona una provincia
+        /// </summary>
+        /// <param name="id_Provincias"></param>
+        /// <returns></returns>
+        public ActionResult RetornaCantones(int id_Provincia)
+        {
+            List<sp_RetornaCantones_Result> cantones =
+                this.modeloBD.sp_RetornaCantones(null, id_Provincia).ToList();
+            return Json(cantones);
+        }
+
+        /// <summary>
+        ///  Metodo queretorna todos los cantones cuando se selecciona una provincia
+        /// </summary>
+        /// <param name="id_Canton"></param>
+        /// <returns></returns>
+        public ActionResult RetornaDistritos(int id_Canton)
+        {
+            List<sp_RetornaDistritos_Result> distritos =
+                this.modeloBD.sp_RetornaDistritos(" ", id_Canton).ToList();
+            return Json(distritos);
+        }
+
+        //------------------------------------------------------------------------------------//
+        /// <summary>
+        /// INSERTA la nueva persona
+        /// </summary>
+        /// <returns></returns>
 
         public ActionResult UsuarioNuevo()
         {
-            AgregaProvinciasViewBag();
-            AgregaCantonesViewBag();
-            AgregaDistritosViewgBag();
+            //AgregaProvinciasViewBag();
+            //AgregaCantonesViewBag();
+            //AgregaDistritosViewgBag();
+
+
             return View();
         }
 
@@ -50,24 +88,25 @@ namespace ProyeProgra6.Controllers
         /// para que sean accedidas desde la vista
         /// es case sensitive
         /// </summary>
-        void AgregaProvinciasViewBag()
-        {
-            this.ViewBag.ListaProvincias =
-                    this.modeloBD.sp_RetornaProvincias("").ToList();
-        }
 
-        void AgregaCantonesViewBag()
-        {
-            this.ViewBag.ListaCantones =
-                    this.modeloBD.sp_RetornaCantones("",null).ToList();
+        //void AgregaProvinciasViewBag()
+        //{
+        //    this.ViewBag.ListaProvincias =
+        //            this.modeloBD.sp_RetornaProvincias("").ToList();
+        //}
+
+        //void AgregaCantonesViewBag()
+        //{
+        //    this.ViewBag.ListaCantones =
+        //            this.modeloBD.sp_RetornaCantones("",null).ToList();
         
-        }
+        //}
 
-        void AgregaDistritosViewgBag()
-        {
-            this.ViewBag.ListaDistritos =
-                this.modeloBD.sp_RetornaDistritos("", null);
-        }
+        //void AgregaDistritosViewgBag()
+        //{
+        //    this.ViewBag.ListaDistritos =
+        //        this.modeloBD.sp_RetornaDistritos("", null);
+        //}
         /// <summary>
         /// este INSERTA la persona nueva tipo HttpPost
         /// </summary>
@@ -118,11 +157,16 @@ namespace ProyeProgra6.Controllers
             }
 
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
-            this.AgregaProvinciasViewBag();
-            this.AgregaCantonesViewBag();
-            this.AgregaDistritosViewgBag();
+            //this.AgregaProvinciasViewBag();
+            //this.AgregaCantonesViewBag();
+            //this.AgregaDistritosViewgBag();
+
+            
             return View();
         }
+        //-----------------------------------------------------------------------------------
+       
+        ///------------------------------------------------------------------------------
 
 
     }
