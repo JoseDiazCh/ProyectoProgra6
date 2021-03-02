@@ -5,14 +5,15 @@
     ViewBag.Title = "MarcaVehiculoLista";
 }
 
-<h2>MarcaVehiculoLista</h2>
+<h2>Lista Las Marcas De Los Vehiculos</h2>
 
 <table class="table">
     <tr>
         <th>Codigo</th>
         <th>Tipo</th>
+        <th>Acciones</th>
 
-        @*<th>Pais</th>*@
+
 
 
     </tr>
@@ -20,15 +21,19 @@
     @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
                       in this.Model)
         {
-            <tr>
-                <td>@posicionModelo.Codigo</td>
-                <td>@posicionModelo.Tipo</td>
+        <tr>
+            <td>@posicionModelo.Codigo</td>
+            <td>@posicionModelo.Tipo</td>
 
-                @*<td>@posicionModelo.pais</td>*@
+            <td>
+                <a href="~/MarcaVehiculo/MarcaVehiculoModifica?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Modificar</a>
+                <br />
+                <a href="~/MarcaVehiculo/MarcaVehiculoElimina?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Eliminar</a>
 
+            </td>
 
-            </tr>
+        </tr>
         }
     }
 </table>
-
+<a href="~/MarcaVehiculo/MarcaVehiculoNuevo"> Registar Nueva Marca De  Vehiculo</a>

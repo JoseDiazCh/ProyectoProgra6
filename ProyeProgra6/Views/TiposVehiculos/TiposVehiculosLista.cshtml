@@ -4,25 +4,33 @@
     ViewBag.Title = "TiposVehiculosLista";
 }
 
-<h2>TiposVehiculosLista</h2>
+<h2>Lista De Los Tipos Vehiculos </h2>
 
 <table class="table">
     <tr>
         <th>Codigo</th>
         <th>Tipo</th>
+        <th>Acciones</th>
 
     </tr>
 
     @{ foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result posicionModelo
-                  in this.Model)
+                   in this.Model)
         {
             <tr>
                 <td>@posicionModelo.Codigo</td>
                 <td>@posicionModelo.Tipo</td>
+                <td>
+                    <a href="~/TiposVehiculo/VehiculoModifica?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Modificar</a>
+                    <br />
+                    <a href="~/TiposVehiculo/VehiculoElimina?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Eliminar</a>
 
+                </td>
 
             </tr>
         }
     }
 </table>
+<a href="~/TiposVehiculos/TiposVehiculoNuevo"> Registar Nuevo Tipo De Vehiculo</a>
+
 
