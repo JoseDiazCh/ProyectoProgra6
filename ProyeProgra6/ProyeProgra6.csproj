@@ -322,6 +322,11 @@
     <Content Include="Views\Vehiculos\VehiculoNuevo.cshtml" />
     <Content Include="Views\PaisFabricante\ModificaPaisFabricacion.cshtml" />
     <Content Include="Views\PaisFabricante\EliminaPaisFabricacion.cshtml" />
+    <Content Include="Views\MarcaVehiculo\MarcaVehiculoNueva.cshtml" />
+    <Content Include="Views\MarcaVehiculo\MarcaVehiculoElimina.cshtml" />
+    <Content Include="Views\TiposVehiculos\TipoVehiculoNuevo.cshtml" />
+    <Content Include="Views\TiposVehiculos\ModificaTipoVehiculo.cshtml" />
+    <Content Include="Views\TiposVehiculos\TipoVehiculoElimina.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

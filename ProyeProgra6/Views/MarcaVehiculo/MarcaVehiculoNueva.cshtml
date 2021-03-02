@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "MarcaVehiculoNueva";
+}
+
+<h2> Registra Nueva Marca De Vehiculo</h2>
+
+<form id="frmNuevaPersona" method="post">
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Marca :</label>
+        <input type="text" name="tipo" id="tipo" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Pais de Fabricacion :</label>
+        <select name="idPaisFabricante" id="idPaisFabricante" class="form-control">
+            <option value=""> Seleccione un Pais de Fabricacion</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result marcas
+                    in this.ViewBag.ListaPais)
+                {
+                    <option value="@marcas.Pais">@marcas.Pais</option>
+                }
+
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/MarcaVehiculo/MarcaVehiculoLista"> Lista de Marcas de Vehiculos</a>
+</form>
+@section scripts{
+<script src="~/Scripts/Usuarios/NuevoUsuario.js"></script>
+
+}

@@ -592,15 +592,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaUsuarios", cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, apellido1Parameter, apellido2Parameter, correoParameter, tipoUsuarioParameter, id_ProvinciaParameter, id_CantonParameter, id_DistritoParameter, contraseniaParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaTiposVehiculos_Result> sp_RetornaTiposVehiculos(string tipo)
-        {
-            var tipoParameter = tipo != null ?
-                new ObjectParameter("Tipo", tipo) :
-                new ObjectParameter("Tipo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTiposVehiculos_Result>("sp_RetornaTiposVehiculos", tipoParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaTiposVehiculos_ID_Result> sp_RetornaTiposVehiculos_ID(Nullable<int> idTipoVehiculo)
         {
             var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
@@ -632,15 +623,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_ID_Result>("sp_RetornaServicioOProducto_ID", idServProducParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaMarcaVehiculo_Result> sp_RetornaMarcaVehiculo(string tipo)
-        {
-            var tipoParameter = tipo != null ?
-                new ObjectParameter("Tipo", tipo) :
-                new ObjectParameter("Tipo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaMarcaVehiculo_Result>("sp_RetornaMarcaVehiculo", tipoParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaUsuarios_Result> sp_RetornaUsuarios(string apellido1, string nombre)
         {
             var apellido1Parameter = apellido1 != null ?
@@ -661,6 +643,32 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Placa", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaVehiculos_Result>("sp_RetornaVehiculos", placaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaMarcaVehiculo_Result> sp_RetornaMarcaVehiculo(string codigo, string tipo)
+        {
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(string));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("Tipo", tipo) :
+                new ObjectParameter("Tipo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaMarcaVehiculo_Result>("sp_RetornaMarcaVehiculo", codigoParameter, tipoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaTiposVehiculos_Result> sp_RetornaTiposVehiculos(string codigo, string tipo)
+        {
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(string));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("Tipo", tipo) :
+                new ObjectParameter("Tipo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTiposVehiculos_Result>("sp_RetornaTiposVehiculos", codigoParameter, tipoParameter);
         }
     }
 }

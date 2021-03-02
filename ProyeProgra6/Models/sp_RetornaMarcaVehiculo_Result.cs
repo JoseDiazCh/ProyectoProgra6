@@ -16,5 +16,6 @@ namespace ProyeProgra6.Models
         public int idMarcaVehiculos { get; set; }
         public string Codigo { get; set; }
         public string Tipo { get; set; }
+        public int idPaisFabricante { get; set; }
     }
 }

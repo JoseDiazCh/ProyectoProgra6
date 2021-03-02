@@ -3,10 +3,10 @@
     ViewBag.Title = "UsuarioNuevo";
 }
 
-<h2>Usuario Nuevo</h2>
+<h2>Registrar Nuevo Usuario</h2>
 
 
-<form id="frmNuevoUsuario" method="post">
+<form id="frmNuevaPersona" method="post">
 
     <div class="form-group">
         <label>Cedula:</label>
@@ -16,11 +16,11 @@
     <div class="form-check">
         <label>Genero:  </label>
 
-        <input type="radio" name="Genero" value="f" class="form-check-input" /> Femenino
+        <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
 
-        <input type="radio" name="Genero" value="m" class="form-check-input" /> Masculino
+        <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
 
-        <input type="radio" name="Genero" value="i" class="form-check-input" /> Indefinido
+        <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
     </div>
     <br />
     <div class="form-group">
@@ -53,61 +53,61 @@
         <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
     </div>
     <div class="form-group">
-            <label>Provincia de Nacimiento :</label>
-            <select name="id_Provincia" id="id_Provincia" class="form-control">
-                <option value="">Seleccione una provincia</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
-                        in this.ViewBag.ListaProvincias)
-                    {
-                        <option value="@provincia.id_Provincia">@provincia.nombre</option>
-                    }
+        <label>Provincia de Nacimiento :</label>
+        <select name="id_Provincia" id="id_Provincia" class="form-control">
+            <option value="">Seleccione una provincia</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
+                    in this.ViewBag.ListaProvincias)
+                {
+                    <option value="@provincia.id_Provincia">@provincia.nombre</option>
                 }
-            </select>
-        </div>
+            }
+        </select>
+    </div>
 
-        <div class="form-group">
-            <label>Canton de Nacimiento :</label>
-            <select name="id_Canton" id="id_Canton" class="form-control">
-                <option value="">Seleccione una canton</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
-                        in this.ViewBag.ListaCantones)
-                    {
-                        <option value="@canton.id_Canton">@canton.nombre</option>
-                    }
+    <div class="form-group">
+        <label>Canton de Nacimiento :</label>
+        <select name="id_Canton" id="id_Canton" class="form-control">
+            <option value="">Seleccione una canton</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
+                    in this.ViewBag.ListaCantones)
+                {
+                    <option value="@canton.id_Canton">@canton.nombre</option>
                 }
-            </select>
-        </div>
+            }
+        </select>
+    </div>
 
-        <div class="form-group">
-            <label>Distrito de Nacimiento :</label>
-            <select name="id_Distrito" id="id_Distrito" class="form-control">
-                <option value="">Seleccione un Distrito</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
-                        in this.ViewBag.ListaDistritos)
-                    {
-                        <option value="@distrito.id_Distrito">@distrito.nombre</option>
-                    }
+    <div class="form-group">
+        <label>Distrito de Nacimiento :</label>
+        <select name="id_Distrito" id="id_Distrito" class="form-control">
+            <option value="">Seleccione un Distrito</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
+                    in this.ViewBag.ListaDistritos)
+                {
+                    <option value="@distrito.id_Distrito">@distrito.nombre</option>
                 }
-            </select>
-        </div>
+            }
+        </select>
+    </div>
 
     @*<div class="form-group">
-        <label>Provincia:</label>
-        <select name="provincia" id="provincia" class="form-control"></select>
-    </div>
+            <label>Provincia:</label>
+            <select name="provincia" id="provincia" class="form-control"></select>
+        </div>
 
-    <div class="form-group">
-        <label>Cantón:</label>
-        <select name="canton" id="canton" class="form-control"></select>
-    </div>
+        <div class="form-group">
+            <label>Cantón:</label>
+            <select name="canton" id="canton" class="form-control"></select>
+        </div>
 
-    <div class="form-group">
-        <label>Distrito:</label>
-        <select name="distrito" id="distrito" class="form-control"></select>
-    </div>*@
+        <div class="form-group">
+            <label>Distrito:</label>
+            <select name="distrito" id="distrito" class="form-control"></select>
+        </div>*@
 
     <div class="form-group">
         <label>Contraseña :</label>
@@ -122,9 +122,9 @@
 @section Scripts{
     @* *****No es necesario incluir jquery porque
         ya el layout lo incluye*@
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/scripts/Usuarios/ValidacionesGenericas.js")
-    @Scripts.Render("~/Scripts/Usuarios/NuevoUsuario.js")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
+    <script src="~/Scripts/Usuarios/NuevoUsuario.js"></script>
+    
 }
 
 

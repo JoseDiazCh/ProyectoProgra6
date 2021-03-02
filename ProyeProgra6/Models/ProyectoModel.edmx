@@ -473,6 +473,7 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <Parameter Name="id_Distrito" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_RetornaMarcaVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
           <Parameter Name="Tipo" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_RetornaMarcaVehiculo_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -499,6 +500,7 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <Parameter Name="idServProduc" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_RetornaTiposVehiculos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Codigo" Type="varchar" Mode="In" />
           <Parameter Name="Tipo" Type="varchar" Mode="In" />
         </Function>
         <Function Name="sp_RetornaTiposVehiculos_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -727,7 +729,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="id_Provincia" Type="Int32" Nullable="false" />
           <Property Name="id_Canton" Type="Int32" Nullable="false" />
           <Property Name="id_Distrito" Type="Int32" Nullable="false" />
-          <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Canton" Relationship="Self.FK_Usuarios_Canton" FromRole="Usuarios" ToRole="Canton" />
           <NavigationProperty Name="Distrito" Relationship="Self.FK_Usuarios_Distrito" FromRole="Usuarios" ToRole="Distrito" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Usuarios" FromRole="Usuarios" ToRole="EncabezadoFactura" />
@@ -740,8 +742,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           </Key>
           <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NumeroPuertas" Type="Int32" Nullable="false" />
-          <Property Name="NumeroRuedas" Type="Int32" Nullable="false" />
+          <Property Name="NumeroPuertas" Type="Int32" />
+          <Property Name="NumeroRuedas" Type="Int32" />
           <Property Name="idMarcaVehiculos" Type="Int32" Nullable="false" />
           <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Vehiculos" FromRole="Vehiculos" ToRole="EncabezadoFactura" />
@@ -1124,9 +1126,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="id_Distrito" Mode="In" Type="Int32" />
             <Parameter Name="Contrasenia" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaTiposVehiculos" ReturnType="Collection(proyectoprogra6Model.sp_RetornaTiposVehiculos_Result)">
-          <Parameter Name="Tipo" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_RetornaTiposVehiculos_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaTiposVehiculos_ID_Result)">
           <Parameter Name="idTipoVehiculo" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1137,16 +1136,21 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <FunctionImport Name="sp_RetornaServicioOProducto_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaServicioOProducto_ID_Result)">
           <Parameter Name="idServProduc" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaMarcaVehiculo" ReturnType="Collection(proyectoprogra6Model.sp_RetornaMarcaVehiculo_Result)">
-          <Parameter Name="Tipo" Mode="In" Type="String" />
-          </FunctionImport>
           <EntitySet Name="sysdiagrams" EntityType="proyectoprogra6Model.sysdiagrams" />
           <FunctionImport Name="sp_RetornaUsuarios" ReturnType="Collection(proyectoprogra6Model.sp_RetornaUsuarios_Result)">
             <Parameter Name="Apellido1" Mode="In" Type="String" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaVehiculos" ReturnType="Collection(proyectoprogra6Model.sp_RetornaVehiculos_Result)">
-            <Parameter Name="Placa" Mode="In" Type="String" />
+          <Parameter Name="Placa" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaMarcaVehiculo" ReturnType="Collection(proyectoprogra6Model.sp_RetornaMarcaVehiculo_Result)">
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTiposVehiculos" ReturnType="Collection(proyectoprogra6Model.sp_RetornaTiposVehiculos_Result)">
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
@@ -1268,11 +1272,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="nombreDistrito" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Contrasenia" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <ComplexType Name="sp_RetornaTiposVehiculos_Result">
-          <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
-          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="sp_RetornaTiposVehiculos_ID_Result">
           <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
           <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
@@ -1290,11 +1289,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Precio" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaMarcaVehiculo_Result">
-          <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
-          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
         </ComplexType>
         <EntityType Name="sysdiagrams">
@@ -1335,6 +1329,17 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Marca_Vehiculo" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
           <Property Type="String" Name="Tipo_Vehiculo" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaMarcaVehiculo_Result">
+          <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idPaisFabricante" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaTiposVehiculos_Result">
+          <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1662,15 +1667,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertaUsuarios" FunctionName="proyectoprogra6Model.Store.sp_InsertaUsuarios" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaTiposVehiculos" FunctionName="proyectoprogra6Model.Store.sp_RetornaTiposVehiculos">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaTiposVehiculos_Result">
-                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornaTiposVehiculos_ID" FunctionName="proyectoprogra6Model.Store.sp_RetornaTiposVehiculos_ID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaTiposVehiculos_ID_Result">
@@ -1698,15 +1694,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_RetornaMarcaVehiculo" FunctionName="proyectoprogra6Model.Store.sp_RetornaMarcaVehiculo">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaMarcaVehiculo_Result">
-                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -1756,6 +1743,25 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca Vehiculo" />
                 <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
                 <ScalarProperty Name="Tipo_Vehiculo" ColumnName="Tipo Vehiculo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaMarcaVehiculo" FunctionName="proyectoprogra6Model.Store.sp_RetornaMarcaVehiculo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaMarcaVehiculo_Result">
+                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="idPaisFabricante" ColumnName="idPaisFabricante" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaTiposVehiculos" FunctionName="proyectoprogra6Model.Store.sp_RetornaTiposVehiculos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaTiposVehiculos_Result">
+                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

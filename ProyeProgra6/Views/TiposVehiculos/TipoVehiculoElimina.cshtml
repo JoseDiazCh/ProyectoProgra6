@@ -1,13 +1,13 @@
-﻿
-@model ProyeProgra6.Models.sp_RetornaPaísFabricante_ID_Result
-    @{
-        ViewBag.Title = "EliminaPaisFabricacion";
+﻿@model ProyeProgra6.Models.sp_RetornaTiposVehiculos_ID_Result
+@{
+    ViewBag.Title = "TipoVehiculoElimina";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimina Pais De Fabricacion</h2>
+<h2>Elimina El Tipo De Vehiculo </h2>
+
 <form id="frmNuevaPersona" method="post">
-    <input type="hidden" name="idPaisFabricante" id="idPaisFabricante" value="@Model.idPaisFabricante" />
+    <input type="hidden" name="idTipoVehiculo" id="idTipoVehiculo" value="@Model.idTipoVehiculo" />
     <div class="form-group">
         <br />
         <label>Codigo:</label>
@@ -15,15 +15,15 @@
     </div>
 
     <div class="form-group">
-        <label>Pais:</label>
-        <input type="text" name="pais" id="pais" class="form-control" value="@Model.Pais" readonly />
+        <label>Tipo Vehiculo:</label>
+        <input type="text" name="tipo" id="tipo" class="form-control" value="@Model.Tipo" readonly />
     </div>
 
 
     <div class="form-group">
         <input type="submit" value="Guardar" id="btnAceptar" />
     </div>
-    <a href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
+    <a href="~/TiposVehiculos/TiposVehiculosLista"> Lista De Tipos de Vehiculos</a>
 </form>
 
 @section Scripts{
@@ -31,7 +31,5 @@
         ya el layout lo incluye*@
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/scripts/Usuarios/ValidacionesGenericas.js")
-   
+
 }
-
-
