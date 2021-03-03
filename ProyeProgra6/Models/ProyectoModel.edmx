@@ -1012,12 +1012,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Tipo" Mode="In" Type="String" />
             <Parameter Name="idPaisFabricante" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_InsertaTipoServProduc">
-            <Parameter Name="Codigo" Mode="In" Type="String" />
-            <Parameter Name="Descripcion" Mode="In" Type="String" />
-            <Parameter Name="Precio" Mode="In" Type="String" />
-            <Parameter Name="Tipo" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_InsertaTiposVehiculos">
             <Parameter Name="Codigo" Mode="In" Type="String" />
             <Parameter Name="Tipo" Mode="In" Type="String" />
@@ -1045,11 +1039,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Codigo" Mode="In" Type="String" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="Precio" Mode="In" Type="String" />
-            <Parameter Name="Tipo" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_ModificaTiposVehiculos">
-            <Parameter Name="idTipoVehiculo" Mode="In" Type="Int32" />
-            <Parameter Name="Codigo" Mode="In" Type="String" />
             <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_ModificaUsuarios">
@@ -1149,6 +1138,15 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaTiposVehiculos" ReturnType="Collection(proyectoprogra6Model.sp_RetornaTiposVehiculos_Result)">
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertaTiposVehiculos1">
+            <Parameter Name="Codigo" Mode="In" Type="String" />
+            <Parameter Name="Tipo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaTiposVehiculos">
+            <Parameter Name="idTipoVehiculo" Mode="In" Type="Int32" />
             <Parameter Name="Codigo" Mode="In" Type="String" />
             <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
@@ -1512,13 +1510,10 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="sp_EliminaTipoVehiculos" FunctionName="proyectoprogra6Model.Store.sp_EliminaTipoVehiculos" />
           <FunctionImportMapping FunctionImportName="sp_InsertaPaísFabricante" FunctionName="proyectoprogra6Model.Store.sp_InsertaPaísFabricante" />
           <FunctionImportMapping FunctionImportName="sp_InsertarMarcaVehiculos" FunctionName="proyectoprogra6Model.Store.sp_InsertarMarcaVehiculos" />
-          <FunctionImportMapping FunctionImportName="sp_InsertaTipoServProduc" FunctionName="proyectoprogra6Model.Store.sp_InsertaTipoServProduc" />
-          <FunctionImportMapping FunctionImportName="sp_InsertaTiposVehiculos" FunctionName="proyectoprogra6Model.Store.sp_InsertaTiposVehiculos" />
           <FunctionImportMapping FunctionImportName="sp_InsertaVehiculos" FunctionName="proyectoprogra6Model.Store.sp_InsertaVehiculos" />
           <FunctionImportMapping FunctionImportName="sp_ModificaMarcaVehiculos" FunctionName="proyectoprogra6Model.Store.sp_ModificaMarcaVehiculos" />
           <FunctionImportMapping FunctionImportName="sp_ModificaPaisFabricante" FunctionName="proyectoprogra6Model.Store.sp_ModificaPaisFabricante" />
           <FunctionImportMapping FunctionImportName="sp_ModificaTipoServProduc" FunctionName="proyectoprogra6Model.Store.sp_ModificaTipoServProduc" />
-          <FunctionImportMapping FunctionImportName="sp_ModificaTiposVehiculos" FunctionName="proyectoprogra6Model.Store.sp_ModificaTiposVehiculos" />
           <FunctionImportMapping FunctionImportName="sp_ModificaUsuarios" FunctionName="proyectoprogra6Model.Store.sp_ModificaUsuarios" />
           <FunctionImportMapping FunctionImportName="sp_ModificaVehiculo" FunctionName="proyectoprogra6Model.Store.sp_ModificaVehiculo" />
           <FunctionImportMapping FunctionImportName="sp_RetornaCantones" FunctionName="proyectoprogra6Model.Store.sp_RetornaCantones">
@@ -1765,6 +1760,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertaTiposVehiculos1" FunctionName="proyectoprogra6Model.Store.sp_InsertaTiposVehiculos" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaTiposVehiculos" FunctionName="proyectoprogra6Model.Store.sp_ModificaTiposVehiculos" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -26,7 +26,7 @@ function creaValidaciones() {
             },
             telefono: {
                 required: true,
-                maxlength: 12
+                maxlength: 12,
                  number: true
             },
             idProvincia: {
