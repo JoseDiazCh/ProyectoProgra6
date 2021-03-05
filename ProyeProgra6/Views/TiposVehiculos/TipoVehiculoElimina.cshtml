@@ -11,12 +11,12 @@
     <div class="form-group">
         <br />
         <label>Codigo:</label>
-        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" readonly />
+        <input type="text" name="Codigo" id="Codigo" class="form-control" value="@Model.Codigo" readonly />
     </div>
 
     <div class="form-group">
         <label>Tipo Vehiculo:</label>
-        <input type="text" name="tipo" id="tipo" class="form-control" value="@Model.Tipo" readonly />
+        <input type="text" name="Tipo" id="Tipo" class="form-control" value="@Model.Tipo" readonly />
     </div>
 
 
@@ -25,11 +25,12 @@
     </div>
     <a href="~/TiposVehiculos/TiposVehiculosLista"> Lista De Tipos de Vehiculos</a>
 </form>
-
-@section Scripts{
-    @* *****No es necesario incluir jquery porque
-        ya el layout lo incluye*@
+@*
+        @section Scripts{
+            *****No es necesario incluir jquery porque
+                ya el layout lo incluye
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/scripts/Usuarios/ValidacionesGenericas.js")
 
-}
+    }
+*@

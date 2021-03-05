@@ -53,7 +53,6 @@ namespace ProyeProgra6.Controllers
                     this.modeloBD.sp_InsertaTiposVehiculos(
                         modeloVista.Codigo,
                         modeloVista.Tipo
-
                         );
             }
             catch (Exception error)

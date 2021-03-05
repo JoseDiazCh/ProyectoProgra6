@@ -159,15 +159,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminarVehiculo", idVehiculosParameter);
         }
     
-        public virtual int sp_EliminaTipoVehiculos(Nullable<int> idTipoVehiculo)
-        {
-            var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
-                new ObjectParameter("idTipoVehiculo", idTipoVehiculo) :
-                new ObjectParameter("idTipoVehiculo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminaTipoVehiculos", idTipoVehiculoParameter);
-        }
-    
         public virtual int sp_InsertaPaísFabricante(string codigo, string pais)
         {
             var codigoParameter = codigo != null ?
@@ -196,19 +187,6 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("idPaisFabricante", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertarMarcaVehiculos", codigoParameter, tipoParameter, idPaisFabricanteParameter);
-        }
-    
-        public virtual int sp_InsertaTiposVehiculos(string codigo, string tipo)
-        {
-            var codigoParameter = codigo != null ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(string));
-    
-            var tipoParameter = tipo != null ?
-                new ObjectParameter("Tipo", tipo) :
-                new ObjectParameter("Tipo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaTiposVehiculos", codigoParameter, tipoParameter);
         }
     
         public virtual int sp_InsertaVehiculos(string placa, Nullable<int> numeroPuertas, Nullable<int> numeroRuedas, Nullable<int> idMarcaVehiculos, Nullable<int> idTipoVehiculo)
@@ -633,19 +611,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaTiposVehiculos_Result>("sp_RetornaTiposVehiculos", codigoParameter, tipoParameter);
         }
     
-        public virtual int sp_InsertaTiposVehiculos1(string codigo, string tipo)
-        {
-            var codigoParameter = codigo != null ?
-                new ObjectParameter("Codigo", codigo) :
-                new ObjectParameter("Codigo", typeof(string));
-    
-            var tipoParameter = tipo != null ?
-                new ObjectParameter("Tipo", tipo) :
-                new ObjectParameter("Tipo", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaTiposVehiculos1", codigoParameter, tipoParameter);
-        }
-    
         public virtual int sp_ModificaTiposVehiculos(Nullable<int> idTipoVehiculo, string codigo, string tipo)
         {
             var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
@@ -661,6 +626,28 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaTiposVehiculos", idTipoVehiculoParameter, codigoParameter, tipoParameter);
+        }
+    
+        public virtual int sp_InsertaTiposVehiculos(string codigo, string tipo)
+        {
+            var codigoParameter = codigo != null ?
+                new ObjectParameter("Codigo", codigo) :
+                new ObjectParameter("Codigo", typeof(string));
+    
+            var tipoParameter = tipo != null ?
+                new ObjectParameter("Tipo", tipo) :
+                new ObjectParameter("Tipo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaTiposVehiculos", codigoParameter, tipoParameter);
+        }
+    
+        public virtual int sp_EliminaTipoVehiculos(Nullable<int> idTipoVehiculo)
+        {
+            var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
+                new ObjectParameter("idTipoVehiculo", idTipoVehiculo) :
+                new ObjectParameter("idTipoVehiculo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_EliminaTipoVehiculos", idTipoVehiculoParameter);
         }
     }
 }
