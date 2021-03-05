@@ -15,11 +15,11 @@
 
     <div class="form-check">
         <label>Genero:  </label>
-
+        <br />
         <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
-
+        <br />
         <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
-
+        <br />
         <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
     </div>
     <br />
@@ -119,12 +119,10 @@
     <br />
     <a href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
 </form>
-@section Scripts{
-    @* *****No es necesario incluir jquery porque
-        ya el layout lo incluye*@
-    @*@Scripts.Render("~/bundles/jqueryval")*@
-    <script src="~/Scripts/Usuarios/NuevoUsuario.js"></script>
-    
+@section scripts{
+    @Scripts.Render("~/bundles/bundleJquery")
+<script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
+
 }
 
 

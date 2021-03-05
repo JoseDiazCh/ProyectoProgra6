@@ -170,12 +170,14 @@ namespace ProyeProgra6.Controllers
             finally
             {
                 if (cantRegistrosAfectados > 0)
-
+                {
                     resultado = "Registro Eliminado Correctamente";
 
+                }
                 else
+                {
                     resultado = "No se pudo Eliminar el Registro";
-
+                }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
             return View(modeloVista);

@@ -5,7 +5,7 @@
 
 <h2>Pais De Fabricacion Nuevo</h2>
 
-<form id="frmNuevaPersona" method="post">
+<form id="frmNuevaPais" method="post">
     <div class="form-group">
         <label>Codigo:</label>
         <input type="text" name="codigo" id="codigo" class="form-control" />
@@ -21,4 +21,8 @@
     </div>
     <a href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
 </form>
+@section scripts{
+    @Scripts.Render("~/bundles/bundleJquery")
+    <script src="~/Scripts/ValidacionesInserta/InsertPaisF.js"></script>
 
+}
