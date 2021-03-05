@@ -113,18 +113,19 @@ namespace ProyeProgra6.Controllers
             }
             catch (Exception error)
             {
-
-                resultado = "Ocurrio un error: " + error.Message;
+                resultado = "Ocurrió un error:" + error.Message;
             }
             finally
             {
                 if (cantRegistrosAfectados > 0)
+                {
+                    resultado = "Registro insertado";
 
-                    resultado = "Registro Modificado Correctamente";
-
+                }
                 else
-                    resultado = "No se pudo Modificar el Dato";
-
+                {
+                    resultado += ".No se Pudo insertar";
+                }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
 
