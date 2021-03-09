@@ -11,7 +11,7 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                digits: true
+                digits: true,
             },
             Genero: {
                 required: true

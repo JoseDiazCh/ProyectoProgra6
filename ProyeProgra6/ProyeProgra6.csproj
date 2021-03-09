@@ -330,6 +330,7 @@
     <Content Include="Views\TiposVehiculos\TipoVehiculoNuevo.cshtml" />
     <Content Include="Views\TiposVehiculos\ModificaTipoVehiculo.cshtml" />
     <Content Include="Views\TiposVehiculos\TipoVehiculoElimina.cshtml" />
+    <Content Include="Views\Usuarios\ModificaUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -165,5 +165,116 @@ namespace ProyeProgra6.Controllers
                 return View();
             }
 
+        public ActionResult ModificaUsuario(int idUsuario)
+        {
+            ///obtener el registro que se debe modificar
+            ///utilizando el parametro
+            sp_RetornaUsuarios_ID_Result modeloVista = new sp_RetornaUsuarios_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaUsuarios_ID(idUsuario).FirstOrDefault();
+
+            //enviar el modelo a la vista
+            return View(modeloVista);
         }
+        /// Modifica Tipo VEhiculo tipo httpPost
+        [HttpPost]
+        public ActionResult ModificaUsuario(sp_RetornaUsuarios_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
+
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                        this.modeloBD.sp_ModificaUsuarios(
+                            modeloVista.idUsuario,
+                            modeloVista.Cedula,
+                            modeloVista.Genero,
+                            modeloVista.FechaNacimiento,
+                            modeloVista.Nombre,
+                            modeloVista.Apellido1,
+                            modeloVista.Apellido2,
+                            modeloVista.Correo,
+                            modeloVista.TipoUsuario,
+                            modeloVista.id_Provincia,
+                            modeloVista.id_Canton,
+                            modeloVista.id_Distrito,
+                            modeloVista.Contrasenia
+                            );
+            }
+            catch (Exception error)
+            {
+                resultado = "Ocurrió un error:" + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+                {
+                    resultado = "Registro modificado";
+
+                }
+                else
+                {
+                    resultado += ".No se pudo modificar";
+                }
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+
+            return View(modeloVista);
+        }
+        /// <summary>
+        /// controlador que ELIMINA un Tipo VEhiculo
+        /// </summary>
+        /// <param name="idTipoVehiculo"></param>
+        /// <returns></returns>
+        public ActionResult EliminaUsuario(int idusuario)
+        {
+            ///obtener el registro que se debe eliminar
+            ///utilizando el parametro 
+            sp_RetornaUsuarios_ID_Result modeloVista = new sp_RetornaUsuarios_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaUsuarios_ID(idusuario).FirstOrDefault();
+
+            //enviar el modelo a la vista
+            return View(modeloVista);
+        }
+        /// ELIMINA Tipo VEhiculo tipo httpPost
+        [HttpPost]
+        public ActionResult EliminaUsuario(sp_RetornaUsuarios_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
+
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_EliminaTipoVehiculos(modeloVista.idUsuario);
+
+            }
+            catch (Exception error)
+            {
+
+                resultado = "Ocurrio un error: " + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+                {
+                    resultado = "Registro Eliminado Correctamente";
+
+                }
+                else
+                {
+                    resultado = "No se pudo Eliminar el Registro";
+                }
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+            return View(modeloVista);
+        }
+
+    }
     }
