@@ -333,6 +333,7 @@
     <Content Include="Views\TiposVehiculos\ModificaTipoVehiculo.cshtml" />
     <Content Include="Views\TiposVehiculos\TipoVehiculoElimina.cshtml" />
     <Content Include="Views\Usuarios\ModificaUsuario.cshtml" />
+    <Content Include="Views\Usuarios\EliminaUsuario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

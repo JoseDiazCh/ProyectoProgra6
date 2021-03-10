@@ -171,6 +171,9 @@ namespace ProyeProgra6.Controllers
             ///utilizando el parametro
             sp_RetornaUsuarios_ID_Result modeloVista = new sp_RetornaUsuarios_ID_Result();
             modeloVista = this.modeloBD.sp_RetornaUsuarios_ID(idUsuario).FirstOrDefault();
+            this.AgregaProvinciasViewBag();
+            this.AgregaCantonesViewBag();
+            this.AgregaDistritosViewgBag();
 
             //enviar el modelo a la vista
             return View(modeloVista);
@@ -221,7 +224,9 @@ namespace ProyeProgra6.Controllers
                 }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
-
+            this.AgregaProvinciasViewBag();
+            this.AgregaCantonesViewBag();
+            this.AgregaDistritosViewgBag();
             return View(modeloVista);
         }
         /// <summary>
@@ -235,7 +240,9 @@ namespace ProyeProgra6.Controllers
             ///utilizando el parametro 
             sp_RetornaUsuarios_ID_Result modeloVista = new sp_RetornaUsuarios_ID_Result();
             modeloVista = this.modeloBD.sp_RetornaUsuarios_ID(idusuario).FirstOrDefault();
-
+            this.AgregaProvinciasViewBag();
+            this.AgregaCantonesViewBag();
+            this.AgregaDistritosViewgBag();
             //enviar el modelo a la vista
             return View(modeloVista);
         }
@@ -252,7 +259,7 @@ namespace ProyeProgra6.Controllers
             try
             {
                 cantRegistrosAfectados =
-                    this.modeloBD.sp_EliminaTipoVehiculos(modeloVista.idUsuario);
+                    this.modeloBD.sp_EliminarUsuario(modeloVista.idUsuario);
 
             }
             catch (Exception error)
@@ -273,6 +280,9 @@ namespace ProyeProgra6.Controllers
                 }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+            this.AgregaProvinciasViewBag();
+            this.AgregaCantonesViewBag();
+            this.AgregaDistritosViewgBag();
             return View(modeloVista);
         }
 
