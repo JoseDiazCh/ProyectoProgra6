@@ -178,7 +178,7 @@ namespace ProyeProgra6.Controllers
             //enviar el modelo a la vista
             return View(modeloVista);
         }
-        /// Modifica Tipo VEhiculo tipo httpPost
+        /// Modifica Usuario tipo httpPost
         [HttpPost]
         public ActionResult ModificaUsuario(sp_RetornaUsuarios_ID_Result modeloVista)
         {
@@ -229,11 +229,11 @@ namespace ProyeProgra6.Controllers
             this.AgregaDistritosViewgBag();
             return View(modeloVista);
         }
-        /// <summary>
-        /// controlador que ELIMINA un Tipo VEhiculo
-        /// </summary>
-        /// <param name="idTipoVehiculo"></param>
-        /// <returns></returns>
+      /// <summary>
+      /// Controlador que elimina el usuario
+      /// </summary>
+      /// <param name="idusuario"></param>
+      /// <returns></returns>
         public ActionResult EliminaUsuario(int idusuario)
         {
             ///obtener el registro que se debe eliminar
@@ -246,7 +246,7 @@ namespace ProyeProgra6.Controllers
             //enviar el modelo a la vista
             return View(modeloVista);
         }
-        /// ELIMINA Tipo VEhiculo tipo httpPost
+        /// ELIMINA Usuario tipo httpPost
         [HttpPost]
         public ActionResult EliminaUsuario(sp_RetornaUsuarios_ID_Result modeloVista)
         {

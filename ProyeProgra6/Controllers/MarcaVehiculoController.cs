@@ -42,7 +42,7 @@ namespace ProyeProgra6.Controllers
         void AgregaPaisFabricacionViewBag()
         {
             this.ViewBag.ListaPais =
-             this.modeloBD.sp_RetornaPaísFabricante(null,null).ToList();
+             this.modeloBD.sp_RetornaPaísFabricante("","").ToList();
 
         }
         /// insert MarcabVehiculo Nueva tipo httpPost
@@ -85,6 +85,67 @@ namespace ProyeProgra6.Controllers
 
             this.AgregaPaisFabricacionViewBag();
             return View();
+        }
+
+        /// <summary>
+        /// controlador que MODIFICA un marca De Vehiculo
+        /// </summary>
+        /// <param name="idMarcaVehiculo"></param>
+        /// <returns></returns>
+        public ActionResult ModificaMarcaVehiculo(int idMarcaVehiculo)
+        {
+            ///obtener el registro que se debe modificar
+            ///utilizando el parametro
+            sp_RetornaMarcaVehiculo_ID_Result modeloVista = new sp_RetornaMarcaVehiculo_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaMarcaVehiculo_ID(idMarcaVehiculo).FirstOrDefault();
+
+            //agrega el pais de fabricacion
+            this.AgregaPaisFabricacionViewBag();
+
+
+            //enviar el modelo a la vista
+            return View(modeloVista);
+        }
+        /// Modifica MARCA VEhiculo tipo httpPost
+        [HttpPost]
+        public ActionResult ModificaMaracVehiculo(sp_RetornaMarcaVehiculo_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
+
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_ModificaMarcaVehiculos(
+                        modeloVista.idMarcaVehiculos,
+                        modeloVista.Codigo,
+                        modeloVista.Tipo,
+                        modeloVista.idPaisFabricante
+                        );
+            }
+            catch (Exception error)
+            {
+                resultado = "Ocurrió un error:" + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
+                {
+                    resultado = "Registro insertado";
+
+                }
+                else
+                {
+                    resultado += ".No se Pudo insertar";
+                }
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+
+            this.AgregaPaisFabricacionViewBag();
+            return View(modeloVista);
         }
 
         /// <summary>

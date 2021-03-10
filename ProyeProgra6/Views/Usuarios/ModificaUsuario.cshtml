@@ -3,7 +3,7 @@
     ViewBag.Title = "ModificaUsuario";
 }
 
-<h2>Modifica Usuario</h2>
+<h2>Modifica Los Datos Del Usuario</h2>
 
 <form id="frmNuevaPersona" method="post">
 
@@ -15,7 +15,8 @@
     <div class="form-check">
         <label>Genero:  </label>
         <br />
-        <input type="radio" name="Genero" value="Femenino" class="form-check-input"  @(Model.Genero.ToLower() == "Femenino" ? "checked":"")  /> Femenino
+        <input type="radio" name="Genero" value="Femenino" class="form-check-input" 
+               @(Model.Genero.ToLower() == "Femenino" ? "checked":"")  /> Femenino
         <br />
         <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero.ToLower() == "Masculino" ? "checked":"") /> Masculino
         <br />
@@ -167,7 +168,7 @@
         <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" value="@Model.Contrasenia"/>
     </div>
     <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
+        <input type="submit" value="Modificar" id="btnAceptar" />
     </div>
     <br />
     <a href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
