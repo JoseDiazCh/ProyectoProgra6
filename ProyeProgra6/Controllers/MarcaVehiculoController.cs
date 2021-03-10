@@ -92,12 +92,12 @@ namespace ProyeProgra6.Controllers
         /// </summary>
         /// <param name="idMarcaVehiculo"></param>
         /// <returns></returns>
-        public ActionResult ModificaMarcaVehiculo(int idMarcaVehiculo)
+        public ActionResult ModificaMarcaVehiculo(int idMarcaVehiculos)
         {
             ///obtener el registro que se debe modificar
             ///utilizando el parametro
             sp_RetornaMarcaVehiculo_ID_Result modeloVista = new sp_RetornaMarcaVehiculo_ID_Result();
-            modeloVista = this.modeloBD.sp_RetornaMarcaVehiculo_ID(idMarcaVehiculo).FirstOrDefault();
+            modeloVista = this.modeloBD.sp_RetornaMarcaVehiculo_ID(idMarcaVehiculos).FirstOrDefault();
 
             //agrega el pais de fabricacion
             this.AgregaPaisFabricacionViewBag();
@@ -108,7 +108,7 @@ namespace ProyeProgra6.Controllers
         }
         /// Modifica MARCA VEhiculo tipo httpPost
         [HttpPost]
-        public ActionResult ModificaMaracVehiculo(sp_RetornaMarcaVehiculo_ID_Result modeloVista)
+        public ActionResult ModificaMarcaVehiculo(sp_RetornaMarcaVehiculo_ID_Result modeloVista)
         {
             ///registra la cantidad de  registros afectados
             ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE

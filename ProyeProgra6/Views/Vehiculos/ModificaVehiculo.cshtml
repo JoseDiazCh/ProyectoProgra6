@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "ModificaVehiculo";
+}
+
+<h2>ModificaVehiculo</h2>
+
+
+<form id="frmNuevoVehiculo" method="post">
+    <div class="form-group">
+        <label>Placa:</label>
+        <input type="text" name="placa" id="placa" class="form-control" value="@Model.Placa"/>
+    </div>
+
+    <div class="form-group">
+        <label>Numero de Puertas:</label>
+        <input type="text" name="numeropuertas" id="numeropuertas" class="form-control"  value="@Model.NumeroPuertas"/>
+    </div>
+
+    <div class="form-group">
+        <label>Numero de Ruedas:</label>
+        <input type="text" name="numeroruedas" id="numeroruedas" class="form-control" value="@Model.NumeroRuedas" />
+    </div>
+
+    <div class="form-group">
+        <label>Marca del Vehiculo :</label>
+        <select name="idMarcaVehiculos" id="idMarcaVehiculos" class="form-control">
+            <option value=""> Seleccione una Marca</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result marcaVehiculo
+                   in this.ViewBag.ListaMarca)
+                {
+                    bool esIdProvinciaModelo = marcaVehiculo.idMarcaVehiculos == Model.idMarcaVehiculos;
+                    @*
+                incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
+                    *@
+
+                    if (esIdProvinciaModelo)
+                    {
+                        <option value="@marcaVehiculo.idMarcaVehiculos" selected>@marcaVehiculo.Tipo.ToUpper() </option>
+
+                    }
+                    else
+                    {
+                        <option value="@marcaVehiculo.idMarcaVehiculos">@marcaVehiculo.Tipo.ToUpper() </option>
+
+
+                    }
+
+
+                }
+
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Tipo del Vehiculo :</label>
+        <select name="idTipoVehiculo" id="idTipoVehiculo" class="form-control">
+            <option value=""> Seleccione un Tipo</option>
+            @{
+                foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result tipoVehiculo
+                   in this.ViewBag.ListaMarca)
+                {
+                    bool esIdProvinciaModelo = tipoVehiculo.idTipoVehiculo == Model.idTipoVehiculo;
+                    @*
+                incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
+                    *@
+
+                    if (esIdProvinciaModelo)
+                    {
+                        <option value="@tipoVehiculo.idTipoVehiculo" selected>@tipoVehiculo.Tipo.ToUpper() </option>
+
+                    }
+                    else
+                    {
+                        <option value="@tipoVehiculo.idTipoVehiculo">@tipoVehiculo.Tipo.ToUpper() </option>
+
+
+                    }
+
+
+                }
+
+            }
+
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar" id="btnAceptar" />
+    </div>
+    <a href="~/Vehiculos/VehiculosLista"> Lista de Vehiculos</a>
+</form>
+@section scripts{
+    @Scripts.Render("~/bundles/bundleJquery")
+    <script src="~/Scripts/ValidacionesInserta/InsertaVehiculo.js"></script>
+}
+

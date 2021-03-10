@@ -336,6 +336,8 @@
     <Content Include="Views\Usuarios\EliminaUsuario.cshtml" />
     <Content Include="Views\MarcaVehiculo\ModificaMarcaVehiculo.cshtml" />
     <Content Include="Views\ServicioOProducto\ServicioOproductoNuevo.cshtml" />
+    <Content Include="Views\Vehiculos\ModificaVehiculo.cshtml" />
+    <Content Include="Views\Vehiculos\EliminaVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

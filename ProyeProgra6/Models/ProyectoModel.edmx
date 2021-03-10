@@ -1340,7 +1340,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Precio" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Column1" Nullable="true" MaxLength="8" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1763,7 +1762,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
