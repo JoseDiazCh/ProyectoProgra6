@@ -29,7 +29,7 @@ namespace ProyeProgra6.Models
     
         public virtual ICollection<EncabezadoFactura> EncabezadoFactura { get; set; }
         public virtual MarcaVehiculos MarcaVehiculos { get; set; }
-        public virtual TiposVehiculos TiposVehiculos { get; set; }
         public virtual ICollection<Usuarios> Usuarios { get; set; }
+        public virtual TiposVehiculos TiposVehiculos { get; set; }
     }
 }

@@ -16,13 +16,13 @@ namespace ProyeProgra6.Models
     {
         public TiposVehiculos()
         {
-            this.Vehiculos = new HashSet<Vehiculos>();
+            this.Vehiculos1 = new HashSet<Vehiculos>();
         }
     
         public int idTipoVehiculo { get; set; }
         public string Tipo { get; set; }
         public string Codigo { get; set; }
     
-        public virtual ICollection<Vehiculos> Vehiculos { get; set; }
+        public virtual ICollection<Vehiculos> Vehiculos1 { get; set; }
     }
 }

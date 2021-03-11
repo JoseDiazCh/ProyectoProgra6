@@ -314,7 +314,7 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
               <PropertyRef Name="idTipoVehiculo" />
             </Principal>
             <Dependent Role="Vehiculos">
-              <PropertyRef Name="idMarcaVehiculos" />
+              <PropertyRef Name="idTipoVehiculo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -710,8 +710,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           </Key>
           <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Vehiculos" Relationship="Self.FK_Vehiculos_TiposVehiculos" FromRole="TiposVehiculos" ToRole="Vehiculos" />
           <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vehiculos1" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1" FromRole="TiposVehiculos" ToRole="Vehiculos" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -748,8 +748,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Vehiculos" FromRole="Vehiculos" ToRole="EncabezadoFactura" />
           <NavigationProperty Name="MarcaVehiculos" Relationship="Self.FK_Vehiculos_MarcaVehiculos" FromRole="Vehiculos" ToRole="MarcaVehiculos" />
-          <NavigationProperty Name="TiposVehiculos" Relationship="Self.FK_Vehiculos_TiposVehiculos" FromRole="Vehiculos" ToRole="TiposVehiculos" />
           <NavigationProperty Name="Usuarios" Relationship="Self.VehiculoCliente" FromRole="Vehiculos" ToRole="Usuarios" />
+          <NavigationProperty Name="TiposVehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1" FromRole="Vehiculos" ToRole="TiposVehiculos" />
         </EntityType>
         <Association Name="Canton_ref_Provincia">
           <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
@@ -883,18 +883,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Vehiculos_TiposVehiculos">
-          <End Role="TiposVehiculos" Type="Self.TiposVehiculos" Multiplicity="1" />
-          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TiposVehiculos">
-              <PropertyRef Name="idTipoVehiculo" />
-            </Principal>
-            <Dependent Role="Vehiculos">
-              <PropertyRef Name="idMarcaVehiculos" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="VehiculoCliente">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
           <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
@@ -954,10 +942,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <AssociationSet Name="FK_Usuarios_Provincia" Association="Self.FK_Usuarios_Provincia">
             <End Role="Provincia" EntitySet="Provincia" />
             <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Vehiculos_TiposVehiculos" Association="Self.FK_Vehiculos_TiposVehiculos">
-            <End Role="TiposVehiculos" EntitySet="TiposVehiculos" />
-            <End Role="Vehiculos" EntitySet="Vehiculos" />
           </AssociationSet>
           <AssociationSet Name="VehiculoCliente" Association="Self.VehiculoCliente">
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -1152,6 +1136,10 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
+          <AssociationSet Name="FK_Vehiculos_TiposVehiculos1" Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1">
+            <End Role="TiposVehiculos" EntitySet="TiposVehiculos" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
           <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
@@ -1341,6 +1329,18 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Precio" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <Association Name="FK_Vehiculos_TiposVehiculos1">
+          <End Type="proyectoprogra6Model.TiposVehiculos" Role="TiposVehiculos" Multiplicity="1" />
+          <End Type="proyectoprogra6Model.Vehiculos" Role="Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposVehiculos">
+              <PropertyRef Name="idTipoVehiculo" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="idTipoVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
