@@ -8,22 +8,22 @@
 <form id="frmNuevoVehiculo" method="post">
     <div class="form-group">
         <label>Placa:</label>
-        <input type="text" name="placa" id="placa" class="form-control" value="@Model.Placa" />
+        <input type="text" name="placa" id="placa" class="form-control" value="@Model.Placa" readonly />
     </div>
 
     <div class="form-group">
         <label>Numero de Puertas:</label>
-        <input type="text" name="numeropuertas" id="numeropuertas" class="form-control" value="@Model.NumeroPuertas" />
+        <input type="text" name="numeropuertas" id="numeropuertas" class="form-control" value="@Model.NumeroPuertas" readonly />
     </div>
 
     <div class="form-group">
         <label>Numero de Ruedas:</label>
-        <input type="text" name="numeroruedas" id="numeroruedas" class="form-control" value="@Model.NumeroRuedas" />
+        <input type="text" name="numeroruedas" id="numeroruedas" class="form-control" value="@Model.NumeroRuedas"  readonly/>
     </div>
 
     <div class="form-group">
         <label>Marca del Vehiculo :</label>
-        <select name="idMarcaVehiculos" id="idMarcaVehiculos" class="form-control">
+        <select name="idMarcaVehiculos" id="idMarcaVehiculos" class="form-control" readonly>
             <option value=""> Seleccione una Marca</option>
             @{
                 foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result marcaVehiculo
@@ -55,7 +55,7 @@
     </div>
     <div class="form-group">
         <label>Tipo del Vehiculo :</label>
-        <select name="idTipoVehiculo" id="idTipoVehiculo" class="form-control">
+        <select name="idTipoVehiculo" id="idTipoVehiculo" class="form-control" readonly>
             <option value=""> Seleccione un Tipo</option>
             @{
                 foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result tipoVehiculo
@@ -86,7 +86,7 @@
         </select>
     </div>
     <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
+        <input type="submit" value="Eliminar" id="btnAceptar" />
     </div>
     <a href="~/Vehiculos/VehiculosLista"> Lista de Vehiculos</a>
 </form>
