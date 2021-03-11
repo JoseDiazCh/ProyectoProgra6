@@ -22,14 +22,14 @@ namespace ProyeProgra6.Models
     
         public int idVehiculo { get; set; }
         public string Placa { get; set; }
-        public Nullable<int> NumeroPuertas { get; set; }
-        public Nullable<int> NumeroRuedas { get; set; }
         public int idMarcaVehiculos { get; set; }
         public int idTipoVehiculo { get; set; }
+        public Nullable<int> NumeroRuedas { get; set; }
+        public Nullable<int> NumeroPuertas { get; set; }
     
         public virtual ICollection<EncabezadoFactura> EncabezadoFactura { get; set; }
         public virtual MarcaVehiculos MarcaVehiculos { get; set; }
-        public virtual ICollection<Usuarios> Usuarios { get; set; }
         public virtual TiposVehiculos TiposVehiculos { get; set; }
+        public virtual ICollection<Usuarios> Usuarios { get; set; }
     }
 }

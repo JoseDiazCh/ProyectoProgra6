@@ -448,8 +448,8 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
         <Function Name="sp_ModificaVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idVehiculo" Type="int" Mode="In" />
           <Parameter Name="Placa" Type="varchar" Mode="In" />
-          <Parameter Name="NumeroPuertas" Type="varchar" Mode="In" />
-          <Parameter Name="NumeroRuedas" Type="varchar" Mode="In" />
+          <Parameter Name="NumeroPuertas" Type="int" Mode="In" />
+          <Parameter Name="NumeroRuedas" Type="int" Mode="In" />
           <Parameter Name="idMarcaVehiculos" Type="int" Mode="In" />
           <Parameter Name="idTipoVehiculo" Type="int" Mode="In" />
         </Function>
@@ -657,7 +657,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="idDetalleFac" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DetalleFactura" Relationship="Self.FK_EncabezadoFactura_DetalleFactura" FromRole="EncabezadoFactura" ToRole="DetalleFactura" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_EncabezadoFactura_Usuarios" FromRole="EncabezadoFactura" ToRole="Usuarios" />
-          <NavigationProperty Name="Vehiculos" Relationship="Self.FK_EncabezadoFactura_Vehiculos" FromRole="EncabezadoFactura" ToRole="Vehiculos" />
+          <NavigationProperty Name="Vehiculos" Relationship="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos" FromRole="EncabezadoFactura" ToRole="Vehiculos" />
         </EntityType>
         <EntityType Name="MarcaVehiculos">
           <Key>
@@ -668,7 +668,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idPaisFabricante" Type="Int32" Nullable="false" />
           <NavigationProperty Name="PaisFabricante" Relationship="Self.FK_MarcaVehiculos_PaisFabricante" FromRole="MarcaVehiculos" ToRole="PaisFabricante" />
-          <NavigationProperty Name="Vehiculos" Relationship="Self.FK_Vehiculos_MarcaVehiculos" FromRole="MarcaVehiculos" ToRole="Vehiculos" />
+          <NavigationProperty Name="Vehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos" FromRole="MarcaVehiculos" ToRole="Vehiculos" />
         </EntityType>
         <EntityType Name="PaisFabricante">
           <Key>
@@ -711,7 +711,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Codigo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Vehiculos1" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1" FromRole="TiposVehiculos" ToRole="Vehiculos" />
+          <NavigationProperty Name="Vehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos" FromRole="TiposVehiculos" ToRole="Vehiculos" />
         </EntityType>
         <EntityType Name="Usuarios">
           <Key>
@@ -734,22 +734,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <NavigationProperty Name="Distrito" Relationship="Self.FK_Usuarios_Distrito" FromRole="Usuarios" ToRole="Distrito" />
           <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Usuarios" FromRole="Usuarios" ToRole="EncabezadoFactura" />
           <NavigationProperty Name="Provincia" Relationship="Self.FK_Usuarios_Provincia" FromRole="Usuarios" ToRole="Provincia" />
-          <NavigationProperty Name="Vehiculos" Relationship="Self.VehiculoCliente" FromRole="Usuarios" ToRole="Vehiculos" />
-        </EntityType>
-        <EntityType Name="Vehiculos">
-          <Key>
-            <PropertyRef Name="idVehiculo" />
-          </Key>
-          <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NumeroPuertas" Type="Int32" />
-          <Property Name="NumeroRuedas" Type="Int32" />
-          <Property Name="idMarcaVehiculos" Type="Int32" Nullable="false" />
-          <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_Vehiculos" FromRole="Vehiculos" ToRole="EncabezadoFactura" />
-          <NavigationProperty Name="MarcaVehiculos" Relationship="Self.FK_Vehiculos_MarcaVehiculos" FromRole="Vehiculos" ToRole="MarcaVehiculos" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.VehiculoCliente" FromRole="Vehiculos" ToRole="Usuarios" />
-          <NavigationProperty Name="TiposVehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1" FromRole="Vehiculos" ToRole="TiposVehiculos" />
+          <NavigationProperty Name="Vehiculos" Relationship="proyectoprogra6Model.VehiculoCliente" FromRole="Usuarios" ToRole="Vehiculos" />
         </EntityType>
         <Association Name="Canton_ref_Provincia">
           <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
@@ -835,18 +820,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EncabezadoFactura_Vehiculos">
-          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="1" />
-          <End Role="EncabezadoFactura" Type="Self.EncabezadoFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Vehiculos">
-              <PropertyRef Name="idVehiculo" />
-            </Principal>
-            <Dependent Role="EncabezadoFactura">
-              <PropertyRef Name="idVehiculo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MarcaVehiculos_PaisFabricante">
           <End Role="PaisFabricante" Type="Self.PaisFabricante" Multiplicity="1" />
           <End Role="MarcaVehiculos" Type="Self.MarcaVehiculos" Multiplicity="*" />
@@ -856,18 +829,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Principal>
             <Dependent Role="MarcaVehiculos">
               <PropertyRef Name="idPaisFabricante" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Vehiculos_MarcaVehiculos">
-          <End Role="MarcaVehiculos" Type="Self.MarcaVehiculos" Multiplicity="1" />
-          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MarcaVehiculos">
-              <PropertyRef Name="idMarcaVehiculos" />
-            </Principal>
-            <Dependent Role="Vehiculos">
-              <PropertyRef Name="idMarcaVehiculos" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -883,10 +844,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VehiculoCliente">
-          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
-          <End Role="Vehiculos" Type="Self.Vehiculos" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="proyectoprogra6Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Canton" EntityType="Self.Canton" />
           <EntitySet Name="DetalleFactura" EntityType="Self.DetalleFactura" />
@@ -898,7 +855,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <EntitySet Name="ServicioOProducto" EntityType="Self.ServicioOProducto" />
           <EntitySet Name="TiposVehiculos" EntityType="Self.TiposVehiculos" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <EntitySet Name="Vehiculos" EntityType="Self.Vehiculos" />
           <AssociationSet Name="Canton_ref_Provincia" Association="Self.Canton_ref_Provincia">
             <End Role="Provincia" EntitySet="Provincia" />
             <End Role="Canton" EntitySet="Canton" />
@@ -927,25 +883,13 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
           </AssociationSet>
-          <AssociationSet Name="FK_EncabezadoFactura_Vehiculos" Association="Self.FK_EncabezadoFactura_Vehiculos">
-            <End Role="Vehiculos" EntitySet="Vehiculos" />
-            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
-          </AssociationSet>
           <AssociationSet Name="FK_MarcaVehiculos_PaisFabricante" Association="Self.FK_MarcaVehiculos_PaisFabricante">
             <End Role="PaisFabricante" EntitySet="PaisFabricante" />
             <End Role="MarcaVehiculos" EntitySet="MarcaVehiculos" />
           </AssociationSet>
-          <AssociationSet Name="FK_Vehiculos_MarcaVehiculos" Association="Self.FK_Vehiculos_MarcaVehiculos">
-            <End Role="MarcaVehiculos" EntitySet="MarcaVehiculos" />
-            <End Role="Vehiculos" EntitySet="Vehiculos" />
-          </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Provincia" Association="Self.FK_Usuarios_Provincia">
             <End Role="Provincia" EntitySet="Provincia" />
             <End Role="Usuarios" EntitySet="Usuarios" />
-          </AssociationSet>
-          <AssociationSet Name="VehiculoCliente" Association="Self.VehiculoCliente">
-            <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Vehiculos" EntitySet="Vehiculos" />
           </AssociationSet>
           <FunctionImport Name="sp_selectUsuFactu">
           <Parameter Name="Cedula" Mode="In" Type="String" />
@@ -1026,14 +970,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="id_Distrito" Mode="In" Type="Int32" />
             <Parameter Name="Contrasenia" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_ModificaVehiculo">
-            <Parameter Name="idVehiculo" Mode="In" Type="Int32" />
-            <Parameter Name="Placa" Mode="In" Type="String" />
-            <Parameter Name="NumeroPuertas" Mode="In" Type="String" />
-            <Parameter Name="NumeroRuedas" Mode="In" Type="String" />
-            <Parameter Name="idMarcaVehiculos" Mode="In" Type="Int32" />
-            <Parameter Name="idTipoVehiculo" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="sp_RetornaCantones" ReturnType="Collection(proyectoprogra6Model.sp_RetornaCantones_Result)">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="id_Provincia" Mode="In" Type="Int32" />
@@ -1056,9 +992,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           </FunctionImport>
           <FunctionImport Name="sp_RetornaProvincias_ID">
           <Parameter Name="id_Provincia" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_RetornaVehiculos_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaVehiculos_ID_Result)">
-          <Parameter Name="idVehiculo" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <FunctionImport Name="sp_RetornaDistritos" ReturnType="Collection(proyectoprogra6Model.sp_RetornaDistritos_Result)">
@@ -1136,10 +1069,34 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Descripcion" Mode="In" Type="String" />
             <Parameter Name="Tipo" Mode="In" Type="String" />
           </FunctionImport>
-          <AssociationSet Name="FK_Vehiculos_TiposVehiculos1" Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1">
+          <EntitySet Name="Vehiculos" EntityType="proyectoprogra6Model.Vehiculos" />
+          <AssociationSet Name="FK_EncabezadoFactura_Vehiculos" Association="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_MarcaVehiculos" Association="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos">
+            <End Role="MarcaVehiculos" EntitySet="MarcaVehiculos" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculos_TiposVehiculos" Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos">
             <End Role="TiposVehiculos" EntitySet="TiposVehiculos" />
             <End Role="Vehiculos" EntitySet="Vehiculos" />
           </AssociationSet>
+          <AssociationSet Name="VehiculoCliente" Association="proyectoprogra6Model.VehiculoCliente">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+          </AssociationSet>
+          <FunctionImport Name="sp_RetornaVehiculos_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaVehiculos_ID_Result)">
+          <Parameter Name="idVehiculo" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaVehiculo">
+            <Parameter Name="idVehiculo" Mode="In" Type="Int32" />
+            <Parameter Name="Placa" Mode="In" Type="String" />
+            <Parameter Name="NumeroPuertas" Mode="In" Type="Int32" />
+            <Parameter Name="NumeroRuedas" Mode="In" Type="Int32" />
+            <Parameter Name="idMarcaVehiculos" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoVehiculo" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
           <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
@@ -1206,16 +1163,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="usuarioModifica" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="fechaModifica" Nullable="true" Precision="23" />
           <Property Type="String" Name="vc_Estado" Nullable="true" MaxLength="3" />
-        </ComplexType>
-        <ComplexType Name="sp_RetornaVehiculos_ID_Result">
-          <Property Type="Int32" Name="idVehiculo" Nullable="false" />
-          <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="NumeroPuertas" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="NumeroRuedas" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
-          <Property Type="String" Name="Marca_Vehiculo" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
-          <Property Type="String" Name="Tipo_Vehiculo" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="sp_RetornaDistritos_Result">
           <Property Type="Int32" Name="id_Distrito" Nullable="false" />
@@ -1329,7 +1276,46 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Precio" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
         </ComplexType>
-        <Association Name="FK_Vehiculos_TiposVehiculos1">
+        <EntityType Name="Vehiculos">
+          <Key>
+            <PropertyRef Name="idVehiculo" />
+          </Key>
+          <Property Name="idVehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Placa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="idMarcaVehiculos" Type="Int32" Nullable="false" />
+          <Property Name="idTipoVehiculo" Type="Int32" Nullable="false" />
+          <Property Name="NumeroRuedas" Type="Int32" />
+          <Property Name="NumeroPuertas" Type="Int32" />
+          <NavigationProperty Name="EncabezadoFactura" Relationship="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos" FromRole="Vehiculos" ToRole="EncabezadoFactura" />
+          <NavigationProperty Name="MarcaVehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos" FromRole="Vehiculos" ToRole="MarcaVehiculos" />
+          <NavigationProperty Name="TiposVehiculos" Relationship="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos" FromRole="Vehiculos" ToRole="TiposVehiculos" />
+          <NavigationProperty Name="Usuarios" Relationship="proyectoprogra6Model.VehiculoCliente" FromRole="Vehiculos" ToRole="Usuarios" />
+        </EntityType>
+        <Association Name="FK_EncabezadoFactura_Vehiculos">
+          <End Type="proyectoprogra6Model.Vehiculos" Role="Vehiculos" Multiplicity="1" />
+          <End Type="proyectoprogra6Model.EncabezadoFactura" Role="EncabezadoFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="idVehiculo" />
+            </Principal>
+            <Dependent Role="EncabezadoFactura">
+              <PropertyRef Name="idVehiculo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_MarcaVehiculos">
+          <End Type="proyectoprogra6Model.MarcaVehiculos" Role="MarcaVehiculos" Multiplicity="1" />
+          <End Type="proyectoprogra6Model.Vehiculos" Role="Vehiculos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MarcaVehiculos">
+              <PropertyRef Name="idMarcaVehiculos" />
+            </Principal>
+            <Dependent Role="Vehiculos">
+              <PropertyRef Name="idMarcaVehiculos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculos_TiposVehiculos">
           <End Type="proyectoprogra6Model.TiposVehiculos" Role="TiposVehiculos" Multiplicity="1" />
           <End Type="proyectoprogra6Model.Vehiculos" Role="Vehiculos" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1341,6 +1327,20 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="VehiculoCliente">
+          <End Type="proyectoprogra6Model.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <End Type="proyectoprogra6Model.Vehiculos" Role="Vehiculos" Multiplicity="*" />
+        </Association>
+        <ComplexType Name="sp_RetornaVehiculos_ID_Result">
+          <Property Type="Int32" Name="idVehiculo" Nullable="false" />
+          <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="NumeroPuertas" Nullable="true" />
+          <Property Type="Int32" Name="NumeroRuedas" Nullable="true" />
+          <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
+          <Property Type="String" Name="Marca_Vehiculo" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
+          <Property Type="String" Name="Tipo_Vehiculo" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1471,26 +1471,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vehiculos">
-            <EntityTypeMapping TypeName="proyectoprogra6Model.Vehiculos">
-              <MappingFragment StoreEntitySet="Vehiculos">
-                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroRuedas" />
-                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroPuertas" />
-                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
-                <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
-                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="VehiculoCliente" TypeName="proyectoprogra6Model.VehiculoCliente" StoreEntitySet="VehiculoCliente">
-            <EndProperty Name="Usuarios">
-              <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-            </EndProperty>
-            <EndProperty Name="Vehiculos">
-              <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
-            </EndProperty>
-          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="sp_selectUsuFactu" FunctionName="proyectoprogra6Model.Store.sp_selectUsuFactu" />
           <FunctionImportMapping FunctionImportName="sp_SelectVehiculo" FunctionName="proyectoprogra6Model.Store.sp_SelectVehiculo">
             <ResultMapping>
@@ -1515,7 +1495,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <FunctionImportMapping FunctionImportName="sp_ModificaPaisFabricante" FunctionName="proyectoprogra6Model.Store.sp_ModificaPaisFabricante" />
           <FunctionImportMapping FunctionImportName="sp_ModificaTipoServProduc" FunctionName="proyectoprogra6Model.Store.sp_ModificaTipoServProduc" />
           <FunctionImportMapping FunctionImportName="sp_ModificaUsuarios" FunctionName="proyectoprogra6Model.Store.sp_ModificaUsuarios" />
-          <FunctionImportMapping FunctionImportName="sp_ModificaVehiculo" FunctionName="proyectoprogra6Model.Store.sp_ModificaVehiculo" />
           <FunctionImportMapping FunctionImportName="sp_RetornaCantones" FunctionName="proyectoprogra6Model.Store.sp_RetornaCantones">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaCantones_Result">
@@ -1591,20 +1570,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_RetornaProvincias_ID" FunctionName="proyectoprogra6Model.Store.sp_RetornaProvincias_ID" />
-          <FunctionImportMapping FunctionImportName="sp_RetornaVehiculos_ID" FunctionName="proyectoprogra6Model.Store.sp_RetornaVehiculos_ID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaVehiculos_ID_Result">
-                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
-                <ScalarProperty Name="Placa" ColumnName="Placa" />
-                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroPuertas" />
-                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroRuedas" />
-                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
-                <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca Vehiculo" />
-                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
-                <ScalarProperty Name="Tipo_Vehiculo" ColumnName="Tipo Vehiculo" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="proyectoprogra6Model.Store.sp_upgraddiagrams" />
           <FunctionImportMapping FunctionImportName="sp_RetornaDistritos" FunctionName="proyectoprogra6Model.Store.sp_RetornaDistritos">
             <ResultMapping>
@@ -1765,6 +1730,41 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="Vehiculos">
+            <EntityTypeMapping TypeName="proyectoprogra6Model.Vehiculos">
+              <MappingFragment StoreEntitySet="Vehiculos">
+                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroPuertas" />
+                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroRuedas" />
+                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
+                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="VehiculoCliente" TypeName="proyectoprogra6Model.VehiculoCliente" StoreEntitySet="VehiculoCliente">
+            <EndProperty Name="Vehiculos">
+              <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+            </EndProperty>
+            <EndProperty Name="Usuarios">
+              <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaVehiculos_ID" FunctionName="proyectoprogra6Model.Store.sp_RetornaVehiculos_ID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaVehiculos_ID_Result">
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="NumeroPuertas" ColumnName="NumeroPuertas" />
+                <ScalarProperty Name="NumeroRuedas" ColumnName="NumeroRuedas" />
+                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
+                <ScalarProperty Name="Marca_Vehiculo" ColumnName="Marca Vehiculo" />
+                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
+                <ScalarProperty Name="Tipo_Vehiculo" ColumnName="Tipo Vehiculo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ModificaVehiculo" FunctionName="proyectoprogra6Model.Store.sp_ModificaVehiculo" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

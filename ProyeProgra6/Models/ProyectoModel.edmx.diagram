@@ -15,7 +15,6 @@
         <EntityTypeShape EntityType="proyectoprogra6Model.ServicioOProducto" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.TiposVehiculos" Width="1.5" PointX="10.5" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="proyectoprogra6Model.Usuarios" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="proyectoprogra6Model.Vehiculos" Width="2.25" PointX="12.75" PointY="4.625" IsExpanded="true" />
         <AssociationConnector Association="proyectoprogra6Model.Canton_ref_Provincia" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.Distrito_ref_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Canton" ManuallyRouted="false" />
@@ -23,13 +22,14 @@
         <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_DetalleFactura" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Distrito" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_Usuarios" ManuallyRouted="false" />
-        <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_MarcaVehiculos_PaisFabricante" ManuallyRouted="false" />
-        <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Provincia" ManuallyRouted="false" />
-        <AssociationConnector Association="proyectoprogra6Model.VehiculoCliente" ManuallyRouted="false" />
         <EntityTypeShape EntityType="proyectoprogra6Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
-        <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos1" />
+        <EntityTypeShape EntityType="proyectoprogra6Model.Vehiculos" Width="1.5" PointX="12.75" PointY="4.125" />
+        <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos" />
+        <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos" />
+        <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos" />
+        <AssociationConnector Association="proyectoprogra6Model.VehiculoCliente" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

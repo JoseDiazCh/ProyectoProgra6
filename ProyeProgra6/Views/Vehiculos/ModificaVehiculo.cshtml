@@ -60,7 +60,7 @@
             <option value=""> Seleccione un Tipo</option>
             @{
                 foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result tipoVehiculo
-                   in this.ViewBag.ListaMarca)
+                   in this.ViewBag.ListaTipos)
                 {
                     bool esIdProvinciaModelo = tipoVehiculo.idTipoVehiculo == Model.idTipoVehiculo;
                     @*

@@ -38,8 +38,8 @@ namespace ProyeProgra6.Models
         public DbSet<ServicioOProducto> ServicioOProducto { get; set; }
         public DbSet<TiposVehiculos> TiposVehiculos { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
-        public DbSet<Vehiculos> Vehiculos { get; set; }
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public DbSet<Vehiculos> Vehiculos { get; set; }
     
         public virtual int sp_selectUsuFactu(string cedula)
         {
@@ -309,35 +309,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaUsuarios", idUsuarioParameter, cedulaParameter, generoParameter, fechaNacimientoParameter, nombreParameter, apellido1Parameter, apellido2Parameter, correoParameter, tipoUsuarioParameter, id_ProvinciaParameter, id_CantonParameter, id_DistritoParameter, contraseniaParameter);
         }
     
-        public virtual int sp_ModificaVehiculo(Nullable<int> idVehiculo, string placa, string numeroPuertas, string numeroRuedas, Nullable<int> idMarcaVehiculos, Nullable<int> idTipoVehiculo)
-        {
-            var idVehiculoParameter = idVehiculo.HasValue ?
-                new ObjectParameter("idVehiculo", idVehiculo) :
-                new ObjectParameter("idVehiculo", typeof(int));
-    
-            var placaParameter = placa != null ?
-                new ObjectParameter("Placa", placa) :
-                new ObjectParameter("Placa", typeof(string));
-    
-            var numeroPuertasParameter = numeroPuertas != null ?
-                new ObjectParameter("NumeroPuertas", numeroPuertas) :
-                new ObjectParameter("NumeroPuertas", typeof(string));
-    
-            var numeroRuedasParameter = numeroRuedas != null ?
-                new ObjectParameter("NumeroRuedas", numeroRuedas) :
-                new ObjectParameter("NumeroRuedas", typeof(string));
-    
-            var idMarcaVehiculosParameter = idMarcaVehiculos.HasValue ?
-                new ObjectParameter("idMarcaVehiculos", idMarcaVehiculos) :
-                new ObjectParameter("idMarcaVehiculos", typeof(int));
-    
-            var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
-                new ObjectParameter("idTipoVehiculo", idTipoVehiculo) :
-                new ObjectParameter("idTipoVehiculo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaVehiculo", idVehiculoParameter, placaParameter, numeroPuertasParameter, numeroRuedasParameter, idMarcaVehiculosParameter, idTipoVehiculoParameter);
-        }
-    
         public virtual ObjectResult<sp_RetornaCantones_Result> sp_RetornaCantones(string nombre, Nullable<int> id_Provincia)
         {
             var nombreParameter = nombre != null ?
@@ -407,15 +378,6 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("id_Provincia", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_RetornaProvincias_ID", id_ProvinciaParameter);
-        }
-    
-        public virtual ObjectResult<sp_RetornaVehiculos_ID_Result> sp_RetornaVehiculos_ID(Nullable<int> idVehiculo)
-        {
-            var idVehiculoParameter = idVehiculo.HasValue ?
-                new ObjectParameter("idVehiculo", idVehiculo) :
-                new ObjectParameter("idVehiculo", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaVehiculos_ID_Result>("sp_RetornaVehiculos_ID", idVehiculoParameter);
         }
     
         public virtual int sp_upgraddiagrams()
@@ -669,6 +631,44 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Tipo", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaServicioOProducto_Result>("sp_RetornaServicioOProducto", descripcionParameter, tipoParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaVehiculos_ID_Result> sp_RetornaVehiculos_ID(Nullable<int> idVehiculo)
+        {
+            var idVehiculoParameter = idVehiculo.HasValue ?
+                new ObjectParameter("idVehiculo", idVehiculo) :
+                new ObjectParameter("idVehiculo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaVehiculos_ID_Result>("sp_RetornaVehiculos_ID", idVehiculoParameter);
+        }
+    
+        public virtual int sp_ModificaVehiculo(Nullable<int> idVehiculo, string placa, Nullable<int> numeroPuertas, Nullable<int> numeroRuedas, Nullable<int> idMarcaVehiculos, Nullable<int> idTipoVehiculo)
+        {
+            var idVehiculoParameter = idVehiculo.HasValue ?
+                new ObjectParameter("idVehiculo", idVehiculo) :
+                new ObjectParameter("idVehiculo", typeof(int));
+    
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            var numeroPuertasParameter = numeroPuertas.HasValue ?
+                new ObjectParameter("NumeroPuertas", numeroPuertas) :
+                new ObjectParameter("NumeroPuertas", typeof(int));
+    
+            var numeroRuedasParameter = numeroRuedas.HasValue ?
+                new ObjectParameter("NumeroRuedas", numeroRuedas) :
+                new ObjectParameter("NumeroRuedas", typeof(int));
+    
+            var idMarcaVehiculosParameter = idMarcaVehiculos.HasValue ?
+                new ObjectParameter("idMarcaVehiculos", idMarcaVehiculos) :
+                new ObjectParameter("idMarcaVehiculos", typeof(int));
+    
+            var idTipoVehiculoParameter = idTipoVehiculo.HasValue ?
+                new ObjectParameter("idTipoVehiculo", idTipoVehiculo) :
+                new ObjectParameter("idTipoVehiculo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaVehiculo", idVehiculoParameter, placaParameter, numeroPuertasParameter, numeroRuedasParameter, idMarcaVehiculosParameter, idTipoVehiculoParameter);
         }
     }
 }

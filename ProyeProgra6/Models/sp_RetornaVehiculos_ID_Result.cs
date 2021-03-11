@@ -15,8 +15,8 @@ namespace ProyeProgra6.Models
     {
         public int idVehiculo { get; set; }
         public string Placa { get; set; }
-        public string NumeroPuertas { get; set; }
-        public string NumeroRuedas { get; set; }
+        public Nullable<int> NumeroPuertas { get; set; }
+        public Nullable<int> NumeroRuedas { get; set; }
         public int idMarcaVehiculos { get; set; }
         public string Marca_Vehiculo { get; set; }
         public int idTipoVehiculo { get; set; }
