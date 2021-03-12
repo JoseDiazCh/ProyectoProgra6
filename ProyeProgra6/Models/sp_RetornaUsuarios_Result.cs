@@ -23,6 +23,7 @@ namespace ProyeProgra6.Models
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string TipoUsuario { get; set; }
+        public string Column1 { get; set; }
         public int id_Provincia { get; set; }
         public string nombreProvincia { get; set; }
         public int id_Canton { get; set; }

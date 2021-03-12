@@ -47,11 +47,19 @@
         <label>Correo electrónico :</label>
         <input type="text" name="correo" id="correo" class="form-control" />
     </div>
-  
-    <div class="form-group">
-            <label>Tipo de Usuario :</label>
-            <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
-        </div>
+
+    @*<div class="form-group">
+        <label>Tipo de Usuario :</label>
+        <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
+    </div>*@
+<div class="form-check">
+    <label>Tipo De Usuario:  </label>
+    <br />
+    <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
+    <br />
+    <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
+<br />
+</div>
     <div class="form-group">
         <label>Provincia de Nacimiento :</label>
         <select name="id_Provincia" id="id_Provincia" class="form-control">

@@ -1,7 +1,40 @@
-﻿
+﻿@model ProyeProgra6.Models.sp_RetornaServicioOProducto_ID_Result
 @{
     ViewBag.Title = "ServicioOproductoElimina";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>ServicioOproductoElimina</h2>
+
+<form id="frmEliminaProducto" method="post">
+    <input type="hidden" name="idServProduc" id="idServProduc" value="@Model.idServProduc" />
+    <div class="form-group">
+        <label>Codigo:</label>
+        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" readonly />
+    </div>
+    <div class="form-group">
+        <label>Descripcion:</label>
+        <input type="text" name="descripcion" id="descripcion" class="form-control" value="@Model.Descripcion" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Precio:</label>
+        <input type="text" name="precio" id="precio" class="form-control" value="@Model.Precio" readonly />
+    </div>
+    <div class="form-check">
+        <label>Tipo:  </label>
+        <br />
+        <input type="radio" name="tipo" value="Servicio" class="form-check-input" @(Model.Tipo.ToLower() == "Servicio" ? "checked" : "") readonly /> Servicio
+        <br />
+        <input type="radio" name="tipo" value="Producto" class="form-check-input" @(Model.Tipo.ToLower() == "Producto" ? "checked" : "") readonly /> Producto
+        <br />
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" value="Eliminar" id="btnAceptar" />
+    </div>
+    <br />
+    <a href="~/ServicioOProducto/ServicioOProductoLista"> Lista de Servicio O Producto</a>
+
+</form>
 
