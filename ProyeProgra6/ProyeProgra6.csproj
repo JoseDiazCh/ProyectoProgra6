@@ -338,6 +338,8 @@
     <Content Include="Views\ServicioOProducto\ServicioOproductoNuevo.cshtml" />
     <Content Include="Views\Vehiculos\ModificaVehiculo.cshtml" />
     <Content Include="Views\Vehiculos\EliminaVehiculo.cshtml" />
+    <Content Include="Views\ServicioOProducto\ServicioOproductoElimina.cshtml" />
+    <Content Include="Views\ServicioOProducto\ServicioOproductoModifica.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
