@@ -85,7 +85,7 @@ namespace ProyeProgra6.Controllers
             //enviar el modelo a la vista
             return View(modeloVista);
         }
-        /// Modifica Tipo VEhiculo tipo httpPost
+        /// Modifica  tipo httpPost
         [HttpPost]
         public ActionResult ServicioOproductoModifica(sp_RetornaServicioOProducto_ID_Result modeloVista)
         {
@@ -127,7 +127,7 @@ namespace ProyeProgra6.Controllers
             return View(modeloVista);
         }
         /// <summary>
-        /// controlador que ELIMINA un Tipo VEhiculo
+        /// controlador que ELIMINA 
         /// </summary>
         /// <param name="idTipoVehiculo"></param>
         /// <returns></returns>
