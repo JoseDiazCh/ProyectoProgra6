@@ -1302,7 +1302,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Precio" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Tipo" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Column1" Nullable="true" MaxLength="8" />
         </ComplexType>
         <ComplexType Name="sp_RetornaUsuarios_Result">
           <Property Type="Int32" Name="idUsuario" Nullable="false" />
@@ -1315,7 +1314,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="TipoUsuario" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Column1" Nullable="true" MaxLength="13" />
           <Property Type="Int32" Name="id_Provincia" Nullable="false" />
           <Property Type="String" Name="nombreProvincia" Nullable="false" MaxLength="100" />
           <Property Type="Int32" Name="id_Canton" Nullable="false" />
@@ -1335,7 +1333,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="Apellido2" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="Correo" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="TipoUsuario" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Column1" Nullable="true" MaxLength="13" />
           <Property Type="Int32" Name="id_Provincia" Nullable="false" />
           <Property Type="String" Name="nombreProvincia" Nullable="false" MaxLength="100" />
           <Property Type="Int32" Name="id_Canton" Nullable="false" />
@@ -1719,7 +1716,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
                 <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1736,7 +1732,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
                 <ScalarProperty Name="id_Provincia" ColumnName="id_Provincia" />
                 <ScalarProperty Name="nombreProvincia" ColumnName="nombreProvincia" />
                 <ScalarProperty Name="id_Canton" ColumnName="id_Canton" />
@@ -1760,7 +1755,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Apellido2" ColumnName="Apellido2" />
                 <ScalarProperty Name="Correo" ColumnName="Correo" />
                 <ScalarProperty Name="TipoUsuario" ColumnName="TipoUsuario" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
                 <ScalarProperty Name="id_Provincia" ColumnName="id_Provincia" />
                 <ScalarProperty Name="nombreProvincia" ColumnName="nombreProvincia" />
                 <ScalarProperty Name="id_Canton" ColumnName="id_Canton" />

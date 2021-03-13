@@ -121,12 +121,13 @@ namespace ProyeProgra6.Controllers
             finally
             {
                 if (cantRegistrosAfectados > 0)
-
+                {
                     resultado = "Registro Modificado Correctamente";
-
+                }
                 else
+                {
                     resultado = "No se pudo Modificar el Dato";
-
+                }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
 
@@ -171,12 +172,13 @@ namespace ProyeProgra6.Controllers
             finally
             {
                 if (cantRegistrosAfectados > 0)
-
+                {
                     resultado = "Registro Eliminado Correctamente";
-
+                }
                 else
+                {
                     resultado = "No se pudo Eliminar el Registro";
-
+                }
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
             return View(modeloVista);
