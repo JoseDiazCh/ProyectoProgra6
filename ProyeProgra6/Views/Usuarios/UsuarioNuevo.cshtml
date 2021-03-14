@@ -49,73 +49,73 @@
     </div>
 
     @*<div class="form-group">
-        <label>Tipo de Usuario :</label>
-        <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
-    </div>*@
-<div class="form-check">
-    <label>Tipo De Usuario:  </label>
-    <br />
-    <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
-    <br />
-    <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
-<br />
-</div>
-    <div class="form-group">
-        <label>Provincia de Nacimiento :</label>
-        <select name="id_Provincia" id="id_Provincia" class="form-control">
-            <option value="">Seleccione una provincia</option>
-            @{
-                foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
-                    in this.ViewBag.ListaProvincias)
-                {
-                    <option value="@provincia.id_Provincia">@provincia.nombre</option>
-                }
-            }
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Canton de Nacimiento :</label>
-        <select name="id_Canton" id="id_Canton" class="form-control">
-            <option value="">Seleccione una canton</option>
-            @{
-                foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
-                    in this.ViewBag.ListaCantones)
-                {
-                    <option value="@canton.id_Canton">@canton.nombre</option>
-                }
-            }
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Distrito de Nacimiento :</label>
-        <select name="id_Distrito" id="id_Distrito" class="form-control">
-            <option value="">Seleccione un Distrito</option>
-            @{
-                foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
-                    in this.ViewBag.ListaDistritos)
-                {
-                    <option value="@distrito.id_Distrito">@distrito.nombre</option>
-                }
-            }
-        </select>
-    </div>
-
-    @*<div class="form-group">
-            <label>Provincia:</label>
-            <select name="provincia" id="provincia" class="form-control"></select>
-        </div>
-
-        <div class="form-group">
-            <label>Cantón:</label>
-            <select name="canton" id="canton" class="form-control"></select>
-        </div>
-
-        <div class="form-group">
-            <label>Distrito:</label>
-            <select name="distrito" id="distrito" class="form-control"></select>
+            <label>Tipo de Usuario :</label>
+            <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
         </div>*@
+    <div class="form-check">
+        <label>Tipo De Usuario:  </label>
+        <br />
+        <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
+        <br />
+        <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
+        <br />
+    </div>
+    @*<div class="form-group">
+            <label>Provincia de Nacimiento :</label>
+            <select name="id_Provincia" id="id_Provincia" class="form-control">
+                <option value="">Seleccione una provincia</option>
+                @{
+                    foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
+                        in this.ViewBag.ListaProvincias)
+                    {
+                        <option value="@provincia.id_Provincia">@provincia.nombre</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Canton de Nacimiento :</label>
+            <select name="id_Canton" id="id_Canton" class="form-control">
+                <option value="">Seleccione una canton</option>
+                @{
+                    foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
+                        in this.ViewBag.ListaCantones)
+                    {
+                        <option value="@canton.id_Canton">@canton.nombre</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Distrito de Nacimiento :</label>
+            <select name="id_Distrito" id="id_Distrito" class="form-control">
+                <option value="">Seleccione un Distrito</option>
+                @{
+                    foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
+                        in this.ViewBag.ListaDistritos)
+                    {
+                        <option value="@distrito.id_Distrito">@distrito.nombre</option>
+                    }
+                }
+            </select>
+        </div>*@
+
+    <div class="form-group">
+        <label>Provincia:</label>
+        <select name="provincia" id="provincia" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cantón:</label>
+        <select name="canton" id="canton" class="form-control"></select>
+    </div>
+
+    <div class="form-group">
+        <label>Distrito:</label>
+        <select name="distrito" id="distrito" class="form-control"></select>
+    </div>
 
     <div class="form-group">
         <label>Contraseña :</label>
@@ -130,7 +130,7 @@
 @section scripts{
     @Scripts.Render("~/bundles/bundleJquery")
 <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
-
+<script src="~/Scripts/ValidacionesInserta/InsertProvincia.js"></script>
 }
 
 
