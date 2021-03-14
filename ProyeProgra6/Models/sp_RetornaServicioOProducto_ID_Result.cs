@@ -18,6 +18,5 @@ namespace ProyeProgra6.Models
         public string Descripcion { get; set; }
         public string Precio { get; set; }
         public string Tipo { get; set; }
-        
     }
 }
