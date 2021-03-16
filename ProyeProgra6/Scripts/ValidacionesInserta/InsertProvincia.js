@@ -135,7 +135,7 @@ function procesarResultadoCantones(data) {
         var cantonActual = this;
 
         ///creamos la opcion de la list, con el valor del id canton y el texto nombre
-        nuevaOpcion = "<option value='" + cantonActual.id_canton + "'>" + cantonActual.nombre + "</option>"
+        nuevaOpcion = "<option value='" + cantonActual.id_Canton + "'>" + cantonActual.nombre + "</option>"
 
         ///agregamos la opcion del dropdownlist
         ddlCantones.append(nuevaOpcion);

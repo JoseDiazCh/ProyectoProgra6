@@ -15,12 +15,11 @@
     <div class="form-check">
         <label>Genero:  </label>
         <br />
-        <input type="radio" name="Genero" value="Femenino" class="form-check-input" 
-               @(Model.Genero.ToLower() == "Femenino" ? "checked":"")  /> Femenino
+        <input type="radio" name="Genero" value="F" class="form-check-input" @(Model.Genero.ToLower() == "F" ? "checked":"")  /> Femenino
         <br />
-        <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero.ToLower()== "Masculino" ? "checked":"") /> Masculino
+        <input type="radio" name="Genero" value="M" class="form-check-input" @(Model.Genero.ToLower()== "M" ? "checked":"") /> Masculino
         <br />
-        <input type="radio" name="Genero" value="Indefinido" class="form-check-input" @(Model.Genero.ToLower() == "Indefinido" ? "checked":"") /> Indefinido
+        <input type="radio" name="Genero" value="I" class="form-check-input" @(Model.Genero.ToLower() == "I" ? "checked":"") /> Indefinido
     </div>
     <br />
     <div class="form-group">
