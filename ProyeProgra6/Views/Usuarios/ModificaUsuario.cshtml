@@ -18,7 +18,7 @@
         <input type="radio" name="Genero" value="Femenino" class="form-check-input" 
                @(Model.Genero.ToLower() == "Femenino" ? "checked":"")  /> Femenino
         <br />
-        <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero.ToLower() == "Masculino" ? "checked":"") /> Masculino
+        <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero.ToLower()== "Masculino" ? "checked":"") /> Masculino
         <br />
         <input type="radio" name="Genero" value="Indefinido" class="form-check-input" @(Model.Genero.ToLower() == "Indefinido" ? "checked":"") /> Indefinido
     </div>
