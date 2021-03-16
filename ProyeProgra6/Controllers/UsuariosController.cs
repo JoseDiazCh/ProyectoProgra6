@@ -37,35 +37,36 @@ namespace ProyeProgra6.Controllers
         /// retorna todas las provincias
         /// </summary>
         /// <returns></returns>
-        //public ActionResult RetornaProvincias()
-        //{
-        //    List<sp_RetornaProvincias_Result> provincias =
-        //        this.modeloBD.sp_RetornaProvincias(null).ToList();
-        //    return Json(provincias);
-        //}
+        public ActionResult RetornaProvincias()
+        {
+            List<sp_RetornaProvincias_Result> provincias =
+                this.modeloBD.sp_RetornaProvincias(null).ToList();
+            return Json(provincias);
+        }
+
         /// <summary>
         ///  Metodo que retorna todos los cantones cuando se selecciona una provincia
         /// </summary>
         /// <param name = "id_Provincias" ></ param >
         /// < returns ></ returns >
-        //public ActionResult RetornaCantones(int id_Provincia)
-        //{
-        //    List<sp_RetornaCantones_Result> cantones =
-        //        this.modeloBD.sp_RetornaCantones(null, id_Provincia).ToList();
-        //    return Json(cantones);
-        //}
+        public ActionResult RetornaCantones(int id_Provincia)
+        {
+            List<sp_RetornaCantones_Result> cantones =
+                this.modeloBD.sp_RetornaCantones(null, id_Provincia).ToList();
+            return Json(cantones);
+        }
 
         ///// <summary>
         //////Metodo queretorna todos los cantones cuando se selecciona una provincia
         /// </summary>
         /// <param name = "id_Canton" ></ param >
         /// < returns ></ returns >
-        //public ActionResult RetornaDistritos(int id_Canton)
-        //{
-        //    List<sp_RetornaDistritos_Result> distritos =
-        //        this.modeloBD.sp_RetornaDistritos(" ", id_Canton).ToList();
-        //    return Json(distritos);
-        //}
+        public ActionResult RetornaDistritos(int id_Canton)
+        {
+            List<sp_RetornaDistritos_Result> distritos =
+                this.modeloBD.sp_RetornaDistritos(null, id_Canton).ToList();
+            return Json(distritos);
+        }
 
         //------------------------------------------------------------------------------------//
         /// <summary>
