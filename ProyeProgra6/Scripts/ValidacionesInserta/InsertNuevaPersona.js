@@ -11,7 +11,8 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                digits: true,
+                //digits: true,
+                //regex: '/^[1-9]-\d{4}-\d{4}$/',
             },
             Genero: {
                 required: true
@@ -57,6 +58,14 @@ function creaValidaciones() {
                 required: true
             },
 
-        }
+        },
+
+        messages: {
+            cedula: {
+                regex:"Debe ingresar un formato valido"
+            }
+
+        },
+
     });
 }
