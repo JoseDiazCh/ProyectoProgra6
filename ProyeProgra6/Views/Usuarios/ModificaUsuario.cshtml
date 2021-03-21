@@ -15,16 +15,16 @@
     <div class="form-check">
         <label>Genero:  </label>
         <br />
-        <input type="radio" name="Genero" value="F" class="form-check-input" @(Model.Genero.ToLower() == "F" ? "checked":"")  /> Femenino
+        <input type="radio" name="Genero" value="F" class="form-check-input" @(Model.Genero.ToUpper() == "F" ? "checked":"")  /> Femenino
         <br />
-        <input type="radio" name="Genero" value="M" class="form-check-input" @(Model.Genero.ToLower()== "M" ? "checked":"") /> Masculino
+        <input type="radio" name="Genero" value="M" class="form-check-input" @(Model.Genero.ToUpper()== "M" ? "checked":"") /> Masculino
         <br />
-        <input type="radio" name="Genero" value="I" class="form-check-input" @(Model.Genero.ToLower() == "I" ? "checked":"") /> Indefinido
+        <input type="radio" name="Genero" value="I" class="form-check-input" @(Model.Genero.ToUpper() == "I" ? "checked":"") /> Indefinido
     </div>
     <br />
     <div class="form-group">
         <label>Fecha Nacimiento:</label>
-        <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" value="@Model.FechaNacimiento"/>
+        <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" value="@Model.FechaNacimiento.ToShortDateString()"/>
     </div>
 
     <div class="form-group">

@@ -24,9 +24,9 @@
     <div class="form-check">
             <label>Tipo:  </label>
             <br />
-            <input type="radio" name="tipo" value="Servicio" class="form-check-input" @(Model.Tipo.ToLower() == "Servicio" ? "checked" : "")  /> Servicio
+            <input type="radio" name="tipo" value="Servicio" class="form-check-input" @(Model.Tipo.ToUpper() == "Servicio" ? "checked" : "")  /> Servicio
             <br />
-            <input type="radio" name="tipo" value="Producto" class="form-check-input" @(Model.Tipo.ToLower() == "Producto" ? "checked" : "")  /> Producto
+            <input type="radio" name="tipo" value="Producto" class="form-check-input" @(Model.Tipo.ToUpper() == "Producto" ? "checked" : "")  /> Producto
             <br />
         </div>
 
