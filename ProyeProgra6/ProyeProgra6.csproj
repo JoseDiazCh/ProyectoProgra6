@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CantonesController.cs" />
     <Compile Include="Controllers\DistritosController.cs" />
+    <Compile Include="Controllers\GridKendoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\PaisFabricanteController.cs" />
@@ -291,6 +292,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\scriptGenerico.js" />
+    <Content Include="Scripts\ServicioCliente\serviciocliente.js" />
+    <Content Include="Scripts\ServicioVehiculo\serviciovehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertaVehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertMarcaVehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertNuevaPersona.js" />
@@ -299,6 +303,7 @@
     <Content Include="Scripts\ValidacionesGenericas.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertTipoVehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertaServicio.js" />
+    <Content Include="Scripts\VehiculoCliente\vehiculocliente.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -340,6 +345,9 @@
     <Content Include="Views\Vehiculos\EliminaVehiculo.cshtml" />
     <Content Include="Views\ServicioOProducto\ServicioOproductoElimina.cshtml" />
     <Content Include="Views\ServicioOProducto\ServicioOproductoModifica.cshtml" />
+    <Content Include="Views\GridKendo\ServicioCliente.cshtml" />
+    <Content Include="Views\GridKendo\VehiculoCliente.cshtml" />
+    <Content Include="Views\GridKendo\ServicioVehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
