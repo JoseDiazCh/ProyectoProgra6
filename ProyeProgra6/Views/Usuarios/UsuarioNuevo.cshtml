@@ -6,134 +6,137 @@
 <h2>Registrar Nuevo Usuario</h2>
 
 
-<form id="frmNuevaPersona" method="post">
+    <form id="frmNuevaPersona" method="post">
+        <!--Panel-->
+        <div class="panel panel-primary"
+             style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 90px; margin-right: 290px; margin-top: 20px; margin-bottom: 20px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <!--<div style="margin-left: 10px; margin-top: 15px">
+                    <asp:HyperLink ID="hplAtrasInicio" NavigateUrl="~/Formularios/frmInicioSesion.aspx"
+                                   class="btn btn-danger" runat="server">
+                        <i class="fas fa-backspace"></i>
+                    </asp:HyperLink>-->
 
-    <div class="form-group">
-        <label>Cedula:</label>
-        <input type="text" name="cedula" id="cedula" class="form-control" />
+                    <!---->
+                    <!--<asp:HyperLink ID="hplAtrasListaUsuario" NavigateUrl="~/Formularios/frmUsuarioLista.aspx"
+                                   class="btn btn-danger" runat="server">
+                        <i class="fas fa-backspace"></i>
+                    </asp:HyperLink>-->
+                    <!---->
+                <!--</div>-->
+                <div style="margin-bottom: 10px; padding-left: 40px; padding-right: 40px">
+                    <h3 class="auto-style1">Registro De Un Usuario</h3>
+                </div>
+
+
+            </div>
+
         </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aquamarine; color:black">
 
-    <div class="form-check">
-        <label>Genero:  </label>
-        <br />
-        <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
-        <br />
-        <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
-        <br />
-        <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
-    </div>
-    <br />
-    <div class="form-group">
-        <label>Fecha Nacimiento:</label>
-        <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" />
-    </div>
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
 
-    <div class="form-group">
-        <label>Nombre:</label>
-        <input type="text" name="Nombre" id="Nombre" class="form-control" />
-    </div>
+                    <div class="form-group">
+                        <label>Cedula:</label>
+                        <input type="text" name="cedula" id="cedula" class="form-control" />
+                    </div>
 
-    <div class="form-group">
-        <label>Primer Apellido:</label>
-        <input type="text" name="Apellido1" id="Apellido1" class="form-control" />
-    </div>
+                    <div class="form-check">
+                        <label>Genero:  </label>
+                        <br />
+                        <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
+                        <br />
+                        <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
+                        <br />
+                        <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label>Fecha Nacimiento:</label>
+                        <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" />
+                    </div>
 
-    <div class="form-group">
-        <label>Segundo Apellido:</label>
-        <input type="text" name="Apellido2" id="Apellido2" class="form-control" />
-    </div>
+                    <div class="form-group">
+                        <label>Nombre:</label>
+                        <input type="text" name="Nombre" id="Nombre" class="form-control" />
+                    </div>
 
-    <div class="form-group">
-        <label>Correo electrónico :</label>
-        <input type="text" name="correo" id="correo" class="form-control" />
-    </div>
+                    <div class="form-group">
+                        <label>Primer Apellido:</label>
+                        <input type="text" name="Apellido1" id="Apellido1" class="form-control" />
+                    </div>
 
-    @*<div class="form-group">
-            <label>Tipo de Usuario :</label>
-            <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" />
-        </div>*@
-    <div class="form-check">
-        <label>Tipo De Usuario:  </label>
-        <br />
-        <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
-        <br />
-        <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
-        <br />
-    </div>
-    @*<div class="form-group">
-            <label>Provincia de Nacimiento :</label>
-            <select name="id_Provincia" id="id_Provincia" class="form-control">
-                <option value="">Seleccione una provincia</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
-                        in this.ViewBag.ListaProvincias)
-                    {
-                        <option value="@provincia.id_Provincia">@provincia.nombre</option>
-                    }
-                }
-            </select>
+                    <div class="form-group">
+                        <label>Segundo Apellido:</label>
+                        <input type="text" name="Apellido2" id="Apellido2" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Correo electrónico :</label>
+                        <input type="text" name="correo" id="correo" class="form-control" />
+                    </div>
+
+                    <div class="form-check">
+                        <label>Tipo De Usuario:  </label>
+                        <br />
+                        <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
+                        <br />
+                        <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
+                        <br />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Provincia:</label>
+                        <select name="id_Provincia" id="id_Provincia" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Cantón:</label>
+                        <select name="id_Canton" id="id_Canton" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Distrito:</label>
+                        <select name="id_Distrito" id="id_Distrito" class="form-control"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contraseña :</label>
+                        <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" />
+                    </div>
+                    <div class="container-fluid" style="text-align: center">
+                        <div class="form-group" style="text-align: center">
+                            <div class="form-group" style="BorderColor=" Black" BorderStyle="Double" ForeColor="Black" Height="42px" Width="162px" >
+                                <input type="submit" value="Guardar" id="btnAceptar" />
+
+                            </div>
+                            </div>
+                        </div>
+                            <br />
+                            <a href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
+
+                        </div>
+                        <!--Fin Cuerpo Panel-->
+                    </div>
+                    <!--Fin Panel-->
+
+
+                </div>
+
         </div>
-
-        <div class="form-group">
-            <label>Canton de Nacimiento :</label>
-            <select name="id_Canton" id="id_Canton" class="form-control">
-                <option value="">Seleccione una canton</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
-                        in this.ViewBag.ListaCantones)
-                    {
-                        <option value="@canton.id_Canton">@canton.nombre</option>
-                    }
-                }
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>Distrito de Nacimiento :</label>
-            <select name="id_Distrito" id="id_Distrito" class="form-control">
-                <option value="">Seleccione un Distrito</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
-                        in this.ViewBag.ListaDistritos)
-                    {
-                        <option value="@distrito.id_Distrito">@distrito.nombre</option>
-                    }
-                }
-            </select>
-        </div>*@
-
-
-   @* hacer provincias en .net *@
-
-    <div class="form-group">
-        <label>Provincia:</label>
-        <select name="id_Provincia" id="id_Provincia" class="form-control" ></select>
-    </div>
-
-    <div class="form-group">
-        <label>Cantón:</label>
-        <select name="id_Canton" id="id_Canton" class="form-control"></select>
-    </div>
-
-    <div class="form-group">
-        <label>Distrito:</label>
-        <select name="id_Distrito" id="id_Distrito" class="form-control"></select>
-    </div>
-
-    <div class="form-group">
-        <label>Contraseña :</label>
-        <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" />
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
-    </div>
-    <br />
-    <a href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
-</form>
-@section scripts{
-    @Scripts.Render("~/bundles/bundleJquery")
-<script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
-<script src="~/Scripts/ValidacionesInserta/InsertProvincia.js"></script>
-}
+        <!---->
+    </form>
+    @section scripts{
+        @Scripts.Render("~/bundles/bundleJquery")
+        <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
+        <script src="~/Scripts/ValidacionesInserta/InsertProvincia.js"></script>
+    }
 
 
