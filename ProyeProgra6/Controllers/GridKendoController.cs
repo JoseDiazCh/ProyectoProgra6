@@ -47,10 +47,10 @@ namespace ProyeProgra6.Controllers
 
 
         [HttpPost]
-        public ActionResult RetornaServicio()
+        public ActionResult RetornaServicioCliente()
         {
-            List<sp_RetornaServicioOProducto_Result> listaservicio =
-               this.modeloBD.sp_RetornaServicioOProducto("", "").ToList();
+            List<sp_ReporteSC_Result> listaservicio =
+               this.modeloBD.sp_ReporteSC("", "").ToList();
             return Json(new
 
             {
@@ -58,15 +58,6 @@ namespace ProyeProgra6.Controllers
             });
           
         }
-        public ActionResult RetornaCliente()
-        {
-            List<sp_RetornaUsuarios_Result> listacliente =
-               this.modeloBD.sp_RetornaUsuarios("", "").ToList();
-            return Json(new
-            {
-                resultado = listacliente
-            });
-        }
-
+        
     }
 }

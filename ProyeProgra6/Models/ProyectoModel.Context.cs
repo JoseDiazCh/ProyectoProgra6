@@ -670,5 +670,18 @@ namespace ProyeProgra6.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaUsuarios_Result>("sp_RetornaUsuarios", apellido1Parameter, nombreParameter);
         }
+    
+        public virtual ObjectResult<sp_ReporteSC_Result> sp_ReporteSC(string nombre, string descripcion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("Descripcion", descripcion) :
+                new ObjectParameter("Descripcion", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteSC_Result>("sp_ReporteSC", nombreParameter, descripcionParameter);
+        }
     }
 }
