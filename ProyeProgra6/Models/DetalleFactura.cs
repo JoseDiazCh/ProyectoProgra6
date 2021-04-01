@@ -14,17 +14,13 @@ namespace ProyeProgra6.Models
     
     public partial class DetalleFactura
     {
-        public DetalleFactura()
-        {
-            this.EncabezadoFactura = new HashSet<EncabezadoFactura>();
-        }
-    
         public int idDetalleFac { get; set; }
         public int idServProduc { get; set; }
         public string CantidadSoP { get; set; }
         public decimal PrecioTotal { get; set; }
+        public int idEncabezadoFac { get; set; }
     
         public virtual ServicioOProducto ServicioOProducto { get; set; }
-        public virtual ICollection<EncabezadoFactura> EncabezadoFactura { get; set; }
+        public virtual EncabezadoFactura EncabezadoFactura1 { get; set; }
     }
 }

@@ -27,6 +27,7 @@
           <Property Name="idServProduc" Type="int" Nullable="false" />
           <Property Name="CantidadSoP" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PrecioTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="idEncabezadoFac" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Distrito">
           <Key>
@@ -52,7 +53,6 @@
           <Property Name="Fecha" Type="date" Nullable="false" />
           <Property Name="MontoTotalServicio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="EstadoFactura" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="idDetalleFac" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="MarcaVehiculos">
           <Key>
@@ -174,6 +174,18 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DetalleFactura_EncabezadoFactura">
+          <End Role="EncabezadoFactura" Type="Self.EncabezadoFactura" Multiplicity="1" />
+          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EncabezadoFactura">
+              <PropertyRef Name="idEncabezadoFac" />
+            </Principal>
+            <Dependent Role="DetalleFactura">
+              <PropertyRef Name="idEncabezadoFac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DetalleFactura_ServicioOProducto">
           <End Role="ServicioOProducto" Type="Self.ServicioOProducto" Multiplicity="1" />
           <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="*" />
@@ -183,18 +195,6 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
             </Principal>
             <Dependent Role="DetalleFactura">
               <PropertyRef Name="idServProduc" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EncabezadoFactura_DetalleFactura">
-          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="1" />
-          <End Role="EncabezadoFactura" Type="Self.EncabezadoFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetalleFactura">
-              <PropertyRef Name="idDetalleFac" />
-            </Principal>
-            <Dependent Role="EncabezadoFactura">
-              <PropertyRef Name="idDetalleFac" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -551,13 +551,13 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <End Role="Canton" EntitySet="Canton" />
             <End Role="Distrito" EntitySet="Distrito" />
           </AssociationSet>
+          <AssociationSet Name="FK_DetalleFactura_EncabezadoFactura" Association="Self.FK_DetalleFactura_EncabezadoFactura">
+            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
+            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+          </AssociationSet>
           <AssociationSet Name="FK_DetalleFactura_ServicioOProducto" Association="Self.FK_DetalleFactura_ServicioOProducto">
             <End Role="ServicioOProducto" EntitySet="ServicioOProducto" />
             <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EncabezadoFactura_DetalleFactura" Association="Self.FK_EncabezadoFactura_DetalleFactura">
-            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
           </AssociationSet>
           <AssociationSet Name="FK_EncabezadoFactura_Usuarios" Association="Self.FK_EncabezadoFactura_Usuarios">
             <End Role="Usuarios" EntitySet="Usuarios" />
@@ -630,7 +630,8 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="CantidadSoP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PrecioTotal" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <NavigationProperty Name="ServicioOProducto" Relationship="Self.FK_DetalleFactura_ServicioOProducto" FromRole="DetalleFactura" ToRole="ServicioOProducto" />
-          <NavigationProperty Name="EncabezadoFactura" Relationship="Self.FK_EncabezadoFactura_DetalleFactura" FromRole="DetalleFactura" ToRole="EncabezadoFactura" />
+          <Property Name="idEncabezadoFac" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EncabezadoFactura1" Relationship="proyectoprogra6Model.FK_DetalleFactura_EncabezadoFactura" FromRole="DetalleFactura" ToRole="EncabezadoFactura" />
         </EntityType>
         <EntityType Name="Distrito">
           <Key>
@@ -658,10 +659,9 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="MontoTotalServicio" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="EstadoFactura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="idDetalleFac" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DetalleFactura" Relationship="Self.FK_EncabezadoFactura_DetalleFactura" FromRole="EncabezadoFactura" ToRole="DetalleFactura" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_EncabezadoFactura_Usuarios" FromRole="EncabezadoFactura" ToRole="Usuarios" />
           <NavigationProperty Name="Vehiculos" Relationship="proyectoprogra6Model.FK_EncabezadoFactura_Vehiculos" FromRole="EncabezadoFactura" ToRole="Vehiculos" />
+          <NavigationProperty Name="DetalleFactura" Relationship="proyectoprogra6Model.FK_DetalleFactura_EncabezadoFactura" FromRole="EncabezadoFactura" ToRole="DetalleFactura" />
         </EntityType>
         <EntityType Name="MarcaVehiculos">
           <Key>
@@ -788,18 +788,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EncabezadoFactura_DetalleFactura">
-          <End Role="DetalleFactura" Type="Self.DetalleFactura" Multiplicity="1" />
-          <End Role="EncabezadoFactura" Type="Self.EncabezadoFactura" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DetalleFactura">
-              <PropertyRef Name="idDetalleFac" />
-            </Principal>
-            <Dependent Role="EncabezadoFactura">
-              <PropertyRef Name="idDetalleFac" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Usuarios_Distrito">
           <End Role="Distrito" Type="Self.Distrito" Multiplicity="1" />
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
@@ -874,10 +862,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <AssociationSet Name="FK_DetalleFactura_ServicioOProducto" Association="Self.FK_DetalleFactura_ServicioOProducto">
             <End Role="ServicioOProducto" EntitySet="ServicioOProducto" />
             <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EncabezadoFactura_DetalleFactura" Association="Self.FK_EncabezadoFactura_DetalleFactura">
-            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
-            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Distrito" Association="Self.FK_Usuarios_Distrito">
             <End Role="Distrito" EntitySet="Distrito" />
@@ -1101,6 +1085,10 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="Apellido1" Mode="In" Type="String" />
             <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
+          <AssociationSet Name="FK_DetalleFactura_EncabezadoFactura" Association="proyectoprogra6Model.FK_DetalleFactura_EncabezadoFactura">
+            <End Role="EncabezadoFactura" EntitySet="EncabezadoFactura" />
+            <End Role="DetalleFactura" EntitySet="DetalleFactura" />
+          </AssociationSet>
           <FunctionImport Name="sp_ReporteSC" ReturnType="Collection(proyectoprogra6Model.sp_ReporteSC_Result)">
             <Parameter Name="Nombre" Mode="In" Type="String" />
             <Parameter Name="Descripcion" Mode="In" Type="String" />
@@ -1349,12 +1337,27 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="nombreDistrito" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="Contrasenia" Nullable="true" MaxLength="50" />
         </ComplexType>
+        <Association Name="FK_DetalleFactura_EncabezadoFactura">
+          <End Type="proyectoprogra6Model.EncabezadoFactura" Role="EncabezadoFactura" Multiplicity="1" />
+          <End Type="proyectoprogra6Model.DetalleFactura" Role="DetalleFactura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EncabezadoFactura">
+              <PropertyRef Name="idEncabezadoFac" />
+            </Principal>
+            <Dependent Role="DetalleFactura">
+              <PropertyRef Name="idEncabezadoFac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <ComplexType Name="sp_ReporteSC_Result">
           <Property Type="Int32" Name="idUsuario" Nullable="false" />
-          <Property Type="String" Name="Apellido1" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
           <Property Type="String" Name="DescripcionServicio" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="PrecioServicio" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Cantidad" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="Decimal" Name="PrecioTotal" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1380,6 +1383,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <EntitySetMapping Name="DetalleFactura">
             <EntityTypeMapping TypeName="proyectoprogra6Model.DetalleFactura">
               <MappingFragment StoreEntitySet="DetalleFactura">
+                <ScalarProperty Name="idEncabezadoFac" ColumnName="idEncabezadoFac" />
                 <ScalarProperty Name="idDetalleFac" ColumnName="idDetalleFac" />
                 <ScalarProperty Name="idServProduc" ColumnName="idServProduc" />
                 <ScalarProperty Name="CantidadSoP" ColumnName="CantidadSoP" />
@@ -1411,7 +1415,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="MontoTotalServicio" ColumnName="MontoTotalServicio" />
                 <ScalarProperty Name="EstadoFactura" ColumnName="EstadoFactura" />
-                <ScalarProperty Name="idDetalleFac" ColumnName="idDetalleFac" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1784,10 +1787,13 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_ReporteSC_Result">
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="Apellido1" ColumnName="Apellido1" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
                 <ScalarProperty Name="DescripcionServicio" ColumnName="DescripcionServicio" />
                 <ScalarProperty Name="PrecioServicio" ColumnName="PrecioServicio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="PrecioTotal" ColumnName="PrecioTotal" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

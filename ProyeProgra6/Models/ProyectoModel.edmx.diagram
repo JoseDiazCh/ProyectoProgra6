@@ -19,7 +19,6 @@
         <AssociationConnector Association="proyectoprogra6Model.Distrito_ref_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Canton" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_DetalleFactura_ServicioOProducto" ManuallyRouted="false" />
-        <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_DetalleFactura" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Usuarios_Distrito" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_EncabezadoFactura_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="proyectoprogra6Model.FK_MarcaVehiculos_PaisFabricante" ManuallyRouted="false" />
@@ -30,6 +29,7 @@
         <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_MarcaVehiculos" />
         <AssociationConnector Association="proyectoprogra6Model.FK_Vehiculos_TiposVehiculos" />
         <AssociationConnector Association="proyectoprogra6Model.VehiculoCliente" />
+        <AssociationConnector Association="proyectoprogra6Model.FK_DetalleFactura_EncabezadoFactura" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

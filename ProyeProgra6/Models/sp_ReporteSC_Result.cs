@@ -14,9 +14,12 @@ namespace ProyeProgra6.Models
     public partial class sp_ReporteSC_Result
     {
         public int idUsuario { get; set; }
-        public string Apellido1 { get; set; }
-        public string Nombre { get; set; }
+        public string NombreCompleto { get; set; }
         public string DescripcionServicio { get; set; }
         public string PrecioServicio { get; set; }
+        public string Cantidad { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public decimal PrecioTotal { get; set; }
+        public string Placa { get; set; }
     }
 }
