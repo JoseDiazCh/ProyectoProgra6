@@ -3,38 +3,43 @@
 
 @{
     ViewBag.Title = "MarcaVehiculoLista";
-   
+
 }
+@section css{
 
-<h2>Lista Las Marcas De Los Vehiculos</h2>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+    <h2>Lista Las Marcas De Los Vehiculos</h2>
 
-<table class="table">
-    <tr>
-        <th>Codigo</th>
-        <th>Tipo</th>
-        <th>Acciones</th>
+    <table class="table">
+        <tr>
+            <th>Codigo</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
 
 
 
 
-    </tr>
+        </tr>
 
-    @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
-                       in this.Model)
-        {
-            <tr>
-                <td>@posicionModelo.Codigo</td>
-                <td>@posicionModelo.Tipo</td>
+        @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
+                              in this.Model)
+            {
+                <tr>
+                    <td>@posicionModelo.Codigo</td>
+                    <td>@posicionModelo.Tipo</td>
 
-                <td>
-                    <a href="~/MarcaVehiculo/ModificaMarcaVehiculo?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Modificar</a>
-                    <br />
-                    <a href="~/MarcaVehiculo/MarcaVehiculoElimina?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Eliminar</a>
+                    <td>
+                        <a href="~/MarcaVehiculo/ModificaMarcaVehiculo?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Modificar</a>
+                        <br />
+                        <a href="~/MarcaVehiculo/MarcaVehiculoElimina?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Eliminar</a>
 
-                </td>
+                    </td>
 
-            </tr>
+                </tr>
+            }
         }
-    }
-</table>
-<a href="~/MarcaVehiculo/MarcaVehiculoNueva"> Registar Nueva Marca De  Vehiculo</a>
+    </table>
+</body>
+    <a href="~/MarcaVehiculo/MarcaVehiculoNueva"> Registar Nueva Marca De  Vehiculo</a>

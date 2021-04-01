@@ -3,33 +3,40 @@
     ViewBag.Title = "PaisFabricanteLista";
 }
 
-<h2> Lista Del Pais  De Fabricacion</h2>
+@section css{
 
-<table class="table">
-    <tr>
-        <th>Codigo</th>
-        <th>Pais</th>
-        <th>Acciones</th>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+    <h2> Lista Del Pais  De Fabricacion</h2>
 
-
-    </tr>
-
-    @{ foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result posicionModelo
-                      in this.Model)
-        {
+    <table class="table">
         <tr>
-            <td>@posicionModelo.Codigo</td>
-            <td>@posicionModelo.Pais</td>
+            <th>Codigo</th>
+            <th>Pais</th>
+            <th>Acciones</th>
 
-            <td>
-                <a href="~/PaisFabricante/ModificaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Modificar</a>
-                <br />
-                <a href="~/PaisFabricante/EliminaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Eliminar</a>
-
-            </td>
 
         </tr>
+
+        @{ foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result posicionModelo
+                            in this.Model)
+            {
+                <tr>
+                    <td>@posicionModelo.Codigo</td>
+                    <td>@posicionModelo.Pais</td>
+
+                    <td>
+                        <a href="~/PaisFabricante/ModificaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Modificar</a>
+                        <br />
+                        <a href="~/PaisFabricante/EliminaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Eliminar</a>
+
+                    </td>
+
+                </tr>
+            }
         }
-    }
-</table>
-<a href="~/PaisFabricante/PaisFabricacionNuevo"> Registar Nuevo Pais De Fabricacion</a>
+    </table>
+
+</body>
+    <a href="~/PaisFabricante/PaisFabricacionNuevo"> Registar Nuevo Pais De Fabricacion</a>

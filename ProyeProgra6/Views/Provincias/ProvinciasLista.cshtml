@@ -1,36 +1,69 @@
 ﻿
 @model List<ProyeProgra6.Models.sp_RetornaProvincias_Result>
+@section css{
 
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
 @{
     ViewBag.Title = "ProvinciasLista";
 }
+<body class="imagenFondo">
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 40px; margin-right: 25px; margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-<h2> Lista De Provincias</h2>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1"> Lista De Provincias</h2>
+                    </div>
+                </div>
+            </div>
 
-<table class="table">
-    <tr>
-        <th>Nombre</th>
-        <th>Usuario de Creacion</th>
-        <th>Fecha Cracion</th>
-        <th>Usuario Modifica</th>
-        <th>Fecha Modifica</th>
-        <th>VC Estado</th>
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
-    </tr>
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
+                    <table class="table">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Usuario de Creacion</th>
+                            <th>Fecha Cracion</th>
+                            <th>Usuario Modifica</th>
+                            <th>Fecha Modifica</th>
+                            <th>VC Estado</th>
 
-    @{ foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result posicionModelo
-                    in this.Model)
-        {
-            <tr>
-                <td>@posicionModelo.nombre</td>
-                <td>@posicionModelo.usuarioCrea</td>
-                <td>@posicionModelo.fechaCrea</td>
-                <td>@posicionModelo.usuarioModifica</td>
-                <td>@posicionModelo.fechaModifica</td>
-                <td>@posicionModelo.vc_Estado</td>
+                        </tr>
+
+                        @{ foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result posicionModelo
+                                             in this.Model)
+                            {
+                                <tr>
+                                    <td>@posicionModelo.nombre</td>
+                                    <td>@posicionModelo.usuarioCrea</td>
+                                    <td>@posicionModelo.fechaCrea</td>
+                                    <td>@posicionModelo.usuarioModifica</td>
+                                    <td>@posicionModelo.fechaModifica</td>
+                                    <td>@posicionModelo.vc_Estado</td>
 
 
-            </tr>
-        }
-    }
-</table>
+                                </tr>
+                            }
+                        }
+                    </table>
+                </div>
+                <!--Fin Cuerpo Panel-->
+            </div>
+            <!--Fin Panel-->
+
+        </div>
+
+    </div>
+</body>

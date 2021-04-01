@@ -1,37 +1,42 @@
 ﻿
 @model ProyeProgra6.Models.sp_RetornaPaísFabricante_ID_Result
-    @{
-        ViewBag.Title = "EliminaPaisFabricacion";
+@{
+    ViewBag.Title = "EliminaPaisFabricacion";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Elimina Pais De Fabricacion</h2>
-<form id="frmNuevaPersona" method="post">
-    <input type="hidden" name="idPaisFabricante" id="idPaisFabricante" value="@Model.idPaisFabricante" />
-    <div class="form-group">
-        <br />
-        <label>Codigo:</label>
-        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" readonly />
-    </div>
+@section css{
 
-    <div class="form-group">
-        <label>Pais:</label>
-        <input type="text" name="pais" id="pais" class="form-control" value="@Model.Pais" readonly />
-    </div>
-
-
-    <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
-    </div>
-    <a href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
-</form>
-
-@section Scripts{
-    @* *****No es necesario incluir jquery porque
-        ya el layout lo incluye*@
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/scripts/Usuarios/ValidacionesGenericas.js")
-   
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
+<body class="imagenFondo">
+    <h2>Elimina Pais De Fabricacion</h2>
+    <form id="frmNuevaPersona" method="post">
+        <input type="hidden" name="idPaisFabricante" id="idPaisFabricante" value="@Model.idPaisFabricante" />
+        <div class="form-group">
+            <br />
+            <label>Codigo:</label>
+            <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" readonly />
+        </div>
+
+        <div class="form-group">
+            <label>Pais:</label>
+            <input type="text" name="pais" id="pais" class="form-control" value="@Model.Pais" readonly />
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" id="btnAceptar" />
+        </div>
+        <a href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
+    </form>
+</body>
+    @section Scripts{
+        @* *****No es necesario incluir jquery porque
+            ya el layout lo incluye*@
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/scripts/Usuarios/ValidacionesGenericas.js")
+
+    }
 
 

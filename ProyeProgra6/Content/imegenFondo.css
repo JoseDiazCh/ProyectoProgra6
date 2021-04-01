@@ -1,0 +1,8 @@
+﻿.imagenFondo {
+    background-image:url(../Imagenes/ImagenFondo.jpg);
+    width: auto;
+    margin: auto;
+    height: auto;
+    max-height:inherit; 
+    color:white
+}

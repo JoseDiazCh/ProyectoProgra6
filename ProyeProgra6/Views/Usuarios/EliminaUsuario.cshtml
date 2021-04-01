@@ -3,135 +3,107 @@
     ViewBag.Title = "EliminaUsuario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section css{
+
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
 
 
+    <h2>Elimina Usuario</h2>
 
-<h2>Elimina Usuario</h2>
+    <form id="frmNuevaPersona" method="post">
+        <!--Panel-->
+        <div class="panel panel-primary"
+             style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 110px; margin-right: 100px; margin-top: 15px">
+            <!--Encabezado Del Panel-->
+            <div class="panel-heading">
+                <div class="row" style="display: flex">
+                    <div style="margin-left: 10px; margin-top: 10px">
 
-<form id="frmNuevaPersona" method="post">
-    <!--Panel-->
-    <div class="panel panel-primary"
-         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 110px; margin-right: 100px; margin-top: 15px">
-        <!--Encabezado Del Panel-->
-        <div class="panel-heading">
-            <div class="row" style="display: flex">
-                <div style="margin-left: 10px; margin-top: 10px">
-
-                    <div style="margin-bottom: 10px; padding-left: 40px; padding-right: 40px">
-                        <h2 class="auto-style1">Registro De Eliminar Un Usuario</h2>
+                        <div style="margin-bottom: 10px; padding-left: 40px; padding-right: 40px">
+                            <h2 class="auto-style1">Registro De Eliminar Un Usuario</h2>
+                        </div>
                     </div>
                 </div>
+
             </div>
+            <!--Fin Encabezado Del Panel-->
+            <!--Cuerpo Del Panel-->
+            <div class="panel-body" style="background-color: cyan; color:black">
 
-        </div>
-        <!--Fin Encabezado Del Panel-->
-        <!--Cuerpo Del Panel-->
-        <div class="panel-body" style="background-color: cyan; color:black">
+                <!-- Columnnas Del Panel-->
+                <div class="row" style="display: flex">
+                    <!-- Primera Columnna Del Panel-->
+                    <div class="column" style="flex: 50%; padding: 10px;">
+                        <input type="hidden" name="idusuario" id="idusuario" value="@Model.idUsuario" />
+                        <div class="form-group">
+                            <label>Cedula:</label>
+                            <input type="text" name="cedula" id="cedula" class="form-control" value="@Model.Cedula" readonly />
+                        </div>
 
-            <!-- Columnnas Del Panel-->
-            <div class="row" style="display: flex">
-                <!-- Primera Columnna Del Panel-->
-                <div class="column" style="flex: 50%; padding: 10px;">
-                    <input type="hidden" name="idusuario" id="idusuario" value="@Model.idUsuario" />
-                    <div class="form-group">
-                        <label>Cedula:</label>
-                        <input type="text" name="cedula" id="cedula" class="form-control" value="@Model.Cedula" readonly />
-                    </div>
-
-                    <div class="form-check">
-                        <label>Genero:  </label>
+                        <div class="form-check">
+                            <label>Genero:  </label>
+                            <br />
+                            <input type="radio" name="Genero" value="Femenino" class="form-check-input" @(Model.Genero == "Femenino" ? "checked" : "") /> Femenino
+                            <br />
+                            <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero == "Masculino" ? "checked" : "") /> Masculino
+                            <br />
+                            <input type="radio" name="Genero" value="Indefinido" class="form-check-input" @(Model.Genero == "Indefinido" ? "checked" : "") /> Indefinido
+                        </div>
                         <br />
-                        <input type="radio" name="Genero" value="Femenino" class="form-check-input" @(Model.Genero == "Femenino" ? "checked" : "") /> Femenino
-                        <br />
-                        <input type="radio" name="Genero" value="Masculino" class="form-check-input" @(Model.Genero == "Masculino" ? "checked" : "") /> Masculino
-                        <br />
-                        <input type="radio" name="Genero" value="Indefinido" class="form-check-input" @(Model.Genero == "Indefinido" ? "checked" : "") /> Indefinido
-                    </div>
-                    <br />
-                    <div class="form-group">
-                        <label>Fecha Nacimiento:</label>
-                        <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" value="@Model.FechaNacimiento.ToShortDateString()" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Fecha Nacimiento:</label>
+                            <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" value="@Model.FechaNacimiento.ToShortDateString()" readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label>Nombre:</label>
-                        <input type="text" name="Nombre" id="Nombre" class="form-control" value="@Model.Nombre" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" name="Nombre" id="Nombre" class="form-control" value="@Model.Nombre" readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label>Primer Apellido:</label>
-                        <input type="text" name="Apellido1" id="Apellido1" class="form-control" value="@Model.Apellido1" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Primer Apellido:</label>
+                            <input type="text" name="Apellido1" id="Apellido1" class="form-control" value="@Model.Apellido1" readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label>Segundo Apellido:</label>
-                        <input type="text" name="Apellido2" id="Apellido2" class="form-control" value="@Model.Apellido2" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Segundo Apellido:</label>
+                            <input type="text" name="Apellido2" id="Apellido2" class="form-control" value="@Model.Apellido2" readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label>Correo electrónico :</label>
-                        <input type="text" name="correo" id="correo" class="form-control" value="@Model.Correo" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Correo electrónico :</label>
+                            <input type="text" name="correo" id="correo" class="form-control" value="@Model.Correo" readonly />
+                        </div>
 
-                    <div class="form-group">
-                        <label>Tipo de Usuario :</label>
-                        <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" value="@Model.TipoUsuario" readonly />
-                    </div>
+                        <div class="form-group">
+                            <label>Tipo de Usuario :</label>
+                            <input type="text" name="TipoUsuario" id="TipoUsuario" class="form-control" value="@Model.TipoUsuario" readonly />
+                        </div>
 
 
-                    <div class="form-group">
-                        <label>Provincia de Nacimiento :</label>
-                        <select name="id_Provincia" id="id_Provincia" class="form-control" readonly>
-                            <option value="">Seleccione una provincia</option>
-                            @{
-                                foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
-                                    in this.ViewBag.ListaProvincias)
-                                {
-                                    bool esIdProvinciaModelo = provincia.id_Provincia == Model.id_Provincia;
-                                    @*
-                        incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
-                                    *@
-
-                                    if (esIdProvinciaModelo)
+                        <div class="form-group">
+                            <label>Provincia de Nacimiento :</label>
+                            <select name="id_Provincia" id="id_Provincia" class="form-control" readonly>
+                                <option value="">Seleccione una provincia</option>
+                                @{
+                                    foreach (ProyeProgra6.Models.sp_RetornaProvincias_Result provincia
+                                        in this.ViewBag.ListaProvincias)
                                     {
-                                        <option value="@provincia.id_Provincia" selected>@provincia.nombre.ToUpper() </option>
-
-                                    }
-                                    else
-                                    {
-                                        <option value="@provincia.id_Provincia">@provincia.nombre.ToUpper() </option>
-
-
-                                    }
-
-
-                                }
-                            }
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Canton de Nacimiento :</label>
-                        <select name="id_Canton" id="id_Canton" class="form-control" readonly>
-                            <option value="">Seleccione una canton</option>
-                            @{
-                                foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
-                                    in this.ViewBag.ListaCantones)
-                                {
-                                    {
-                                        bool esIdCantonModelo = canton.id_Canton == Model.id_Canton;
+                                        bool esIdProvinciaModelo = provincia.id_Provincia == Model.id_Provincia;
                                         @*
-                            incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
+                                            incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
                                         *@
 
-                                        if (esIdCantonModelo)
+                                        if (esIdProvinciaModelo)
                                         {
-                                            <option value="@canton.id_Canton" selected>@canton.nombre.ToUpper() </option>
+                                            <option value="@provincia.id_Provincia" selected>@provincia.nombre.ToUpper() </option>
 
                                         }
                                         else
                                         {
-                                            <option value="@canton.id_Canton">@canton.nombre.ToUpper() </option>
+                                            <option value="@provincia.id_Provincia">@provincia.nombre.ToUpper() </option>
 
 
                                         }
@@ -139,66 +111,100 @@
 
                                     }
                                 }
-                            }
-                        </select>
-                    </div>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label>Distrito de Nacimiento :</label>
-                        <select name="id_Distrito" id="id_Distrito" class="form-control" readonly>
-                            <option value="">Seleccione un Distrito</option>
-                            @{
-                                foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
-                                    in this.ViewBag.ListaDistritos)
-                                {
-                                    bool esIdDistritosModelo = distrito.id_Canton == Model.id_Canton;
-                                    @*
-                        incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
-                                    *@
-
-                                    if (esIdDistritosModelo)
+                        <div class="form-group">
+                            <label>Canton de Nacimiento :</label>
+                            <select name="id_Canton" id="id_Canton" class="form-control" readonly>
+                                <option value="">Seleccione una canton</option>
+                                @{
+                                    foreach (ProyeProgra6.Models.sp_RetornaCantones_Result canton
+                                        in this.ViewBag.ListaCantones)
                                     {
-                                        <option value="@distrito.id_Canton" selected>@distrito.nombre.ToUpper() </option>
+                                        {
+                                            bool esIdCantonModelo = canton.id_Canton == Model.id_Canton;
+                                            @*
+                                                incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
+                                            *@
 
+                                            if (esIdCantonModelo)
+                                            {
+                                                <option value="@canton.id_Canton" selected>@canton.nombre.ToUpper() </option>
+
+                                            }
+                                            else
+                                            {
+                                                <option value="@canton.id_Canton">@canton.nombre.ToUpper() </option>
+
+
+                                            }
+
+
+                                        }
                                     }
-                                    else
-                                    {
-                                        <option value="@distrito.id_Canton">@distrito.nombre.ToUpper() </option>
-
-
-                                    }
-
-
                                 }
-                            }
-                        </select>
-                    </div>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Distrito de Nacimiento :</label>
+                            <select name="id_Distrito" id="id_Distrito" class="form-control" readonly>
+                                <option value="">Seleccione un Distrito</option>
+                                @{
+                                    foreach (ProyeProgra6.Models.sp_RetornaDistritos_Result distrito
+                                        in this.ViewBag.ListaDistritos)
+                                    {
+                                        bool esIdDistritosModelo = distrito.id_Canton == Model.id_Canton;
+                                        @*
+                                            incluir propiedad selested para que aparezca la opcion de la provincia seleccionada
+                                        *@
+
+                                        if (esIdDistritosModelo)
+                                        {
+                                            <option value="@distrito.id_Canton" selected>@distrito.nombre.ToUpper() </option>
+
+                                        }
+                                        else
+                                        {
+                                            <option value="@distrito.id_Canton">@distrito.nombre.ToUpper() </option>
+
+
+                                        }
+
+
+                                    }
+                                }
+                            </select>
+                        </div>
 
 
 
-                    <div class="form-group">
-                        <label>Contraseña :</label>
-                        <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" value="@Model.Contrasenia" readonly />
+                        <div class="form-group">
+                            <label>Contraseña :</label>
+                            <input type="password" name="Contrasenia" id="Contrasenia" class="form-control" value="@Model.Contrasenia" readonly />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Eliminar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
+                        </div>
+                        <br />
+                        <a style="color:darkblue" href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Eliminar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
-                    </div>
-                    <br />
-                    <a style="color:darkblue" href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
+                    <!--Fin Cuerpo Panel-->
                 </div>
-                <!--Fin Cuerpo Panel-->
+                <!--Fin Panel-->
+
             </div>
-            <!--Fin Panel-->
 
         </div>
+    </form>
+   
 
-    </div>
-</form>
-</div>
-@section scripts{
-    @Scripts.Render("~/bundles/bundleJquery")
-    <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
+</body>
+    @section scripts{
+        @Scripts.Render("~/bundles/bundleJquery")
+        <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
 
-}
+    }
 
 

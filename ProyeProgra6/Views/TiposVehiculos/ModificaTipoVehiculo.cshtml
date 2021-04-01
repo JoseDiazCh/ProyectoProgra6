@@ -3,27 +3,60 @@
 @{
     ViewBag.Title = "ModificaTipoVehiculo";
 }
+@section css{
 
-<h2>Modifica El Tipo Vehiculo</h2>
-<form id="frmTipoVehiculo" method="post">
-    <div class="form-group">
-        <label>Codigo:</label>
-        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" />
-    </div>
-
-    <div class="form-group">
-        <label>Tipo De Vehiculo:</label>
-        <input type="text" name="tipo" id="tipo" class="form-control" value="@Model.Tipo" />
-    </div>
-
-
-    <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
-    </div>
-    <a href="~/TiposVehiculos/TiposVehiculosLista"> Regresar a la lista</a>
-</form>
-
-@section scripts{
-    <script src="~/Scripts/ValidacionesInserta/InsertTipoVehiculo.js"></script>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
+<body class="imagenFondo">
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 40px; margin-right: 25px; margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1">Modifica El Tipo Vehiculo</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
+
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
+                    <form id="frmTipoVehiculo" method="post">
+                        <div class="form-group">
+                            <label>Codigo:</label>
+                            <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo De Vehiculo:</label>
+                            <input type="text" name="tipo" id="tipo" class="form-control" value="@Model.Tipo" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" id="btnAceptar" />
+                        </div>
+                        <a href="~/TiposVehiculos/TiposVehiculosLista"> Regresar a la lista</a>
+                    </form>
+                </div>
+                <!--Fin Cuerpo Panel-->
+            </div>
+            <!--Fin Panel-->
+
+        </div>
+
+    </div>
+    @section scripts{
+        <script src="~/Scripts/ValidacionesInserta/InsertTipoVehiculo.js"></script>
+    }
+</body>

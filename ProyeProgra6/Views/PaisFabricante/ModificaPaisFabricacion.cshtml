@@ -3,29 +3,34 @@
     ViewBag.Title = "ModificaPaisFabricacion";
 }
 
-<h2>Modifica Pais De Fabricacion</h2>
+@section css{
 
-<form id="frmNuevaPersona" method="post">
-    <div class="form-group">
-        <label>Codigo:</label>
-        <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" />
-    </div>
-
-    <div class="form-group">
-        <label>Pais:</label>
-        <input type="text" name="pais" id="pais" class="form-control" value="@Model.Pais" />
-    </div>
-
-
-    <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
-    </div>
-    <a href="~/PaisFabricante/PaisFabricanteLista"> Regresar a la lista</a>
-</form>
-
-@section scripts{
-
-    <script src="~/Scripts/Usuarios/NuevoUsuario.js"></script>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
+<body class="imagenFondo">
+    <h2>Modifica Pais De Fabricacion</h2>
+
+    <form id="frmNuevaPersona" method="post">
+        <div class="form-group">
+            <label>Codigo:</label>
+            <input type="text" name="codigo" id="codigo" class="form-control" value="@Model.Codigo" />
+        </div>
+
+        <div class="form-group">
+            <label>Pais:</label>
+            <input type="text" name="pais" id="pais" class="form-control" value="@Model.Pais" />
+        </div>
+
+
+        <div class="form-group">
+            <input type="submit" value="Guardar" id="btnAceptar" />
+        </div>
+        <a href="~/PaisFabricante/PaisFabricanteLista"> Regresar a la lista</a>
+    </form>
+</body>
+    @section scripts{
+
+        <script src="~/Scripts/Usuarios/NuevoUsuario.js"></script>
+    }
 
 

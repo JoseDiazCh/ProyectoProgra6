@@ -3,34 +3,66 @@
 @{
     ViewBag.Title = "TiposVehiculosLista";
 }
+@section css{
 
-<h2>Lista De Los Tipos Vehiculos </h2>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 40px; margin-right: 25px; margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-<table class="table">
-    <tr>
-        <th>Codigo</th>
-        <th>Tipo</th>
-        <th>Acciones</th>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1">Lista De Los Tipos Vehiculos </h2>
+                    </div>
+                </div>
+            </div>
 
-    </tr>
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
-    @{ foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result posicionModelo
-                   in this.Model)
-        {
-            <tr>
-                <td>@posicionModelo.Codigo</td>
-                <td>@posicionModelo.Tipo</td>
-                <td>
-                    <a href="~/TiposVehiculos/ModificaTipoVehiculo?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Modificar</a>
-                    <br />
-                    <a href="~/TiposVehiculos/TipoVehiculoElimina?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Eliminar</a>
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
+                    <table class="table">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
 
-                </td>
+                        </tr>
 
-            </tr>
-        }
-    }
-</table>
-<a href="~/TiposVehiculos/TipoVehiculoNuevo"> Registar Nuevo Tipo De Vehiculo</a>
+                        @{ foreach (ProyeProgra6.Models.sp_RetornaTiposVehiculos_Result posicionModelo
+                                            in this.Model)
+                            {
+                                <tr>
+                                    <td>@posicionModelo.Codigo</td>
+                                    <td>@posicionModelo.Tipo</td>
+                                    <td>
+                                        <a href="~/TiposVehiculos/ModificaTipoVehiculo?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Modificar</a>
+                                        <br />
+                                        <a href="~/TiposVehiculos/TipoVehiculoElimina?idTipoVehiculo=@posicionModelo.idTipoVehiculo">Eliminar</a>
 
+                                    </td>
 
+                                </tr>
+                            }
+                        }
+                    </table>
+                    <a href="~/TiposVehiculos/TipoVehiculoNuevo"> Registar Nuevo Tipo De Vehiculo</a>
+                </div>
+                <!--Fin Cuerpo Panel-->
+            </div>
+            <!--Fin Panel-->
+
+        </div>
+
+    </div>
+</body>

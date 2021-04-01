@@ -4,39 +4,72 @@
 @{
     ViewBag.Title = "VehiculosLista";
 }
+@section css{
 
-<h2> Lista de Vehiculos</h2>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+    <div class="panel panel-primary"
+         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 40px; margin-right: 25px; margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-<table class="table">
-    <tr>
-        <th>Placa</th>
-        <th>Marca Vehiculo</th>
-        <th>Tipo de Vehiculo</th>
-        <th>Numero de Puertas</th>
-        <th>Numero de Ruedas</th>
-        <th>Acciones</th>
-    </tr>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1"> Lista de Vehiculos</h2>
+                    </div>
+                </div>
+            </div>
+            <!--Fin Encabezado Del Panel-->
+            <!--Cuerpo Del Panel-->
+            <div class="panel-body" style="background-color: aqua; color:black">
 
-    @{ foreach (ProyeProgra6.Models.sp_RetornaVehiculos_Result posicionModelo
-                   in this.Model)
-        {
-            <tr>
-                <td>@posicionModelo.Placa</td>
-                <td>@posicionModelo.Marca_Vehiculo</td>
-                <td>@posicionModelo.Tipo_Vehiculo</td>
-                <td>@posicionModelo.NumeroPuertas</td>
-                <td>@posicionModelo.NumeroRuedas</td>
+                <!-- Columnnas Del Panel-->
+                <div class="row" style="display: flex">
+                    <!-- Primera Columnna Del Panel-->
+                    <div class="column" style="flex: 50%; padding: 10px;">
 
-                <td>
-                    <a href="~/Vehiculos/ModificaVehiculo?idVehiculo=@posicionModelo.idVehiculo">Modificar</a>
-                    <br />
-                    <a href="~/Vehiculos/EliminaVehiculo?idVehiculo=@posicionModelo.idVehiculo">Eliminar</a>
+                        <table class="table">
+                            <tr>
+                                <th>Placa</th>
+                                <th>Marca Vehiculo</th>
+                                <th>Tipo de Vehiculo</th>
+                                <th>Numero de Puertas</th>
+                                <th>Numero de Ruedas</th>
+                                <th>Acciones</th>
+                            </tr>
 
-                </td>
-            </tr>
-        }
-    }
-</table>
-<a href="~/Vehiculos/VehiculoNuevo"> Registar Nuevo Vehiculo</a>
+                            @{ foreach (ProyeProgra6.Models.sp_RetornaVehiculos_Result posicionModelo
+                                                  in this.Model)
+                                {
+                                    <tr>
+                                        <td>@posicionModelo.Placa</td>
+                                        <td>@posicionModelo.Marca_Vehiculo</td>
+                                        <td>@posicionModelo.Tipo_Vehiculo</td>
+                                        <td>@posicionModelo.NumeroPuertas</td>
+                                        <td>@posicionModelo.NumeroRuedas</td>
 
+                                        <td>
+                                            <a href="~/Vehiculos/ModificaVehiculo?idVehiculo=@posicionModelo.idVehiculo">Modificar</a>
+                                            <br />
+                                            <a href="~/Vehiculos/EliminaVehiculo?idVehiculo=@posicionModelo.idVehiculo">Eliminar</a>
+
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+
+                        <a href="~/Vehiculos/VehiculoNuevo"> Registar Nuevo Vehiculo</a>
+                    </div>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+            </div>
+
+        </div>
+    </div>
+</body>
 
