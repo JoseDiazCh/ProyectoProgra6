@@ -1,7 +1,7 @@
 ﻿
-@*@{
+@{
     ViewBag.Title = "EncabezadoFac";
-}*@
+}
 
 
 @section css{
@@ -13,14 +13,13 @@
 <div id="divKendoGrid">
 
 </div>
-
-@section scripts{
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
-    <script src="~/Scripts/scriptGenerico.js"></script>
-    <script src="~/Scripts/Facturas/facturalista.js"></script>
-}
-<br />
-<br />
-<a style="color:darkblue" href="~/Facturacion/FacturaNueva"> Registar Nueva Factura</a>
+    @section scripts{
+        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
+        <script src="~/Scripts/scriptGenerico.js"></script>
+        <script src="~/Scripts/Facturas/facturalista.js"></script>
+    }
+    <br />
+    <br />
+    <a style="color:darkblue" href="~/Facturacion/FacturaNueva"> Registar Nueva Factura</a>
 
