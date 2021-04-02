@@ -1,15 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "FacturaNueva";
 }
 
 @section css{
 
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/black-tie/jquery-ui.css" />
+
 }
 <body class="imagenFondo">
 
-    <form id="frmNuevaFactura" method="post">
+    <form id="frmNuevaFactura" >
         <!--Panel-->
         <div class="panel panel-primary"
              style=" text-align: left;
@@ -51,8 +52,8 @@
                         </div>
                         <br />
                         <div class="form-group">
-                            <label for="fecha">Fecha : </label>
-                            <input type="text" name="fecha" id="fechan" class="form-control" value="" />
+                            <label for="fecha">Fecha: </label>
+                            <input type="text" name="fecha" id="fecha" class="form-control" value="" />
                         </div>
 
                         <div class="form-group">
@@ -81,25 +82,78 @@
                         </div>
                         <br />
                         <br />
-                        <a style="color:darkblue" href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
-
+                        <a style="color:darkblue" href="~/Facturacion/EncabezadoFac"> Lista de Facturas</a>
+                        <br />
+                        <br />
+                        <input type="button" id="btMostrarDialog" value="Mostrar dialog" class="btn btn-success" style=" color:black" />
                     </div>
                     <!--Fin Cuerpo Panel-->
                 </div>
                 <!--Fin Panel-->
-
-
             </div>
-
         </div>
         <!---->
     </form>
 
+    <div id="divDialog" hidden>
+        <h2>Inserta Nueva Empresa</h2>
+        <form id="frmInsertaEmpresas">
+            <div class="form-group">
+                <label>Nombre Empresa:</label>
+                <input type="text" name="nombre" id="nombre" class="form-control" value="" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Identificacion:</label>
+                <input type="text" name="identificacion" id="identificacion" class="form-control" value="" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Direccion:</label>
+                <input type="text" name="direccion" id="direccion" class="form-control" value="" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Correo electrónico:</label>
+                <input type="text" name="correoElectronico" id="correoElectronico" class="form-control" value=" " />
+            </div>
+            <br />
+            <div class="form-group">
+                <label>Representante Legal:</label>
+                <select name="id_RepresentanteLegal" id="id_RepresentanteLegal" class="form-control">
+                </select>
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="fechaCreacion">Fecha Creacion: </label>
+                <input type="text" name="fechaCreacion" id="fechaCreacion" class="form-control" value="" />
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="fechaInscripcion">Fecha Inscripcion: </label>
+                <input type="text" name="fechaInscripcion" id="fechaInscripcion" class="form-control" value="" />
+            </div>
+            <br />
+            <br />
+        </form>
+        <div class="form-group">
+            <div class="col-md-10">
+                <button style="color:black" id="btnInsertar" class="btn btn-success"> Registrar</button>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
+</div>
+
 </body>
 @section scripts{
-    <script src="~/Scripts/jquery.validate.js"></script>
+    @Scripts.Render("~/bundles/bundleJquery")
     <script src="~/Scripts/jqueryui.js"></script>
     <script src="~/Scripts/Facturas/facturainsert.js"></script>
+    <script src="~/Scripts/scriptGenerico.js"></script>
 }
+
+
 
 
