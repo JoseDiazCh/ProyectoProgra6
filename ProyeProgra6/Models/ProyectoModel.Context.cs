@@ -684,15 +684,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteSC_Result>("sp_ReporteSC", nombreParameter, descripcionParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaFacturaEnc_Result> sp_RetornaFacturaEnc(string estadoFactura)
-        {
-            var estadoFacturaParameter = estadoFactura != null ?
-                new ObjectParameter("EstadoFactura", estadoFactura) :
-                new ObjectParameter("EstadoFactura", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_Result>("sp_RetornaFacturaEnc", estadoFacturaParameter);
-        }
-    
         public virtual int sp_InsertaFactura(Nullable<int> idUsuario, Nullable<int> idVehiculo, Nullable<System.DateTime> fecha, Nullable<decimal> montoTotalServicio, string estadoFactura)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
@@ -716,6 +707,15 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("EstadoFactura", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaFactura", idUsuarioParameter, idVehiculoParameter, fechaParameter, montoTotalServicioParameter, estadoFacturaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaFacturaEnc_Result> sp_RetornaFacturaEnc(string estadoFactura)
+        {
+            var estadoFacturaParameter = estadoFactura != null ?
+                new ObjectParameter("EstadoFactura", estadoFactura) :
+                new ObjectParameter("EstadoFactura", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_Result>("sp_RetornaFacturaEnc", estadoFacturaParameter);
         }
     }
 }
