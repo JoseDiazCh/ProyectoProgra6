@@ -1,0 +1,140 @@
+﻿
+@{
+    ViewBag.Title = "FacturaNueva";
+}
+
+@section css{
+
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+
+    <form id="frmNuevaPersona" method="post">
+        <!--Panel-->
+        <div class="panel panel-primary"
+             style=" text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 110px;
+        margin-right: 100px;
+        margin-top: 15px">
+            <!--Encabezado Del Panel-->
+            <div class="panel-heading">
+                <div class="row" style="display: flex">
+                    <div style="margin-left: 10px; margin-top: 10px">
+
+                        <div style="margin-bottom: 10px; padding-left: 40px; padding-right: 40px">
+                            <h2 class="auto-style1">Registro De Un Nuevo Usuario</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fin Encabezado Del Panel-->
+            <!--Cuerpo Del Panel-->
+            <div class="panel-body" style="background-color: cyan; color:black">
+
+                <!-- Columnnas Del Panel-->
+                <div class="row" style="display: flex">
+                    <!-- Primera Columnna Del Panel-->
+                    <div class="column" style="flex: 50%; padding: 10px;">
+
+                        <div class="form-group">
+                            <label>Cedula:</label>
+                            <input type="text" name="cedula" id="cedula" class="form-control" />
+                        </div>
+
+                        <div class="form-check">
+                            <label>Genero:  </label>
+                            <br />
+                            <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
+                            <br />
+                            <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
+                            <br />
+                            <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Fecha Nacimiento:</label>
+                            <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Nombre:</label>
+                            <input type="text" name="Nombre" id="Nombre" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Primer Apellido:</label>
+                            <input type="text" name="Apellido1" id="Apellido1" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Segundo Apellido:</label>
+                            <input type="text" name="Apellido2" id="Apellido2" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Correo electrónico :</label>
+                            <input type="text" name="correo" id="correo" class="form-control" />
+                        </div>
+
+                        <div class="form-check">
+                            <label>Tipo De Usuario:  </label>
+                            <br />
+                            <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
+                            <br />
+                            <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
+                            <br />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Provincia:</label>
+                            <select name="id_Provincia" id="id_Provincia" class="form-control"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Cantón:</label>
+                            <select name="id_Canton" id="id_Canton" class="form-control"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Distrito:</label>
+                            <select name="id_Distrito" id="id_Distrito" class="form-control"></select>
+                        </div>
+
+                       
+                        <div class="container-fluid" style="text-align: left">
+                            <div class="form-group" style="text-align: left">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <input type="submit" value="Guardar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <a style="color:darkblue" href="~/Usuarios/UsuariosLista"> Lista de Usuarios</a>
+
+                    </div>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+
+            </div>
+
+        </div>
+        <!---->
+    </form>
+
+</body>
+@section scripts{
+    @Scripts.Render("~/bundles/bundleJquery")
+    <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
+    <script src="~/Scripts/ValidacionesInserta/InsertProvincia.js"></script>
+}
+
+

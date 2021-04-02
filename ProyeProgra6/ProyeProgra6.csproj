@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CantonesController.cs" />
     <Compile Include="Controllers\DistritosController.cs" />
+    <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\GridKendoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
@@ -198,6 +199,9 @@
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaDistritos_Result.cs">
+      <DependentUpon>ProyectoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_RetornaFacturaEnc_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_RetornaMarcaVehiculo_ID_Result.cs">
@@ -287,6 +291,7 @@
       <DependentUpon>ProyectoModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Facturas\facturalista.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -353,6 +358,8 @@
     <Content Include="Views\GridKendo\ServicioCliente.cshtml" />
     <Content Include="Views\GridKendo\VehiculoCliente.cshtml" />
     <Content Include="Views\GridKendo\ServicioVehiculo.cshtml" />
+    <Content Include="Views\Facturacion\EncabezadoFac.cshtml" />
+    <Content Include="Views\Facturacion\FacturaNueva.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
