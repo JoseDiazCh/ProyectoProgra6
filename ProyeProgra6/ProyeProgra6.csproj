@@ -291,6 +291,7 @@
       <DependentUpon>ProyectoModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\Facturas\facturainsert.js" />
     <Content Include="Scripts\Facturas\facturalista.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
