@@ -717,5 +717,26 @@ namespace ProyeProgra6.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_Result>("sp_RetornaFacturaEnc", estadoFacturaParameter);
         }
+    
+        public virtual int sp_InsertaDetalleFac(Nullable<int> idServProduc, Nullable<int> cantidadSoP, Nullable<decimal> precioTotal, Nullable<int> idEncabezadoFac)
+        {
+            var idServProducParameter = idServProduc.HasValue ?
+                new ObjectParameter("idServProduc", idServProduc) :
+                new ObjectParameter("idServProduc", typeof(int));
+    
+            var cantidadSoPParameter = cantidadSoP.HasValue ?
+                new ObjectParameter("CantidadSoP", cantidadSoP) :
+                new ObjectParameter("CantidadSoP", typeof(int));
+    
+            var precioTotalParameter = precioTotal.HasValue ?
+                new ObjectParameter("PrecioTotal", precioTotal) :
+                new ObjectParameter("PrecioTotal", typeof(decimal));
+    
+            var idEncabezadoFacParameter = idEncabezadoFac.HasValue ?
+                new ObjectParameter("idEncabezadoFac", idEncabezadoFac) :
+                new ObjectParameter("idEncabezadoFac", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_InsertaDetalleFac", idServProducParameter, cantidadSoPParameter, precioTotalParameter, idEncabezadoFacParameter);
+        }
     }
 }

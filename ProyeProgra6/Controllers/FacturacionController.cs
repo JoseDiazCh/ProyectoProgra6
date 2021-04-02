@@ -31,7 +31,7 @@ namespace ProyeProgra6.Controllers
 
         //------------------------------------------------------------------------------------//
         /// <summary>
-        /// INSERTA la nueva persona
+        /// INSERTA la nueva factura
         /// </summary>
         /// <returns></returns>
 
@@ -40,16 +40,16 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-        public ActionResult RetornaUsuario()
+        public ActionResult RetornaUsuario(string apellido1, string nombre)
         {
             List<sp_RetornaUsuarios_Result> usuario =
-               this.modeloBD.sp_RetornaUsuarios(null,null).ToList();
+               this.modeloBD.sp_RetornaUsuarios("", "").ToList();
             return Json(usuario);
         }
-        public ActionResult RetornaVehiculo()
+        public ActionResult RetornaVehiculo(string placa)
         {
             List<sp_RetornaVehiculos_Result> vehiculo =
-               this.modeloBD.sp_RetornaVehiculos(null).ToList();
+               this.modeloBD.sp_RetornaVehiculos("").ToList();
             return Json(vehiculo);
 
         }
@@ -98,8 +98,89 @@ namespace ProyeProgra6.Controllers
             }
 
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
-         
+
             return View();
         }
+
+
+        ///// <summary>
+        ///// metodo que Retorna Servicio o producto
+        ///// /// </summary>
+        ////<returns></returns>
+        public ActionResult RetornaServioPro(string descripcion, string tipo)
+        {
+            List<sp_RetornaServicioOProducto_Result> servicio =
+               this.modeloBD.sp_RetornaServicioOProducto( descripcion, null).ToList();
+            return Json(servicio);
+        }
+        public ActionResult RetornaEncabezado()
+        {
+            List<sp_RetornaFacturaEnc_Result> encabezado =
+               this.modeloBD.sp_RetornaFacturaEnc("").ToList();
+            return Json(encabezado);
+
+        }
+
+        /// <summary>
+        /// metodo que Inserta una Empresa
+        /// /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        public ActionResult InsertaDetalleFa(
+        int  pIdServProduc,
+        int pCantidadSoP,
+        decimal pPrecioTotal,
+        int pIdEncabezadoFac
+        )
+        {
+            /// variable que registra la cantidad de registros afectados
+            ///si un procedimiento que se ejecuta insert,update,delete
+            ///no afecta registros implica que hubo un error
+
+
+
+            int cantidadRegistroAfectados = 0;
+            string resultado = " ";
+
+
+
+            try
+            {
+                cantidadRegistroAfectados =
+                this.modeloBD.sp_InsertaDetalleFac(
+                pIdServProduc,
+                pCantidadSoP,
+                pPrecioTotal,
+                pIdEncabezadoFac
+               
+                );
+            }
+            catch (Exception error)
+            {
+                resultado = "Ocurrio un error: " + error.Message;
+
+
+
+            }
+            finally
+            {
+                if (cantidadRegistroAfectados > 0)
+                {
+                    resultado = " El Registro Se Inserto Correctamente";
+                }
+                else
+                {
+                    resultado += ".No se pudo Insertar ";
+                }
+            }
+          
+            return Json(resultado);
+        }
+
     }
-}
+
+  }
+
+
+

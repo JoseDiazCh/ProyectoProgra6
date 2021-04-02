@@ -95,45 +95,32 @@
         <!---->
     </form>
 
-    @*<div id="divDialog" hidden>
-        <h2>Inserta Nueva Empresa</h2>
-        <form id="frmInsertaEmpresas">
+    <div id="divDialog" hidden>
+        <h2>Inserta Detalle De La Factura</h2>
+        <form id="frmInserta">
             <div class="form-group">
-                <label>Nombre Empresa:</label>
-                <input type="text" name="nombre" id="nombre" class="form-control" value="" />
-            </div>
-            <br />
-            <div class="form-group">
-                <label>Identificacion:</label>
-                <input type="text" name="identificacion" id="identificacion" class="form-control" value="" />
-            </div>
-            <br />
-            <div class="form-group">
-                <label>Direccion:</label>
-                <input type="text" name="direccion" id="direccion" class="form-control" value="" />
-            </div>
-            <br />
-            <div class="form-group">
-                <label>Correo electrónico:</label>
-                <input type="text" name="correoElectronico" id="correoElectronico" class="form-control" value=" " />
-            </div>
-            <br />
-            <div class="form-group">
-                <label>Representante Legal:</label>
-                <select name="id_RepresentanteLegal" id="id_RepresentanteLegal" class="form-control">
+                <label>Servicio o Producto:</label>
+                <select name="idServProduc" id="idServProduc" class="form-control">
                 </select>
             </div>
-            <br />
+
+
+
             <div class="form-group">
-                <label for="fechaCreacion">Fecha Creacion: </label>
-                <input type="text" name="fechaCreacion" id="fechaCreacion" class="form-control" value="" />
+                <label>Cantidad SP:</label>
+                <input type="text" name="cantidadsp" id="cantidadsp" class="form-control" value="" />
             </div>
             <br />
             <div class="form-group">
-                <label for="fechaInscripcion">Fecha Inscripcion: </label>
-                <input type="text" name="fechaInscripcion" id="fechaInscripcion" class="form-control" value="" />
+                <label>Precio Total:</label>
+                <input type="text" name="preciototal" id="preciototal" class="form-control" value="" />
             </div>
             <br />
+            <div class="form-group">
+                <label>Encabezado Factura:</label>
+                <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control">
+                </select>
+            </div>
             <br />
         </form>
         <div class="form-group">
@@ -143,8 +130,10 @@
         </div>
         <br />
         <br />
-        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>*@
-    @*</div>*@
+        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
+    </div>
+    <div id="EstadoInfo"></div>
+    <div id="message"></div>
 
 </body>
     @section scripts{
@@ -152,6 +141,7 @@
         <script src="~/Scripts/jqueryui.js"></script>
         <script src="~/Scripts/Facturas/facturainsert.js"></script>
         <script src="~/Scripts/scriptGenerico.js"></script>
+        <script src="~/Scripts/Facturas/detallefacinsert.js"></script>
     }
 
 

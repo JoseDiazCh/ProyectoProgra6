@@ -2,7 +2,6 @@
     
     ///Carga inicialmente la lista , ya que es
     //la lista con la que iniciaremos.
-    creaValidaciones();
     cargaDropdownListUsuario();
     cargaDropdownListVehiculo();
     creaElementosJqueryUI();
@@ -14,42 +13,18 @@ function creaElementosJqueryUI() {
 
     ///creamos el control de tipo datepicker
     crearDatePicker();
-    ///creamos el div divDialog como elemento de tipo Dialog
-    //crearDialog();
-    /////evento click del botón btMostrarDialog          
-    //$("#btMostrarDialog").click(function () {
-    //    $("#divDialog").dialog("open");
-    //});
-    ////evento click del botón btCerrar   
-    //$("#btCerrar").click(function () {
-    //    $("#divDialog").dialog("close");
-    //});
+    //creamos el div divDialog como elemento de tipo Dialog
+    crearDialog();
+    ///evento click del botón btMostrarDialog          
+    $("#btMostrarDialog").click(function () {
+        $("#divDialog").dialog("open");
+    });
+    //evento click del botón btCerrar   
+    $("#btCerrar").click(function () {
+        $("#divDialog").dialog("close");
+    });
  
 }
-
-function creaValidaciones() {
-    $("#frmNuevaFactura").validate({
-        rules: {
-            idUsuario: {
-                required: true
-            },
-            idVehiculo: {
-                required: true
-            },
-            fecha: {
-                required: true
-            },
-            montofinal: {
-                required: true,
-            },
-            EstadoFactura: {
-                required: true
-            },
-
-        }
-    });
-}
-
 
 ///carga los registros de los usuarios
 function cargaDropdownListUsuario() {
@@ -133,5 +108,25 @@ function crearDatePicker() {
         yearRange: "c-4:c+1",
         dateFormat: "yy/mm/dd"
 
+    });
+}
+/*
+ * Crea un datepicker
+ */
+function crearDialog() {
+    $("#divDialog").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 500,
+        modal: true,
+        title: "Registro de Factura",
+        resizable: false,
+        close: function () {
+            alert("Ventana Cerrada");
+        },
+
+        open: function () {
+            alert("Ventana Abierta");
+        }
     });
 }

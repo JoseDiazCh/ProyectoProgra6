@@ -367,6 +367,12 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_InsertaDetalleFac" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idServProduc" Type="int" Mode="In" />
+          <Parameter Name="CantidadSoP" Type="int" Mode="In" />
+          <Parameter Name="PrecioTotal" Type="decimal" Mode="In" />
+          <Parameter Name="idEncabezadoFac" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_InsertaFactura" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
           <Parameter Name="idVehiculo" Type="int" Mode="In" />
@@ -1111,7 +1117,13 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="EstadoFactura" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaFacturaEnc" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_Result)">
-            <Parameter Name="EstadoFactura" Mode="In" Type="String" />
+          <Parameter Name="EstadoFactura" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertaDetalleFac">
+            <Parameter Name="idServProduc" Mode="In" Type="Int32" />
+            <Parameter Name="CantidadSoP" Mode="In" Type="Int32" />
+            <Parameter Name="PrecioTotal" Mode="In" Type="Decimal" />
+            <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
@@ -1842,6 +1854,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_InsertaDetalleFac" FunctionName="proyectoprogra6Model.Store.sp_InsertaDetalleFac" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
