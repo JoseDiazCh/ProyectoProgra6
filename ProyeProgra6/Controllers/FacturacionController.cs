@@ -18,11 +18,11 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-    
+        [HttpPost]
         public ActionResult RetornaListaFactura()
         {
             List<sp_RetornaFacturaEnc_Result> lista =
-               this.modeloBD.sp_RetornaFacturaEnc(" ").ToList();
+               this.modeloBD.sp_RetornaFacturaEnc("").ToList();
             return Json(new
             {
                 resultado = lista
