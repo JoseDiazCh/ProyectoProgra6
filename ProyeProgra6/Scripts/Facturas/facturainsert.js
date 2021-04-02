@@ -1,9 +1,10 @@
 ﻿$(function () {
+    
     ///Carga inicialmente la lista , ya que es
     //la lista con la que iniciaremos.
+    creaValidaciones();
     cargaDropdownListUsuario();
     cargaDropdownListVehiculo();
-    creaValidaciones();
     crearDatePicker();
 
 });
