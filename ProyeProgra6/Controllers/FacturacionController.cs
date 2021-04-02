@@ -43,13 +43,13 @@ namespace ProyeProgra6.Controllers
         public ActionResult RetornaUsuario()
         {
             List<sp_RetornaUsuarios_Result> usuario =
-               this.modeloBD.sp_RetornaUsuarios(null,null).ToList();
+               this.modeloBD.sp_RetornaUsuarios("","").ToList();
             return Json(usuario);
         }
         public ActionResult RetornaVehiculo()
         {
             List<sp_RetornaVehiculos_Result> vehiculo =
-               this.modeloBD.sp_RetornaVehiculos(null).ToList();
+               this.modeloBD.sp_RetornaVehiculos("").ToList();
             return Json(vehiculo);
 
         }
