@@ -37,27 +37,29 @@ namespace ProyeProgra6.Controllers
 
         public ActionResult FacturaNueva()
         {
-            this.AgregaUsuariosViewBag();
-            this.AgregaVehiculoViewBag();
             return View();
         }
 
-        void AgregaUsuariosViewBag()
+        public ActionResult RetornaUsuario()
         {
-            this.ViewBag.ListaUsuarios =
-                    this.modeloBD.sp_RetornaUsuarios(null," ").ToList();
+            List<sp_RetornaUsuarios_Result> usuario =
+               this.modeloBD.sp_RetornaUsuarios("",null).ToList();
+            return Json(usuario);
+        }
+        public ActionResult RetornaVehiculo()
+        {
+            List<sp_RetornaVehiculos_Result> vehiculo =
+               this.modeloBD.sp_RetornaVehiculos("").ToList();
+            return Json(vehiculo);
+
         }
 
-        void AgregaVehiculoViewBag()
-        {
-            this.ViewBag.ListaVehiculos =
-                    this.modeloBD.sp_RetornaVehiculos(" ").ToList();
-        }
-            /// <summary>
-            /// este INSERTA la persona nueva tipo HttpPost
-            /// </summary>
-            /// <returns></returns>
-            [HttpPost]
+
+        /// <summary>
+        /// este INSERTA la persona nueva tipo HttpPost
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
         public ActionResult FacturaNueva(sp_RetornaFacturaEnc_Result modeloVista)
         {
             ///registra cantidad de registros afectados.
@@ -96,8 +98,7 @@ namespace ProyeProgra6.Controllers
             }
 
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
-            this.AgregaUsuariosViewBag();
-            this.AgregaVehiculoViewBag();
+         
             return View();
         }
     }
