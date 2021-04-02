@@ -18,7 +18,7 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-        //[HttpPost]
+    
         public ActionResult RetornaListaFactura()
         {
             List<sp_RetornaFacturaEnc_Result> lista =
