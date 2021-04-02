@@ -5,10 +5,18 @@
     creaValidaciones();
     cargaDropdownListUsuario();
     cargaDropdownListVehiculo();
-    crearDatePicker();
+    creaElementosJqueryUI();
 
 });
 
+function creaElementosJqueryUI() {
+
+
+    ///creamos el control de tipo datepicker
+    crearDatePicker();
+    ///creamos el div divDialog como elemento de tipo Dialog
+ 
+}
 
 function creaValidaciones() {
     $("#frmNuevaFactura").validate({
