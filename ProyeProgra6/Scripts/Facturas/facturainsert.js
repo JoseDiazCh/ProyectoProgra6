@@ -15,15 +15,15 @@ function creaElementosJqueryUI() {
     ///creamos el control de tipo datepicker
     crearDatePicker();
     ///creamos el div divDialog como elemento de tipo Dialog
-    crearDialog();
-    ///evento click del botón btMostrarDialog          
-    $("#btMostrarDialog").click(function () {
-        $("#divDialog").dialog("open");
-    });
-    //evento click del botón btCerrar   
-    $("#btCerrar").click(function () {
-        $("#divDialog").dialog("close");
-    });
+    //crearDialog();
+    /////evento click del botón btMostrarDialog          
+    //$("#btMostrarDialog").click(function () {
+    //    $("#divDialog").dialog("open");
+    //});
+    ////evento click del botón btCerrar   
+    //$("#btCerrar").click(function () {
+    //    $("#divDialog").dialog("close");
+    //});
  
 }
 

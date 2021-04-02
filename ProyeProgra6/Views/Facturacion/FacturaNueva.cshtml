@@ -10,7 +10,7 @@
 }
 <body class="imagenFondo">
 
-    <form id="frmNuevaFactura" >
+    <form id="frmNuevaFactura" method="post">
         <!--Panel-->
         <div class="panel panel-primary"
              style=" text-align: left;
@@ -85,7 +85,7 @@
                         <a style="color:darkblue" href="~/Facturacion/EncabezadoFac"> Lista de Facturas</a>
                         <br />
                         <br />
-                        <input type="button" id="btMostrarDialog" value="Mostrar dialog" class="btn btn-success" style=" color:black" />
+                        <input type="button" id="btMostrarDialog" value="Detalle Factura" class="btn btn-success" style=" border-color:black ; color:red" />
                     </div>
                     <!--Fin Cuerpo Panel-->
                 </div>
@@ -95,7 +95,7 @@
         <!---->
     </form>
 
-    <div id="divDialog" hidden>
+    @*<div id="divDialog" hidden>
         <h2>Inserta Nueva Empresa</h2>
         <form id="frmInsertaEmpresas">
             <div class="form-group">
@@ -143,16 +143,16 @@
         </div>
         <br />
         <br />
-        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
-</div>
+        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>*@
+    @*</div>*@
 
 </body>
-@section scripts{
-    @Scripts.Render("~/bundles/bundleJquery")
-    <script src="~/Scripts/jqueryui.js"></script>
-    <script src="~/Scripts/Facturas/facturainsert.js"></script>
-    <script src="~/Scripts/scriptGenerico.js"></script>
-}
+    @section scripts{
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jqueryui.js"></script>
+        <script src="~/Scripts/Facturas/facturainsert.js"></script>
+        <script src="~/Scripts/scriptGenerico.js"></script>
+    }
 
 
 
