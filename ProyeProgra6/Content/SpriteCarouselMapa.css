@@ -1,0 +1,63 @@
+﻿.carousel-inner {
+    width: 100%;
+}
+
+.item {
+    text-align: center;
+}
+
+.sprite {
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-image: url('../Imagenes/Provincias1.png');
+}
+
+.Alajuela {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -1px
+}
+
+.Cartago {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -496px
+}
+
+.Guanacaste {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -991px
+}
+
+.Heredia {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -1486px
+}
+
+.sprite2 {
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-image: url('../Imagenes/Provincias2.png');
+}
+
+.Limon {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -1px
+}
+
+.Puntarenas {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -496px
+}
+
+.SanJose {
+    width: 1181px;
+    height: 493px;
+    background-position: -1px -991px
+}

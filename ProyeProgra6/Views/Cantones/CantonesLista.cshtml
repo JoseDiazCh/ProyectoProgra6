@@ -6,6 +6,7 @@
 @section css{
 
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+    <link href="~/Content/SpriteCarouselMapa.css" rel="stylesheet" />
 }
 
 
@@ -34,7 +35,7 @@
                 <!-- Primera Columnna Del Panel-->
                 <div class="column" style="flex: 50%; padding: 10px;">
 
-                    <table style="color:white" class="table">
+                    <table class="table">
                         <tr>
                             <th>Provincia</th>
                             <th>Nombre</th>
@@ -49,7 +50,7 @@
                         </tr>
 
                         @{ foreach (ProyeProgra6.Models.sp_RetornaCantones_Result posicionModelo
-                                              in this.Model)
+                                                in this.Model)
                             {
                                 <tr>
                                     <td>@posicionModelo.Provincia</td>
@@ -72,5 +73,53 @@
 
         </div>
 
+
+
+
+        @* Iniciamos con el carousell *@
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol id="olCarousel" class="carousel-indicators">
+                <li data-target="myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="myCarousel" data-slide-to="1"></li>
+                <li data-target="myCarousel" data-slide-to="2"></li>
+                <li data-target="myCarousel" data-slide-to="3"></li>
+                <li data-target="myCarousel" data-slide-to="4"></li>
+                <li data-target="myCarousel" data-slide-to="5"></li>
+                <li data-target="myCarousel" data-slide-to="6"></li>
+
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <span class="sprite Alajuela"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite Cartago"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite Guanacaste"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite Heredia"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite2 Limon"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite2 Puntarenas"></span>
+                </div>
+                <div class="item">
+                    <span class="sprite2 SanJose"></span>
+                </div>
+                <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+
+            </div>
+        </div>
     </div>
 </body>

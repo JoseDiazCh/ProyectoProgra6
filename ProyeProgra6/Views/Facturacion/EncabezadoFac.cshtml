@@ -1,24 +1,64 @@
-﻿
-@*@{
-    ViewBag.Title = "EncabezadoFac";
-}*@
+﻿@*@{
+        ViewBag.Title = "EncabezadoFac";
+    }*@
 
 
 @section css{
     <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.blueopal.min.css" rel="stylesheet" />
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
-<h2>Lista de las Facturas</h2>
+<body class="imagenFondo">
 
-<div id="divKendoGrid">
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 40px;
+        margin-right: 25px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-</div>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1">Lista de las Facturas</h2>
+                    </div>
+                </div>
+            </div>
 
-@section scripts{
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
-    <script src="~/Scripts/scriptGenerico.js"></script>
-    <script src="~/Scripts/Facturas/facturalista.js"></script>
-}
-<a style="color:darkblue" href="~/Facturacion/FacturaNueva"> Registar Nueva Factura</a>
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
+                    <div id="divKendoGrid">
+
+                    </div>
+
+                    @section scripts{
+                        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+                        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
+                        <script src="~/Scripts/scriptGenerico.js"></script>
+                        <script src="~/Scripts/Facturas/facturalista.js"></script>
+                    }
+                    <a style="color:darkblue" href="~/Facturacion/FacturaNueva"> Registar Nueva Factura</a>
+
+                </div>
+                <!--Fin Cuerpo Panel-->
+            </div>
+            <!--Fin Panel-->
+
+        </div>
+
+    </div>
+
+
+</body>
