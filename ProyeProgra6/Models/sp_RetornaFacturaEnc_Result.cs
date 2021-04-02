@@ -20,6 +20,6 @@ namespace ProyeProgra6.Models
         public string plcaVehiculo { get; set; }
         public System.DateTime Fecha { get; set; }
         public decimal MontoTotalServicio { get; set; }
-        public string Column1 { get; set; }
+        public string EstadoFactura { get; set; }
     }
 }

@@ -32,12 +32,12 @@ function creaGridKendo(data) {
             //cada columna se agrega por llaves
             {
                 //propiedades de la funte a mostrar
-                field: 'Nombre',
+                field: 'nombreUsuario',
                 ///texto del encabezado
                 title: 'Nombre Cliente'
             },
             {
-                field: 'Placa',
+                field: 'plcaVehiculo',
                 title: 'Placa Vehiculo'
             },
             {

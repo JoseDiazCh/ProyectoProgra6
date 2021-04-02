@@ -18,7 +18,7 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult RetornaListaFactura()
         {
             List<sp_RetornaFacturaEnc_Result> lista =
@@ -78,8 +78,7 @@ namespace ProyeProgra6.Controllers
                         modeloVista.idVehiculo,
                         modeloVista.Fecha,
                         modeloVista.MontoTotalServicio,
-                        modeloVista.Column1
-                      
+                        modeloVista.EstadoFactura
                         );
             }
             catch (Exception error)
