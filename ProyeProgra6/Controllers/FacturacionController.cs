@@ -45,8 +45,6 @@ namespace ProyeProgra6.Controllers
             List<sp_RetornaUsuarios_Result> usuario =
                this.modeloBD.sp_RetornaUsuarios("",null).ToList();
             return Json(usuario);
-
-
         }
         public ActionResult RetornaVehiculo()
         {
