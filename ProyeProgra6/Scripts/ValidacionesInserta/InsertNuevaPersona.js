@@ -11,7 +11,7 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                //digits: true,
+                digits: true
                 //regex: '/^[1-9]-\d{4}-\d{4}$/',
             },
             Genero: {
@@ -40,7 +40,7 @@ function creaValidaciones() {
             },
             TipoUsuario: {
                 required: true,
-                maxlength: 20,
+                maxlength: 20
           
 
             },

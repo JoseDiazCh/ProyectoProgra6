@@ -11,7 +11,13 @@
 <body class="imagenFondo">
     <!--Panel-->
     <div class="panel panel-primary"
-         style="text-align: left; border: solid 5px black; border-radius: 1em; filter: drop-shadow(15px 15px 20px #444); margin-left: 40px; margin-right: 25px; margin-top: 15px">
+         style="        text-align: left;
+        border: solid 5px ;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 90px;
+        margin-right: 150px;
+        margin-top: 15px">
         <!--Encabezado Del Panel-->
         <div class="panel-heading">
             <div class="row" style="display: flex">
@@ -39,6 +45,7 @@
                             <th>Descripcion</th>
                             <th>Precio</th>
                             <th>Tipo</th>
+                            <th>Acciones</th>
                         </tr>
 
                         @{ foreach (ProyeProgra6.Models.sp_RetornaServicioOProducto_Result posicionModelo
@@ -50,9 +57,9 @@
                                     <td>@posicionModelo.Precio</td>
                                     <td>@posicionModelo.Tipo</td>
                                     <td>
-                                        <a href="~/ServicioOProducto/ServicioOproductoModifica?idServProduc=@posicionModelo.idServProduc">Modificar</a>
+                                        <a style="color:darkblue"  href="~/ServicioOProducto/ServicioOproductoModifica?idServProduc=@posicionModelo.idServProduc">Modificar</a>
                                         <br />
-                                        <a href="~/ServicioOProducto/ServicioOproductoElimina?idServProduc=@posicionModelo.idServProduc">Eliminar</a>
+                                        <a style="color:darkblue" href="~/ServicioOProducto/ServicioOproductoElimina?idServProduc=@posicionModelo.idServProduc">Eliminar</a>
 
                                     </td>
 
@@ -60,7 +67,7 @@
                             }
                         }
                     </table>
-                    <a href="~/ServicioOProducto/ServicioOProductoNuevo"> Agregar Nuevo Servicio O Producto</a>
+                    <a style="color:darkblue"  href="~/ServicioOProducto/ServicioOProductoNuevo"> Agregar Nuevo Servicio O Producto</a>
                 </div>
                 <!--Fin Cuerpo Panel-->
             </div>
