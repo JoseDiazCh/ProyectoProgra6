@@ -10,36 +10,72 @@
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
 <body class="imagenFondo">
-    <h2>Lista Las Marcas De Los Vehiculos</h2>
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 40px;
+        margin-right: 75px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-    <table class="table">
-        <tr>
-            <th>Codigo</th>
-            <th>Tipo</th>
-            <th>Acciones</th>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1">Registro De La Marca De Vehiculos</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
+
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 10px;">
+
+                    <table class="table">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
 
 
 
 
-        </tr>
+                        </tr>
 
-        @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
-                              in this.Model)
-            {
-                <tr>
-                    <td>@posicionModelo.Codigo</td>
-                    <td>@posicionModelo.Tipo</td>
+                        @{ foreach (ProyeProgra6.Models.sp_RetornaMarcaVehiculo_Result posicionModelo
+                                                 in this.Model)
+                            {
+                                <tr>
+                                    <td>@posicionModelo.Codigo</td>
+                                    <td>@posicionModelo.Tipo</td>
 
-                    <td>
-                        <a href="~/MarcaVehiculo/ModificaMarcaVehiculo?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Modificar</a>
-                        <br />
-                        <a href="~/MarcaVehiculo/MarcaVehiculoElimina?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Eliminar</a>
+                                    <td>
+                                        <a style="color:darkblue" href="~/MarcaVehiculo/ModificaMarcaVehiculo?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Modificar</a>
+                                        <br />
+                                        <a style="color:darkblue" href="~/MarcaVehiculo/MarcaVehiculoElimina?idMarcaVehiculos=@posicionModelo.idMarcaVehiculos">Eliminar</a>
 
-                    </td>
+                                    </td>
 
-                </tr>
-            }
-        }
-    </table>
+                                </tr>
+                            }
+                        }
+                    </table>
+                    <a style="color:darkblue" href="~/MarcaVehiculo/MarcaVehiculoNueva"> Registar Nueva Marca De  Vehiculo</a>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+            </div>
+        </div>
+        </div>
 </body>
-    <a href="~/MarcaVehiculo/MarcaVehiculoNueva"> Registar Nueva Marca De  Vehiculo</a>
+

@@ -8,35 +8,71 @@
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
 <body class="imagenFondo">
-    <h2> Lista Del Pais  De Fabricacion</h2>
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 120px;
+        margin-right: 195px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:55px; margin-top: 10px">
 
-    <table class="table">
-        <tr>
-            <th>Codigo</th>
-            <th>Pais</th>
-            <th>Acciones</th>
+                    <div style=" margin-bottom: 15px; padding-left: 1px; padding-right: 10px">
+                        <h2 class="auto-style1"> Lista Del Pais  De Fabricacion</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
+
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 20px;">
+
+                    <table class="table">
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Pais</th>
+                            <th>Acciones</th>
 
 
-        </tr>
+                        </tr>
 
-        @{ foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result posicionModelo
-                            in this.Model)
-            {
-                <tr>
-                    <td>@posicionModelo.Codigo</td>
-                    <td>@posicionModelo.Pais</td>
+                        @{ foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result posicionModelo
+                                               in this.Model)
+                            {
+                                <tr>
+                                    <td>@posicionModelo.Codigo</td>
+                                    <td>@posicionModelo.Pais</td>
 
-                    <td>
-                        <a href="~/PaisFabricante/ModificaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Modificar</a>
-                        <br />
-                        <a href="~/PaisFabricante/EliminaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Eliminar</a>
+                                    <td>
+                                        <a style="color:darkblue" href="~/PaisFabricante/ModificaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Modificar</a>
+                                        <br />
+                                        <a style="color:darkblue" href="~/PaisFabricante/EliminaPaisFabricacion?idPaisFabricante=@posicionModelo.idPaisFabricante">Eliminar</a>
 
-                    </td>
+                                    </td>
 
-                </tr>
-            }
-        }
-    </table>
+                                </tr>
+                            }
+                        }
+                    </table>
+                    <a style="color:darkblue" href="~/PaisFabricante/PaisFabricacionNuevo"> Registar Nuevo Pais De Fabricacion</a>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+            </div>
+        </div>
+    </div>
 
 </body>
-    <a href="~/PaisFabricante/PaisFabricacionNuevo"> Registar Nuevo Pais De Fabricacion</a>
+

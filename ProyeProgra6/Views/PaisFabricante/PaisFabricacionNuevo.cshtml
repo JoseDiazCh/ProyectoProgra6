@@ -8,24 +8,58 @@
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
 <body class="imagenFondo">
-    <h2>Pais De Fabricacion Nuevo</h2>
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 200px;
+        margin-right: 255px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:55px; margin-top: 10px">
 
-    <form id="frmNuevaPais" method="post">
-        <div class="form-group">
-            <label>Codigo:</label>
-            <input type="text" name="codigo" id="codigo" class="form-control" />
-        </div>
+                    <div style=" margin-bottom: 15px; padding-left: 1px; padding-right: 10px">
+                        <h2 class="auto-style1"> Pais De Fabricacion Nuevo</h2>
+                    </div>
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label>Pais:</label>
-            <input type="text" name="pais" id="pais" class="form-control" />
         </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
-        <div class="form-group">
-            <input type="submit" value="Guardar" id="btnAceptar" />
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 20px;">
+
+                    <form id="frmNuevaPais" method="post">
+                        <div class="form-group">
+                            <label>Codigo:</label>
+                            <input type="text" name="codigo" id="codigo" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Pais:</label>
+                            <input type="text" name="pais" id="pais" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
+                        </div>
+                        <a style="color:darkblue" href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
+                    </form>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+            </div>
         </div>
-        <a href="~/PaisFabricante/PaisFabricanteLista"> Lista De Paises De Fabricacion</a>
-    </form>
+    </div>
 
 </body>
     @section scripts{

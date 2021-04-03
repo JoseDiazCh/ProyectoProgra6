@@ -7,40 +7,75 @@
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
 <body class="imagenFondo">
-    <h2> Registra Nueva Marca De Vehiculo</h2>
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 120px;
+        margin-right: 195px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:55px; margin-top: 10px">
 
-    <form id="frmMarcaVehiculo" method="post">
-        <div class="form-group">
-            <label>Codigo:</label>
-            <input type="text" name="codigo" id="codigo" class="form-control" />
+                    <div style=" margin-bottom: 15px; padding-left: 1px; padding-right: 10px">
+                        <h2 class="auto-style1">Registra Nueva Marca De Vehiculo</h2>
+                    </div>
+                </div>
+            </div>
+
         </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
-        <div class="form-group">
-            <label>Marca :</label>
-            <input type="text" name="tipo" id="tipo" class="form-control" />
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 20px;">
+
+                    <form id="frmMarcaVehiculo" method="post">
+                        <div class="form-group">
+                            <label>Codigo:</label>
+                            <input type="text" name="codigo" id="codigo" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Marca :</label>
+                            <input type="text" name="tipo" id="tipo" class="form-control" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <label>Pais de Fabricacion :</label>
+                            <select name="idPaisFabricante" id="idPaisFabricante" class="form-control">
+                                <option value=""> Seleccione un Pais de Fabricacion</option>
+                                @{
+                                    foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result marcas
+                                        in this.ViewBag.ListaPais)
+                                    {
+                                        <option value="@marcas.idPaisFabricante">@marcas.Pais</option>
+                                    }
+
+                                }
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Guardar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red"/>
+                        </div>
+                        <a style="color:darkblue" href="~/MarcaVehiculo/MarcaVehiculoLista"> Lista de Marcas de Vehiculos</a>
+                    </form>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+            </div>
         </div>
-
-
-        <div class="form-group">
-            <label>Pais de Fabricacion :</label>
-            <select name="idPaisFabricante" id="idPaisFabricante" class="form-control">
-                <option value=""> Seleccione un Pais de Fabricacion</option>
-                @{
-                    foreach (ProyeProgra6.Models.sp_RetornaPaísFabricante_Result marcas
-                        in this.ViewBag.ListaPais)
-                    {
-                        <option value="@marcas.idPaisFabricante">@marcas.Pais</option>
-                    }
-
-                }
-
-            </select>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Guardar" id="btnAceptar" />
-        </div>
-        <a href="~/MarcaVehiculo/MarcaVehiculoLista"> Lista de Marcas de Vehiculos</a>
-    </form>
+    </div>
 </body>
     @section scripts{
         @Scripts.Render("~/bundles/bundleJquery")
