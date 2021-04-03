@@ -311,6 +311,7 @@
     <Content Include="Scripts\scriptGenerico.js" />
     <Content Include="Scripts\ServicioCliente\serviciocliente.js" />
     <Content Include="Scripts\ServicioVehiculo\serviciovehiculo.js" />
+    <Content Include="Scripts\ValidacionesInserta\InsertaUsuarioUI.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertaVehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertMarcaVehiculo.js" />
     <Content Include="Scripts\ValidacionesInserta\InsertNuevaPersona.js" />

@@ -1,22 +1,11 @@
 ﻿///document on ready del view Registro de Personas
 $(function () {
     creaValidaciones();
-    creaElementosJqueryUI();
+    mascaras()
 });
-///Función que crea los elementos de jqueryUI
-function creaElementosJqueryUI() {
-    crearDatePicker();
-}
-function crearDatePicker() {
-    $("#FechaNacimiento").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        yearRange: "c-80:c+1",
-        dateFormat: "yy/mm/dd"
 
-    });
-
-}
+function mascaras() {
+    $('#cedula').mascaras('0-0000-0000', { placeholder: "_-____-____" });
 ///crea las validaciones para el formulario de insertar una nueva
 function creaValidaciones() {
     $("#frmNuevaPersona").validate({
@@ -25,8 +14,10 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                digits: true
+                //digits: true
                 //regex: '/^[1-9]-\d{4}-\d{4}$/',
+                
+                
             },
             Genero: {
                 required: true
