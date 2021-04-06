@@ -179,18 +179,13 @@ function cargaMensaje(data) {
 //Modal Pequeño
 function showMessage(msg) {
 
-
-
     const message = document.querySelector("#message");
-
-
-
 
     var html = "<div class='modal' data-backdrop='static' id='myModal' tabindex='-1' role='dialog'> " +
         " <div class='modal-dialog modal-dialog-centered' >" +
         " <div class='modal-content'>" +
         " <div class='modal-header'>" +
-        " <h5 class='modal-title'>Validación De Insercion De Facturas </h5>" +
+        " <h5 class='modal-title'>Validación De Insercion De Datos </h5>" +
         " <button type='button' class='close' data-dismiss='modal' aria-label='Close'>" +
         " <span aria-hidden='true'>&times;</span>" +
         " </button>" +
@@ -210,5 +205,4 @@ function showMessage(msg) {
     message.innerHTML = html;
 
     $("#myModal").modal('show');
-
 }

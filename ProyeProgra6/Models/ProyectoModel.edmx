@@ -1116,14 +1116,14 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="MontoTotalServicio" Mode="In" Type="Decimal" />
             <Parameter Name="EstadoFactura" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="sp_RetornaFacturaEnc" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_Result)">
-          <Parameter Name="EstadoFactura" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="sp_InsertaDetalleFac">
             <Parameter Name="idServProduc" Mode="In" Type="Int32" />
             <Parameter Name="CantidadSoP" Mode="In" Type="Int32" />
             <Parameter Name="PrecioTotal" Mode="In" Type="Decimal" />
             <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaFacturaEnc" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_Result)">
+            <Parameter Name="EstadoFactura" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
@@ -1840,6 +1840,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_InsertaFactura" FunctionName="proyectoprogra6Model.Store.sp_InsertaFactura" />
+          <FunctionImportMapping FunctionImportName="sp_InsertaDetalleFac" FunctionName="proyectoprogra6Model.Store.sp_InsertaDetalleFac" />
           <FunctionImportMapping FunctionImportName="sp_RetornaFacturaEnc" FunctionName="proyectoprogra6Model.Store.sp_RetornaFacturaEnc">
             <ResultMapping>
               <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaFacturaEnc_Result">
@@ -1854,7 +1855,6 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_InsertaDetalleFac" FunctionName="proyectoprogra6Model.Store.sp_InsertaDetalleFac" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

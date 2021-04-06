@@ -40,13 +40,13 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-        public ActionResult RetornaUsuario(string apellido1, string nombre)
+        public ActionResult RetornaUsuario()
         {
             List<sp_RetornaUsuarios_Result> usuario =
                this.modeloBD.sp_RetornaUsuarios("", "").ToList();
             return Json(usuario);
         }
-        public ActionResult RetornaVehiculo(string placa)
+        public ActionResult RetornaVehiculo()
         {
             List<sp_RetornaVehiculos_Result> vehiculo =
                this.modeloBD.sp_RetornaVehiculos("").ToList();
@@ -101,6 +101,66 @@ namespace ProyeProgra6.Controllers
 
             return View();
         }
+
+        ///// <summary>
+        /////  metodo o controlador que MODIFICA 
+        ///// </summary>
+        ///// <param name="idencabezadofactura"></param>
+        ///// <returns></returns>
+        //public ActionResult EncabezadoFacModifica(int idEncabezadoFac)
+        //{
+        //    ///obtener el registro que se debe modificar
+        //    ///utilizando el parametro 
+        //    sp_RetornaFacturaEnc_ID_Result modeloVista = new sp_RetornaFacturaEnc_ID_Result();
+        //    modeloVista = this.modeloBD.sp_RetornaFacturaEnc_ID(idEncabezadoFac).FirstOrDefault();
+
+        //    //enviar el modelo a la vista
+        //    return View(modeloVista);
+        //}
+        ///// Modifica persona tipo httpPost
+        //[HttpPost]
+        //public ActionResult EncabezadoFacModifica(sp_RetornaFacturaEnc_ID_Result modeloVista)
+        //{
+        //    ///registra la cantidad de  registros afectados
+        //    ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+        //    ///no afecta registros implica que hubo un error
+
+        //    int cantRegistrosAfectados = 0;
+        //    string resultado = "";
+        //    try
+        //    {
+        //        cantRegistrosAfectados =
+        //            this.modeloBD.sp_ModificaFacturaEnc(
+        //                modeloVista.idEncabezadoFac,
+        //                modeloVista.idUsuario,
+        //                modeloVista.idVehiculo,
+        //                modeloVista.Fecha,
+        //                modeloVista.MontoTotalServicio,
+        //                modeloVista.EstadoFactura
+
+        //                );
+        //    }
+        //    catch (Exception error)
+        //    {
+
+        //        resultado = "Ocurrio un error: " + error.Message;
+        //    }
+        //    finally
+        //    {
+        //        if (cantRegistrosAfectados > 0)
+
+        //            resultado = "Registro Modificado Correctamente";
+
+        //        else
+        //            resultado = "No se pudo Modificar el Dato";
+
+        //    }
+        //    Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+
+
+        //    return View(modeloVista);
+        //}
+
 
 
         ///// <summary>
