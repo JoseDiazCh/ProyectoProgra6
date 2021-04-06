@@ -133,6 +133,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\PaisFabricanteController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ProvinciasController.cs" />
     <Compile Include="Controllers\ServicioOProductoController.cs" />
     <Compile Include="Controllers\TiposVehiculosController.cs" />
@@ -367,6 +368,7 @@
     <Content Include="Views\GridKendo\ServicioVehiculo.cshtml" />
     <Content Include="Views\Facturacion\EncabezadoFac.cshtml" />
     <Content Include="Views\Facturacion\FacturaNueva.cshtml" />
+    <Content Include="Views\Principal\PaginaPrincipal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
