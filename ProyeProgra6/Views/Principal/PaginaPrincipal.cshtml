@@ -3,9 +3,11 @@
     ViewBag.Title = "PaginaPrincipal";
 }
 @section css{
-
+   
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
+
+
 <body class="imagenFondo">
 
     <!--Panel-->
@@ -26,78 +28,104 @@
                 <!-- Primera Columnna Del Panel-->
                 <div class="column" style="flex: 50%; padding: 10px;">
 
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                            <div class="container">
+                                <div class="navbar navbar-inverse navbar-fixed-top">
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
 
-                    <nav class="navbar navbar-inverse">
-                        <div class="container-fluid">
+                                                    <li><a href="~/Usuarios/UsuarioNuevo">Insertar</a></li>
+                                                    <li><a href="~/Usuarios/ModificaUsuario">Modificar</a></li>
+                                                    <li><a href="~/Usuarios/UsuariosLista">Lista</a></li>
+                                                    @*<li><a href="~/Usuarios/EliminaUsuario">Eliminar</a></li>*@
 
-                            <div class="navbar-header" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-
-                                            <li class="dropdown-menu-right">
-                                            <a href="#"  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Navbar 1<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="Ejemplo1.html">Navbar 1</a></li>
-                                            </ul>
+                                                </ul>
                                             </li>
-
-
-                                            <li><a href="Ejemplo1.html">Navbar 1</a></li>
-                                            <li><a href="Ejemplo2.html">Navbar 2</a></li>
-                                            <li><a href="Ejemplo3.html">Navbar 3</a></li>
-
                                         </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="navbar-header" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehículos <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="Ejemplo1.html">Navbar 1</a></li>
-                                            <li><a href="Ejemplo2.html">Navbar 2</a></li>
-                                            <li><a href="Ejemplo3.html">Navbar 3</a></li>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehículos <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/Vehiculos/VehiculoNuevo">Insertar</a></li>
+                                                    <li><a href="~/Vehiculos/ModificaVehiculo">Modificar</a></li>
+                                                    <li><a href="~/Vehiculos/VehiculoLista">Lista</a></li>
 
+                                                </ul>
+                                            </li>
                                         </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="navbar-header" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios y productos <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="Ejemplo1.html">Navbar 1</a></li>
-                                            <li><a href="Ejemplo2.html">Navbar 2</a></li>
-                                            <li><a href="Ejemplo3.html">Navbar 3</a></li>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios y productos <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/ServicioOProducto/ServicioOproductoNuevo">Insertar</a></li>
+                                                    <li><a href="~/ServicioOProducto/ServicioOproductoModifica">Modificar</a></li>
+                                                    <li><a href="~/ServicioOProducto/ServicioOproductoLista">Lista</a></li>
 
+                                                </ul>
+                                            </li>
                                         </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="navbar-header" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="Ejemplo1.html">Navbar 1</a></li>
-                                            <li><a href="Ejemplo2.html">Navbar 2</a></li>
-                                            <li><a href="Ejemplo3.html">Navbar 3</a></li>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/Facturacion/EncabezadoFac">Encabezado Factura</a></li>
+                                                    <li><a href="~/Facturacion/FacturaNueva">Nueva Factura</a></li>
 
+                                                </ul>
+                                            </li>
                                         </ul>
-                                    </li>
-                                </ul>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/Facturacion/EncabezadoFac">Encabezado Factura</a></li>
+                                                    <li><a href="~/Facturacion/FacturaNueva">Nueva Factura</a></li>
+                                                    <li class="dropdown-submenu">
+                                                        <a class="dropdown-item dropdown-toggle" href="#">Submenu</a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item" href="#">Submenu action</a></li>
+                                                            <li><a class="dropdown-item" href="#">Another submenu action</a></li>
+
+
+                                                            <li class="dropdown-submenu">
+                                                                <a class="dropdown-item dropdown-toggle" href="#">Subsubmenu</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                                                </ul>
+                                                            </li>
+                                                            <li class="dropdown-submenu">
+                                                                <a class="dropdown-item dropdown-toggle" href="#">Second subsubmenu</a>
+                                                                <ul class="dropdown-menu">
+                                                                    <li><a class="dropdown-item" href="#">Subsubmenu action</a></li>
+                                                                    <li><a class="dropdown-item" href="#">Another subsubmenu action</a></li>
+                                                                </ul>
+                                                            </li>
+
+
+
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </nav>
+                        </nav>
 
-
-
-
-                </div>
+</div>
                 <!--Fin Cuerpo Panel-->
             </div>
             <!--Fin Panel-->
