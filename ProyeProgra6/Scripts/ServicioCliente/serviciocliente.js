@@ -11,6 +11,7 @@ $(function () {
 function obtenerRegistros() {
     /////construir la dirección del método del servidor
     var urlMetodo = '/GridKendo/RetornaServicioCliente'
+'
     var parametros = {};
     var funcion = creaGridKendo;
     ///ejecuta la función $.ajax utilizando un método genérico
@@ -33,26 +34,43 @@ function creaGridKendo(data) {
             //cada columna se agrega por llaves
             {
                 //propiedades de la funte a mostrar
-                field: 'Nombre',
+                field: 'NombreCompleto',
               ///texto del encabezado de pagina
                 title: 'Nombre'
             },
             {
-                field: 'Apellido1',
-                title: ' Apellido'
+                field: 'DescripcionServicio',
+                title: ' Servicio'
             },
             {
-       
-                field: 'Descripcion',
+                field: 'Placa',
             
-                title: 'Descripcion'
+                title: 'Placa'
             },
             {
-                field: 'Precio',
+                field: 'Cantidad',
+
+                title: 'Cantidad'
+            },
+            {
+
+                field: 'Fecha',
+
+                title: 'Fecha'
+            },
+            {
+                field: 'PrecioServicio',
                 title: ' Precio Servicio'
             },
+            {
+
+                field: 'PrecioTotal',
+
+                title: 'Precio Total'
+            },
            
-        ]       
+        ] ,
+               filterable: true,
     });
 }
 

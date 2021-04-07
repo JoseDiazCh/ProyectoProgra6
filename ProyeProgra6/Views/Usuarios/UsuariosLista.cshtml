@@ -10,28 +10,31 @@
 <body class="imagenFondo">
     
         <!--Panel-->
-        <div class="panel panel-primary"
-             style="        text-align: left;
+    <div class="panel panel-primary"
+         style="        text-align: left;
         border: solid 5px white;
         border-color: white;
         filter: drop-shadow(15px 15px 20px #444);
         margin-left: 40px;
         margin-right: 25px;
         margin-top: 15px">
-            <!--Encabezado Del Panel-->
-            <div class="panel-heading">
-                <div class="row" style="display: flex">
-                    <div style="margin-left:95px; margin-top: 10px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:95px; margin-top: 10px">
 
-                        <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
-                            <h2 class="auto-style1">Registro De La Lista De Usuarios</h2>
-                        </div>
+                    <div style=" margin-bottom: 15px; padding-left: 40px; padding-right: 40px">
+                        <h2 class="auto-style1">Registro De La Lista De Usuarios</h2>
                     </div>
                 </div>
-
+            </div>
+                <h4><a style="color: black; margin-left: 80%;padding: 10px;
+             " href="~/Principal/PaginaPrincipal">  Pagina Principal</a></h4>
+            
             </div>
             <!--Fin Encabezado Del Panel-->
             <!--Cuerpo Del Panel-->
+
             <div class="panel-body" style="background-color: aqua; color:black">
 
                 <!-- Columnnas Del Panel-->
@@ -52,7 +55,7 @@
                             </tr>
 
                             @{ foreach (ProyeProgra6.Models.sp_RetornaUsuarios_Result posicionModelo
-                                               in this.Model)
+                                                   in this.Model)
                                 {
                                     <tr>
 
@@ -77,6 +80,8 @@
                             }
                         </table>
                         <a style="color:darkblue" href="~/Usuarios/UsuarioNuevo"> Registar Nueva Persona</a>
+
+
                     </div>
                     <!--Fin Cuerpo Panel-->
                 </div>

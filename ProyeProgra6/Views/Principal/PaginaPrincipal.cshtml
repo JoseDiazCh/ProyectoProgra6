@@ -3,13 +3,11 @@
     ViewBag.Title = "PaginaPrincipal";
 }
 @section css{
-   
+
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
-
-
+<h1 class="auto-style1" style="margin-left:10%; margin-top:5%; color:red"> BIENVENIDOS A LA PAGINA PRINCIPAL</h1>
 <body class="imagenFondo">
-
     <!--Panel-->
     <div class="panel panel-primary"
          style="        text-align: left;
@@ -20,6 +18,7 @@
         margin-right: 25px;
         margin-top: 15px">
 
+
         <!--Cuerpo Del Panel-->
         <div class="panel-body" style="background-color: aqua; color:black">
 
@@ -27,6 +26,8 @@
             <div class="row" style="display: flex">
                 <!-- Primera Columnna Del Panel-->
                 <div class="column" style="flex: 50%; padding: 10px;">
+                    <div style="margin-left:55px; margin-top: 10px">
+
 
                         <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <div class="container">
@@ -38,9 +39,7 @@
                                                 <ul class="dropdown-menu">
 
                                                     <li><a href="~/Usuarios/UsuarioNuevo">Insertar</a></li>
-                                                    <li><a href="~/Usuarios/ModificaUsuario">Modificar</a></li>
-                                                    <li><a href="~/Usuarios/UsuariosLista">Lista</a></li>
-                                                    @*<li><a href="~/Usuarios/EliminaUsuario">Eliminar</a></li>*@
+                                                    <li><a href="~/Usuarios/UsuariosLista">Listar</a></li>
 
                                                 </ul>
                                             </li>
@@ -52,8 +51,7 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vehículos <span class="caret"></span></a>
                                                 <ul class="dropdown-menu">
                                                     <li><a href="~/Vehiculos/VehiculoNuevo">Insertar</a></li>
-                                                    <li><a href="~/Vehiculos/ModificaVehiculo">Modificar</a></li>
-                                                    <li><a href="~/Vehiculos/VehiculoLista">Lista</a></li>
+                                                    <li><a href="~/Vehiculos/VehiculoLista">Listar</a></li>
 
                                                 </ul>
                                             </li>
@@ -65,8 +63,43 @@
                                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Servicios y productos <span class="caret"></span></a>
                                                 <ul class="dropdown-menu">
                                                     <li><a href="~/ServicioOProducto/ServicioOproductoNuevo">Insertar</a></li>
-                                                    <li><a href="~/ServicioOProducto/ServicioOproductoModifica">Modificar</a></li>
-                                                    <li><a href="~/ServicioOProducto/ServicioOproductoLista">Lista</a></li>
+                                                    <li><a href="~/ServicioOProducto/ServicioOproductoLista">Listar</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tipo Vehiculo <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/TiposVehiculos/TipoVehiculoNuevo">Insertar</a></li>
+                                                    <li><a href="~/TiposVehiculos/TiposVehiculosLista">Listar</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Marca Vehiculos <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/MarcaVehiculo/MarcaVehiculoNuevo">Insertar</a></li>
+                                                    <li><a href="~/MarcaVehiculo/MarcaVehiculoLista">Listar</a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="navbar-header" id="bs-example-navbar-collapse-1">
+                                        <ul class="nav navbar-nav">
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pais Fabricacion <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="~/PaisFabricante/PaisFabricacionNuevo">Insertar</a></li>
+                                                    <li><a href="~/PaisFabricante/PaisFabricanteLista">Listar</a></li>
 
                                                 </ul>
                                             </li>
@@ -87,30 +120,40 @@
                                     <div class="navbar-header" id="bs-example-navbar-collapse-1">
                                         <ul class="nav navbar-nav">
                                             <li class="dropdown">
-                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Reportes <span class="caret"></span></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="~/Facturacion/EncabezadoFac">Encabezado Factura</a></li>
-                                                    <li><a href="~/Facturacion/FacturaNueva">Nueva Factura</a></li>
+                                                    <li><a href="~/GridKendo/ServicioCliente">Servicio Cliente</a></li>
+                                                    <li><a href="~/GridKendo/ServicioVehiculo">Servicio Vehiculo</a></li>
+                                                    <li><a href="~/GridKendo/VehiculoCliente">Vehiculo Cliente</a></li>
 
                                                 </ul>
                                             </li>
                                         </ul>
                                     </div>
-
-
 
                                 </div>
                             </div>
                         </nav>
 
-</div>
-                <!--Fin Cuerpo Panel-->
+                    </div>
+                </div>
             </div>
-            <!--Fin Panel-->
-
         </div>
-
     </div>
-
-
 </body>
+
+@*<footer style="text-align: center">
+        <div class="container-fluid">
+            <br />
+            <p class="fa fa-map-marker" style="height: 20px">Direccion: Puriscal,San Jose</p>
+            <br />
+            <p class="fa fa-copyright" style="height: 20px">Todos los derechos resevados</p>
+            <br />
+            <p class="fa fa-cogs" style="height: 20px">DEVELOPERS</p>
+            <br />
+            <p class="fa fa-user" style="height: 20px">Manuel Arias </p>
+            <br />
+            <p class="fa fa-user" style="height: 20px">Daniel Diaz Chacon</p>
+            <br />
+        </div>
+    </footer>-->*@

@@ -2,18 +2,58 @@
 @section css{
     <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="https://kendo.cdn.telerik.com/2020.2.617/styles/kendo.blueopal.min.css" rel="stylesheet" />
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
-<h2>Reporte Del Servicios Por Cliente</h2>
 
-<div id="divKendoGrid">
+<body class="imagenFondo">
+    <!--Panel-->
+    <div class="panel panel-primary"
+         style="        text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 10px;
+        margin-right: 25px;
+        margin-top: 15px">
+        <!--Encabezado Del Panel-->
+        <div class="panel-heading">
+            <div class="row" style="display: flex">
+                <div style="margin-left:55px; margin-top: 10px">
 
-</div>
+                    <div style=" margin-bottom: 15px; padding-left: 100px; padding-right: 10px">
+                        <h2 class="auto-style1"> Reporte Del Servicio Por Cliente</h2>
+                    </div>
+                </div>
+            </div>
+            <h4>
+                <a style="color: black; margin-left: 80%;padding: 10px;
+             " href="~/Principal/PaginaPrincipal">  Pagina Principal</a>
+            </h4>
+        </div>
+        <!--Fin Encabezado Del Panel-->
+        <!--Cuerpo Del Panel-->
+        <div class="panel-body" style="background-color: aqua; color:black">
 
-@section scripts{
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
-    <script src="~/Scripts/scriptGenerico.js"></script>
-    <script src="~/Scripts/ServicioCliente/serviciocliente.js"></script>
-}
+            <!-- Columnnas Del Panel-->
+            <div class="row" style="display: flex">
+                <!-- Primera Columnna Del Panel-->
+                <div class="column" style="flex: 50%; padding: 20px;">
+
+                    <div id="divKendoGrid">
+
+                    </div>
+                    @section scripts{
+                        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/kendo.all.min.js"></script>
+                        <script src="https://kendo.cdn.telerik.com/2020.2.617/js/jszip.min.js"></script>
+                        <script src="~/Scripts/ServicioCliente/serviciocliente.js"></script>
+                        <script src="~/Scripts/scriptGenerico.js"></script>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
 
 

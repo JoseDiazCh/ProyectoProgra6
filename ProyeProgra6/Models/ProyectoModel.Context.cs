@@ -738,5 +738,14 @@ namespace ProyeProgra6.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_Result>("sp_RetornaFacturaEnc", estadoFacturaParameter);
         }
+    
+        public virtual ObjectResult<sp_ReporteVC_Result> sp_ReporteVC(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteVC_Result>("sp_ReporteVC", nombreParameter);
+        }
     }
 }

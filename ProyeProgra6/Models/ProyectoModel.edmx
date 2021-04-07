@@ -475,6 +475,9 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <Parameter Name="Nombre" Type="varchar" Mode="In" />
           <Parameter Name="Descripcion" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="sp_ReporteVC" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_RetornaCantones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="id_Provincia" Type="int" Mode="In" />
@@ -1123,7 +1126,10 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
             <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaFacturaEnc" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_Result)">
-            <Parameter Name="EstadoFactura" Mode="In" Type="String" />
+          <Parameter Name="EstadoFactura" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ReporteVC" ReturnType="Collection(proyectoprogra6Model.sp_ReporteVC_Result)">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
@@ -1400,6 +1406,16 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="DateTime" Name="Fecha" Nullable="false" />
           <Property Type="Decimal" Name="MontoTotalServicio" Nullable="false" Precision="18" Scale="0" />
           <Property Type="String" Name="EstadoFactura" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_ReporteVC_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="NombreCompleto" Nullable="false" MaxLength="152" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="String" Name="Placa" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idMarcaVehiculos" Nullable="false" />
+          <Property Type="String" Name="marca" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
+          <Property Type="String" Name="tipoVehiculo" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1852,6 +1868,20 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="MontoTotalServicio" ColumnName="MontoTotalServicio" />
                 <ScalarProperty Name="EstadoFactura" ColumnName="EstadoFactura" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ReporteVC" FunctionName="proyectoprogra6Model.Store.sp_ReporteVC">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_ReporteVC_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Placa" ColumnName="Placa" />
+                <ScalarProperty Name="idMarcaVehiculos" ColumnName="idMarcaVehiculos" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
+                <ScalarProperty Name="tipoVehiculo" ColumnName="tipoVehiculo" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

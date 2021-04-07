@@ -9,9 +9,9 @@ namespace ProyeProgra6.Controllers
 {
     public class GridKendoController : Controller
     {
-     /// <summary>
-     /// coneccion a la base datos
-     /// </summary>
+        /// <summary>
+        /// coneccion a la base datos
+        /// </summary>
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
         // GET: GridKendo
         public ActionResult Index()
@@ -56,8 +56,21 @@ namespace ProyeProgra6.Controllers
             {
                 resultado = listaservicio
             });
-          
+
         }
-        
+    
+        [HttpPost]
+        public ActionResult RetornaServicioVehiculo()
+        {
+            List<sp_ReporteVC_Result> lista =
+               this.modeloBD.sp_ReporteVC( "").ToList();
+            return Json(new
+
+            {
+                resultado = lista
+            });
+
+        }
+
     }
 }
