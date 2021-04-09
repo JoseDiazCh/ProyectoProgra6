@@ -1,37 +1,16 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "PaginaPrincipal";
 }
 @section css{
-
+ 
+    <link href="~/Content/SpriteCarouselPrincipal.css" rel="stylesheet" />
     <link href="~/Content/imegenFondo.css" rel="stylesheet" />
 }
-<h1 class="auto-style1" style="margin-left:10%; margin-top:5%; color:red"> BIENVENIDOS A LA PAGINA PRINCIPAL</h1>
+<h1 style="align-content:center" color:white"> BIENVENIDOS A LA PAGINA PRINCIPAL</h1>
 <br />
-<p class="auto-style1" style="margin-left:20%; color:red">SISTEMA DE CONTROL DE LAVADO Y MANTENIMIENTO DE VEHÍCULOS</p>
-<body class="imagenFondo">
-    <!--Panel-->
-    <div class="panel panel-primary"
-         style="        text-align: left;
-        border: solid 5px white;
-        border-color: white;
-        filter: drop-shadow(15px 15px 20px #444);
-        margin-left: 40px;
-        margin-right: 25px;
-        margin-top: 15px">
-
-
-        <!--Cuerpo Del Panel-->
-        <div class="panel-body" style="background-color: aqua; color:black">
-
-            <!-- Columnnas Del Panel-->
-            <div class="row" style="display: flex">
-                <!-- Primera Columnna Del Panel-->
-                <div class="column" style="flex: 50%; padding: 10px;">
-                    <div style="margin-left:55px; margin-top: 10px">
-
-
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<p style="align-content:center" color:white">SISTEMA DE CONTROL DE LAVADO Y MANTENIMIENTO DE VEHÍCULOS</p>
+<body class="imagenFondo" align="center">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
                             <div class="container">
                                 <div class="navbar navbar-inverse navbar-fixed-top">
                                     <div class="navbar-header" id="bs-example-navbar-collapse-1">
@@ -136,12 +115,62 @@
                                 </div>
                             </div>
                         </nav>
+                        <br /> <br />
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        @* ingreso de carousel de videos *@
+
+                        <br />
+                        <br />
+                        <div class="container" id="divContenedorContenido" style="color:white">
+                            <div class="row" id="divRowContenido1" style="color:white">
+                                <!--Columna 1 -->
+                                <div class="col-sm-6" style="align-content:center" >
+                                    <iframe  width="556" height="338" src="https://www.youtube.com/embed/KL_nsjG1TUo?autoplay=1&showinfo=0&controls=0&modestbranding=1"></iframe>
+                                    
+                                </div>
+                                <!--Columna 2 -->
+                                <div class="col-sm-6" style="align-content:center">
+                                  
+                                    <div id="myCarousel" class="carousel-inner" data-ride="carousel">
+                                        <ol id="olCarousel" class="carousel-indicators">
+                                            <li data-target="myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="myCarousel" data-slide-to="1"></li>
+                                            <li data-target="myCarousel" data-slide-to="2"></li>
+                                            <li data-target="myCarousel" data-slide-to="3"></li>
+
+                                        </ol>
+                                        <div class="carousel-inner" role="listbox">
+                                            <div class="item active">
+                                                <span class="sprite uno"></span>
+                                            </div>
+                                            <div class="item">
+                                                <span class="sprite dos"></span>
+                                            </div>
+                                            <div class="item">
+                                                <span class="sprite tres"></span>
+                                            </div>
+                                            <div class="item">
+                                                <span class="sprite cuatro"></span>
+                                            </div>
+
+                                            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                                <span class="sr-only">Anterior</span>
+                                            </a>
+                                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                                <span class="sr-only">Siguiente</span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+
 </body>
 
 @*<footer style="text-align: center">

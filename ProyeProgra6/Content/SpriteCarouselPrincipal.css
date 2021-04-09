@@ -1,0 +1,40 @@
+﻿.carousel-inner {
+    width :556px ;
+    height:338px;
+   
+}
+
+.item {
+    text-align: center;
+    image-resolution:from-image;
+}
+
+.sprite {
+    display: inline-block;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-image: url('../Imagenes/Principal.png');
+}
+.uno {
+    width: 556px;
+    height: 338px;
+    background-position: -1px -1px
+}
+
+.dos {
+    width: 556px;
+    height: 338px;
+    background-position: -1px -341px
+}
+
+.tres {
+    width: 556px;
+    height: 338px;
+    background-position: -1px -681px
+}
+
+.cuatro {
+    width: 556px;
+    height: 338px;
+    background-position: -1px -1021px
+}
