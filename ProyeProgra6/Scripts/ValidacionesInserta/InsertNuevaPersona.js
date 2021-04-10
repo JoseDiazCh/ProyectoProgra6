@@ -1,11 +1,10 @@
 ﻿///document on ready del view Registro de Personas
 $(function () {
     creaValidaciones();
-    mascaras()
+
 });
 
-function mascaras() {
-    $('#cedula').mascaras('0-0000-0000', { placeholder: "_-____-____" });
+
 ///crea las validaciones para el formulario de insertar una nueva
 function creaValidaciones() {
     $("#frmNuevaPersona").validate({
@@ -14,10 +13,8 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                //digits: true
-                //regex: '/^[1-9]-\d{4}-\d{4}$/',
-                
-                
+                digits: true
+              
             },
             Genero: {
                 required: true
@@ -62,13 +59,6 @@ function creaValidaciones() {
             Contrasenia: {
                 required: true
             },
-
-        },
-
-        messages: {
-            cedula: {
-                regex:"Debe ingresar un formato valido"
-            }
 
         },
 

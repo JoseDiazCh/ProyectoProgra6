@@ -101,67 +101,69 @@ namespace ProyeProgra6.Controllers
 
             return View();
         }
+        // --------------------------------------------------------------------------------------------
 
         ///// <summary>
-        /////  metodo o controlador que MODIFICA 
-        ///// </summary>
-        ///// <param name="idencabezadofactura"></param>
-        ///// <returns></returns>
-        //public ActionResult EncabezadoFacModifica(int idEncabezadoFac)
-        //{
-        //    ///obtener el registro que se debe modificar
-        //    ///utilizando el parametro 
-        //    sp_RetornaFacturaEnc_ID_Result modeloVista = new sp_RetornaFacturaEnc_ID_Result();
-        //    modeloVista = this.modeloBD.sp_RetornaFacturaEnc_ID(idEncabezadoFac).FirstOrDefault();
+        /////  metodo o controlador que MODIFICA  
+        /// </summary>
+        /// <param name="idEncabezadoFac"></param>
+        /// <returns></returns>
 
-        //    //enviar el modelo a la vista
-        //    return View(modeloVista);
-        //}
-        ///// Modifica persona tipo httpPost
-        //[HttpPost]
-        //public ActionResult EncabezadoFacModifica(sp_RetornaFacturaEnc_ID_Result modeloVista)
-        //{
-        //    ///registra la cantidad de  registros afectados
-        //    ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
-        //    ///no afecta registros implica que hubo un error
+        public ActionResult EncabezadoFacModifica(int idEncabezadoFac)
+        {
+            //    ///obtener el registro que se debe modificar
+            //    ///utilizando el parametro 
+            sp_RetornaFacturaEnc_ID_Result modeloVista = new sp_RetornaFacturaEnc_ID_Result();
+            modeloVista = this.modeloBD.sp_RetornaFacturaEnc_ID(idEncabezadoFac).FirstOrDefault();
 
-        //    int cantRegistrosAfectados = 0;
-        //    string resultado = "";
-        //    try
-        //    {
-        //        cantRegistrosAfectados =
-        //            this.modeloBD.sp_ModificaFacturaEnc(
-        //                modeloVista.idEncabezadoFac,
-        //                modeloVista.idUsuario,
-        //                modeloVista.idVehiculo,
-        //                modeloVista.Fecha,
-        //                modeloVista.MontoTotalServicio,
-        //                modeloVista.EstadoFactura
+            //    //enviar el modelo a la vista
+            return View(modeloVista);
+        }
+        /// Modifica factura tipo httpPost
+        [HttpPost]
+        public ActionResult EncabezadoFacModifica(sp_RetornaFacturaEnc_ID_Result modeloVista)
+        {
+            ///registra la cantidad de  registros afectados
+            ///si un prrocedimiento se ejecuta INSERT, UPDATE, DELETE
+            ///no afecta registros implica que hubo un error
 
-        //                );
-        //    }
-        //    catch (Exception error)
-        //    {
+            int cantRegistrosAfectados = 0;
+            string resultado = "";
+            try
+            {
+                cantRegistrosAfectados =
+                    this.modeloBD.sp_ModificaFacturaEnc(
+                        modeloVista.idEncabezadoFac,
+                        modeloVista.idUsuario,
+                        modeloVista.idVehiculo,
+                        modeloVista.Fecha,
+                        modeloVista.MontoTotalServicio,
+                        modeloVista.EstadoFactura
 
-        //        resultado = "Ocurrio un error: " + error.Message;
-        //    }
-        //    finally
-        //    {
-        //        if (cantRegistrosAfectados > 0)
+                        );
+            }
+            catch (Exception error)
+            {
 
-        //            resultado = "Registro Modificado Correctamente";
+                resultado = "Ocurrio un error: " + error.Message;
+            }
+            finally
+            {
+                if (cantRegistrosAfectados > 0)
 
-        //        else
-        //            resultado = "No se pudo Modificar el Dato";
+                    resultado = "Registro Modificado Correctamente";
 
-        //    }
-        //    Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
+                else
+                    resultado = "No se pudo Modificar el Dato";
 
-
-        //    return View(modeloVista);
-        //}
+            }
+            Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
 
 
+            return View(modeloVista);
+        }
+
+        //----------------------------------------------------------------------------------------------------------------
 
         ///// <summary>
         ///// metodo que Retorna Servicio o producto

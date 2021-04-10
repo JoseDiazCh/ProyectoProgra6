@@ -747,5 +747,43 @@ namespace ProyeProgra6.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteVC_Result>("sp_ReporteVC", nombreParameter);
         }
+    
+        public virtual int sp_ModificaFacturaEnc(Nullable<int> idEncabezadoFac, Nullable<int> idUsuario, Nullable<int> idVehiculo, Nullable<System.DateTime> fecha, Nullable<decimal> montoTotalServicio, string estadoFactura)
+        {
+            var idEncabezadoFacParameter = idEncabezadoFac.HasValue ?
+                new ObjectParameter("idEncabezadoFac", idEncabezadoFac) :
+                new ObjectParameter("idEncabezadoFac", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var idVehiculoParameter = idVehiculo.HasValue ?
+                new ObjectParameter("idVehiculo", idVehiculo) :
+                new ObjectParameter("idVehiculo", typeof(int));
+    
+            var fechaParameter = fecha.HasValue ?
+                new ObjectParameter("Fecha", fecha) :
+                new ObjectParameter("Fecha", typeof(System.DateTime));
+    
+            var montoTotalServicioParameter = montoTotalServicio.HasValue ?
+                new ObjectParameter("MontoTotalServicio", montoTotalServicio) :
+                new ObjectParameter("MontoTotalServicio", typeof(decimal));
+    
+            var estadoFacturaParameter = estadoFactura != null ?
+                new ObjectParameter("EstadoFactura", estadoFactura) :
+                new ObjectParameter("EstadoFactura", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaFacturaEnc", idEncabezadoFacParameter, idUsuarioParameter, idVehiculoParameter, fechaParameter, montoTotalServicioParameter, estadoFacturaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaFacturaEnc_ID_Result> sp_RetornaFacturaEnc_ID(Nullable<int> idEncabezadoFac)
+        {
+            var idEncabezadoFacParameter = idEncabezadoFac.HasValue ?
+                new ObjectParameter("idEncabezadoFac", idEncabezadoFac) :
+                new ObjectParameter("idEncabezadoFac", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_ID_Result>("sp_RetornaFacturaEnc_ID", idEncabezadoFacParameter);
+        }
     }
 }

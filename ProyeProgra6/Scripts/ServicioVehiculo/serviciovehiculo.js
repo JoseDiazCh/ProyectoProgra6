@@ -12,7 +12,6 @@ $(function () {
 function obtenerRegistros() {
     /////construir la dirección del método del servidor
     var urlMetodo = '/GridKendo/RetornaServicioVehiculo'
-    '
     var parametros = {};
     var funcion = creaGridKendo;
     ///ejecuta la función $.ajax utilizando un método genérico
@@ -37,7 +36,7 @@ function creaGridKendo(data) {
                 //propiedades de la funte a mostrar
                 field: 'NombreCompleto',
                 ///texto del encabezado de pagina
-                title: 'Nombre'
+                title: 'Nombre Cliente'
             },
             {
                 field: 'Fecha',

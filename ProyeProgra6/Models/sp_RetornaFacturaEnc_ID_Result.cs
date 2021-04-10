@@ -21,6 +21,6 @@ namespace ProyeProgra6.Models
         public System.DateTime Fecha { get; set; }
         public decimal MontoTotalServicio { get; set; }
         public string EstadoFactura { get; set; }
-        public string Column1 { get; set; }
+
     }
 }

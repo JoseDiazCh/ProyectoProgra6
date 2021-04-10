@@ -420,6 +420,14 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
           <Parameter Name="idMarcaVehiculos" Type="int" Mode="In" />
           <Parameter Name="idTipoVehiculo" Type="int" Mode="In" />
         </Function>
+        <Function Name="sp_ModificaFacturaEnc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEncabezadoFac" Type="int" Mode="In" />
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="idVehiculo" Type="int" Mode="In" />
+          <Parameter Name="Fecha" Type="date" Mode="In" />
+          <Parameter Name="MontoTotalServicio" Type="decimal" Mode="In" />
+          <Parameter Name="EstadoFactura" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="sp_ModificaMarcaVehiculos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idMarcaVehiculos" Type="int" Mode="In" />
           <Parameter Name="Codigo" Type="varchar" Mode="In" />
@@ -494,6 +502,9 @@ advertencia 6002: La tabla o vista 'proyectoprogra6.dbo.VehiculoCliente' no tien
         </Function>
         <Function Name="sp_RetornaFacturaEnc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="EstadoFactura" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaFacturaEnc_ID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idEncabezadoFac" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_RetornaMarcaVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Codigo" Type="varchar" Mode="In" />
@@ -1129,7 +1140,18 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Parameter Name="EstadoFactura" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_ReporteVC" ReturnType="Collection(proyectoprogra6Model.sp_ReporteVC_Result)">
-            <Parameter Name="Nombre" Mode="In" Type="String" />
+          <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaFacturaEnc">
+            <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="idVehiculo" Mode="In" Type="Int32" />
+            <Parameter Name="Fecha" Mode="In" Type="DateTime" />
+            <Parameter Name="MontoTotalServicio" Mode="In" Type="Decimal" />
+            <Parameter Name="EstadoFactura" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaFacturaEnc_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_ID_Result)">
+            <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">
@@ -1416,6 +1438,17 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Property Type="String" Name="marca" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idTipoVehiculo" Nullable="false" />
           <Property Type="String" Name="tipoVehiculo" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaFacturaEnc_ID_Result">
+          <Property Type="Int32" Name="idEncabezadoFac" Nullable="false" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="nombreUsuario" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idVehiculo" Nullable="false" />
+          <Property Type="String" Name="plcaVehiculo" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="Fecha" Nullable="false" />
+          <Property Type="Decimal" Name="MontoTotalServicio" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="EstadoFactura" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Column1" Nullable="true" MaxLength="12" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1882,6 +1915,22 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
                 <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="idTipoVehiculo" ColumnName="idTipoVehiculo" />
                 <ScalarProperty Name="tipoVehiculo" ColumnName="tipoVehiculo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_ModificaFacturaEnc" FunctionName="proyectoprogra6Model.Store.sp_ModificaFacturaEnc" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaFacturaEnc_ID" FunctionName="proyectoprogra6Model.Store.sp_RetornaFacturaEnc_ID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="proyectoprogra6Model.sp_RetornaFacturaEnc_ID_Result">
+                <ScalarProperty Name="idEncabezadoFac" ColumnName="idEncabezadoFac" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+                <ScalarProperty Name="idVehiculo" ColumnName="idVehiculo" />
+                <ScalarProperty Name="plcaVehiculo" ColumnName="plcaVehiculo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="MontoTotalServicio" ColumnName="MontoTotalServicio" />
+                <ScalarProperty Name="EstadoFactura" ColumnName="EstadoFactura" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

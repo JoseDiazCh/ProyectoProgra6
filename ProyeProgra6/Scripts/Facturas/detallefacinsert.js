@@ -165,6 +165,7 @@ function invocarMetodoPost() {
 
 
 
+
 function cargaMensaje(data) {
     var resultadoFuncion = data;
     var ddlTexto = $("#EstadoInfo");
@@ -179,7 +180,12 @@ function cargaMensaje(data) {
 //Modal Pequeño
 function showMessage(msg) {
 
+
+
     const message = document.querySelector("#message");
+
+
+
 
     var html = "<div class='modal' data-backdrop='static' id='myModal' tabindex='-1' role='dialog'> " +
         " <div class='modal-dialog modal-dialog-centered' >" +

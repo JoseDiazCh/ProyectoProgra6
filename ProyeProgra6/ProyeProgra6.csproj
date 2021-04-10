@@ -205,6 +205,9 @@
     <Compile Include="Models\sp_RetornaDistritos_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_RetornaFacturaEnc_ID_Result.cs">
+      <DependentUpon>ProyectoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_RetornaFacturaEnc_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
@@ -374,6 +377,7 @@
     <Content Include="Views\Facturacion\EncabezadoFac.cshtml" />
     <Content Include="Views\Facturacion\FacturaNueva.cshtml" />
     <Content Include="Views\Principal\PaginaPrincipal.cshtml" />
+    <Content Include="Views\Facturacion\EncabezadoFacModifica.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -11,7 +11,7 @@ $(function () {
 function obtenerRegistros() {
     /////construir la dirección del método del servidor
     var urlMetodo = '/GridKendo/RetornaServicioCliente'
-'
+
     var parametros = {};
     var funcion = creaGridKendo;
     ///ejecuta la función $.ajax utilizando un método genérico
@@ -27,7 +27,7 @@ function creaGridKendo(data) {
         dataSource: {
             data: data.resultado,
             //algrega el numero de registros a mostrar
-            pageSize: 5
+            pageSize: 3
         },
         pageable: true,
         columns: [

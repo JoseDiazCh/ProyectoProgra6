@@ -55,7 +55,7 @@ function creaGridKendo(data) {
             {
                 title: "Acciones",
                 template: function (dataItem) {
-                    return "<a href='/Personas/PersonaModifica?id_Persona=" + dataItem.id_Persona + "'>Modificar</a>"
+                    return "<a href='/Facturacion/EncabezadoFacModifica?idEncabezadoFac=" + dataItem.idEncabezadoFac + "'>Modificar</a>"
                 }
             }
         ],

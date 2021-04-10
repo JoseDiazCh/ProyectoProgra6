@@ -7,23 +7,22 @@
     creaElementosJqueryUI();
 
 });
-
 function creaElementosJqueryUI() {
 
 
     ///creamos el control de tipo datepicker
     crearDatePicker();
-    //creamos el div divDialog como elemento de tipo Dialog
+    ///creamos el div divDialog como elemento de tipo Dialog
     crearDialog();
     ///evento click del botón btMostrarDialog          
-    $("#btMostrarDialog").click(function () {
+    $("#btMostraDialog").click(function () {
         $("#divDialog").dialog("open");
     });
     //evento click del botón btCerrar   
     $("#btCerrar").click(function () {
         $("#divDialog").dialog("close");
     });
- 
+
 }
 
 ///carga los registros de los usuarios
@@ -111,7 +110,7 @@ function crearDatePicker() {
     });
 }
 /*
- * Crea un datepicker
+ * Crea un dialogo
  */
 function crearDialog() {
     $("#divDialog").dialog({
@@ -119,7 +118,7 @@ function crearDialog() {
         height: 500,
         width: 500,
         modal: true,
-        title: "Registro de Factura",
+        title: "Registro de Datos",
         resizable: false,
         close: function () {
             alert("Ventana Cerrada");
@@ -130,3 +129,4 @@ function crearDialog() {
         }
     });
 }
+

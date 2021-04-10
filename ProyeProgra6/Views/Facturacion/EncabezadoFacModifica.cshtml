@@ -1,48 +1,92 @@
-﻿
+﻿@model ProyeProgra6.Models.sp_RetornaFacturaEnc_ID_Result
 @{
     ViewBag.Title = "EncabezadoFacModifica";
 }
 
+@section css{
 
-<h2>Modifica el Encabezado Factura</h2>
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
 
-@*<form id="frmNuevaFactura" method="post">
-    <div class="form-group">
-        <label>Encabezado Factura:</label>
-        <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control" value="@Model."></select>
-    </div>
-    <br />
-    <div class="form-group">
-        <label>Usuario:</label>
-        <select name="idUsuario" id="idUsuario" class="form-control" value="@Model."></select>
-    </div>
-    <br />
-    <div class="form-group">
-        <label>Vehiculo:</label>
-        <select name="idVehiculo" id="idVehiculo" class="form-control" value="@Model."></select>
-    </div>
-    <br />
-    <div class="form-group">
-        <label> Fecha:</label>
-        <input type="text" name="Fecha" id="Fecha" class="form-control" value="@Model.primerApellido" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label>Monto Total Servicio:</label>
-        <input type="text" name="MontoTotalServicio" id="MontoTotalServicio" class="form-control" value="@Model.segundoApellido" />
-    </div>
-    <br />
-    <div class="form-group">
-        <label>Estado Factura:</label>
-        <input type="text" name="EstadoFactura" id="EstadoFactura" class="form-control" value="@Model.nombre" />
-    </div>
-    <div class="form-group">
-        <label>Teléfono :</label>
-        <input type="text" name="telefono" id="telefono" class="form-control" value="@Model.telefono" />
-    </div>
-    
-    <div class="form-group">
-        <input type="submit" value="Guardar" id="btnAceptar" />
-    </div>
-    <a href="~/Personas/PersonaLista"> Regresar a la lista</a>
-</form>*@
+    <form id="frmEncabezado" method="post">
+        <!--Panel-->
+        <div class="panel panel-primary"
+             style=" text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 110px;
+        margin-right: 100px;
+        margin-top: 15px">
+            <!--Encabezado Del Panel-->
+            <div class="panel-heading">
+                <div class="row" style="display: flex">
+                    <div style="margin-left: 10px; margin-top: 10px">
+
+                        <div style="margin-bottom: 10px; padding-left: 40px; padding-right: 40px">
+                            <h2 class="auto-style1">Registro De Modificar Una Factura</h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--Fin Encabezado Del Panel-->
+            <!--Cuerpo Del Panel-->
+            <div class="panel-body" style="background-color: aqua; color:black">
+
+                <!-- Columnnas Del Panel-->
+                <div class="row" style="display: flex">
+                    <!-- Primera Columnna Del Panel-->
+                    <div class="column" style="flex: 50%; padding: 10px;">
+                        <div class="form-group">
+                            <label>Encabezado Factura:</label>
+                            <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control" value="@Model.idEncabezadoFac" readonly></select>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Usuario:</label>
+                            <select name="idUsuario" id="idUsuario" class="form-control" value="@Model.idUsuario" readonly></select>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Vehiculo:</label>
+                            <select name="idVehiculo" id="idVehiculo" class="form-control" value="@Model.idVehiculo" readonly></select>
+                        </div>
+                        <br />
+                          <div class="form-group">
+                              <label>Fecha:</label>
+                            <input type="text" name="Fecha" id="Fecha" class="form-control" value="@Model.Fecha ToShortDateString()"readonly />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label> Monto Total Servicio:</label>
+                            <input type="text" name="MontoTotalServicio" id="MontoTotalServicio" class="form-control" value="@Model.MontoTotalServicio" readonly />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label>Estado Factura:</label>
+                            <input type="text" name="EstadoFactura" id="EstadoFactura" class="form-control" value="@Model.EstadoFactura" />
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Modificar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
+                        </div>
+                        <br />
+                        <a style="color:darkblue" href="~/Facturacion/EncabezadoFac"> Lista de Facturas</a>
+                    </div>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+            </div>
+
+        </div>
+    </form>
+
+</body>
+@section scripts{
+    @Scripts.Render("~/bundles/bundleJquery")
+    <script src="~/Scripts/ValidacionesInserta/InsertNuevaPersona.js"></script>
+
+}
+
