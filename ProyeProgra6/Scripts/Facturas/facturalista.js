@@ -42,7 +42,10 @@ function creaGridKendo(data) {
             },
             {
                 field: 'Fecha',
-                title: 'Fecha Creacion'
+                title: 'Fecha Creacion',
+                type: "date",
+
+                format: "{0:dd-MM-yyyy}"
             },
             {
                 field: 'MontoTotalServicio',

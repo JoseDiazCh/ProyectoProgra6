@@ -67,14 +67,14 @@ namespace ProyeProgra6.Controllers
         /// <returns></returns>
         [HttpPost]
         public ActionResult RetornaServicioVehiculo()
-        {
-            List<sp_ReporteVC_Result> lista =
-               this.modeloBD.sp_ReporteVC("").ToList();
+        { List<sp_ReporteSV_Result> lista =
+               this.modeloBD.sp_ReporteSV("").ToList();
             return Json(new
 
             {
                 resultado = lista
             });
+           
 
         }
         /// <summary>
@@ -84,13 +84,13 @@ namespace ProyeProgra6.Controllers
         [HttpPost]
         public ActionResult RetornaSerVehiculo()
         {
-            List<sp_ReporteSV_Result> lista =
-               this.modeloBD.sp_ReporteSV("").ToList();
+           List<sp_ReporteVC_Result> lista =
+               this.modeloBD.sp_ReporteVC("").ToList();
             return Json(new
 
             {
                 resultado = lista
-            });
+            }); 
 
         }
 

@@ -56,7 +56,11 @@ function creaGridKendo(data) {
 
                 field: 'Fecha',
 
-                title: 'Fecha'
+                title: 'Fecha',
+
+                type: "date",
+
+                format: "{0:dd-MM-yyyy}"
             },
             {
                 field: 'PrecioServicio',

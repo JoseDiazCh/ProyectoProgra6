@@ -34,33 +34,40 @@ function creaGridKendo(data) {
             //cada columna se agrega por llaves
             {
                 //propiedades de la funte a mostrar
-                field: 'NombreCompleto',
+                field: 'descripcion',
                 ///texto del encabezado de pagina
-                title: 'Nombre Cliente'
+                title: 'Descripcion Servicio'
             },
             {
-                field: 'Fecha',
+                field: 'cantidad',
 
-                title: 'Fecha'
+                title: 'Cantidad'
+            },
+            {
+                field: 'fecha',
+
+                title: 'Fecha',
+                type: "date",
+
+                format: "{0:dd-MM-yyyy}"
+            },
+            {
+                field: 'preciototal',
+
+                title: 'Precio Total'
+            },
+            {
+                field: 'montototalservicio',
+
+                title: 'Monto Total Servicio'
             },
             {
                 field: 'Placa',
 
                 title: 'Placa'
             },
-            {
-                field: 'marca',
 
-                title: 'Marca Vehiculo'
-            },
-            {
-
-                field: 'tipoVehiculo',
-
-                title: 'Tipo Vehiculo'
-            },
-
-        ],
+       ],
          filterable: true,
     });
 }

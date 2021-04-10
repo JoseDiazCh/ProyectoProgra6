@@ -56,7 +56,7 @@ function cargaUsuario(data) {
         ///Por ejemplo provinicaActual.nombre nos retorna el nombre de la provincia
         var usuarioActual = this;
         ///Creamos la opcion de la lista, con el valor del id de la provincia y el texto con el nombre
-        nuevaOpcion = "<option value='" + usuarioActual.idUsuario + "'>" + usuarioActual.nombre + "</option>";
+        nuevaOpcion = "<option value='" + usuarioActual.idUsuario + "'>" + usuarioActual.Nombre + "</option>";
         ///Agregamos la Opcion Al DropDownList
         ddlUsuario.append(nuevaOpcion);
     });
@@ -91,7 +91,7 @@ function cargaVehiculo(data) {
         ///Por ejemplo provinicaActual.nombre nos retorna el nombre de la provincia
         var vehiculoActual = this;
         ///Creamos la opcion de la lista, con el valor del id de la provincia y el texto con el nombre
-        nuevaOpcion = "<option value='" + vehiculoActual.idVehiculo + "'>" + vehiculoActual.placa + "</option>";
+        nuevaOpcion = "<option value='" + vehiculoActual.idVehiculo + "'>" + vehiculoActual.Placa + "</option>";
         ///Agregamos la Opcion Al DropDownList
         ddlVehiculo.append(nuevaOpcion);
     });
