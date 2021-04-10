@@ -44,8 +44,11 @@ namespace ProyeProgra6.Controllers
         {
             return View();
         }
-//---------------------------------------------------------------
-
+        //---------------------------------------------------------------
+        /// <summary>
+        /// retorna servicio cliente
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult RetornaServicioCliente()
         {
@@ -58,12 +61,31 @@ namespace ProyeProgra6.Controllers
             });
 
         }
-    
+        /// <summary>
+        /// retorna  vehiculo cliente
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult RetornaServicioVehiculo()
         {
             List<sp_ReporteVC_Result> lista =
-               this.modeloBD.sp_ReporteVC( "").ToList();
+               this.modeloBD.sp_ReporteVC("").ToList();
+            return Json(new
+
+            {
+                resultado = lista
+            });
+
+        }
+        /// <summary>
+        /// REtorna servicio vehiculo
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult RetornaSerVehiculo()
+        {
+            List<sp_ReporteSV_Result> lista =
+               this.modeloBD.sp_ReporteSV("").ToList();
             return Json(new
 
             {
@@ -73,4 +95,5 @@ namespace ProyeProgra6.Controllers
         }
 
     }
+    
 }

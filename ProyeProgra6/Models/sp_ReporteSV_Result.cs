@@ -11,16 +11,14 @@ namespace ProyeProgra6.Models
 {
     using System;
     
-    public partial class sp_RetornaFacturaEnc_ID_Result
+    public partial class sp_ReporteSV_Result
     {
-        public int idEncabezadoFac { get; set; }
-        public int idUsuario { get; set; }
-        public string nombreUsuario { get; set; }
-        public int idVehiculo { get; set; }
-        public string plcaVehiculo { get; set; }
-        public System.DateTime Fecha { get; set; }
-        public decimal MontoTotalServicio { get; set; }
-        public string EstadoFactura { get; set; }
-        public string Column1 { get; set; }
+        public int idServProduc { get; set; }
+        public string descripcion { get; set; }
+        public string cantidad { get; set; }
+        public decimal preciototal { get; set; }
+        public System.DateTime fecha { get; set; }
+        public decimal montototalservicio { get; set; }
+        public string Placa { get; set; }
     }
 }

@@ -190,6 +190,9 @@
     <Compile Include="Models\sp_ReporteSC_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_ReporteSV_Result.cs">
+      <DependentUpon>ProyectoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_ReporteVC_Result.cs">
       <DependentUpon>ProyectoModel.tt</DependentUpon>
     </Compile>

@@ -785,5 +785,14 @@ namespace ProyeProgra6.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_ID_Result>("sp_RetornaFacturaEnc_ID", idEncabezadoFacParameter);
         }
+    
+        public virtual ObjectResult<sp_ReporteSV_Result> sp_ReporteSV(string placa)
+        {
+            var placaParameter = placa != null ?
+                new ObjectParameter("Placa", placa) :
+                new ObjectParameter("Placa", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteSV_Result>("sp_ReporteSV", placaParameter);
+        }
     }
 }

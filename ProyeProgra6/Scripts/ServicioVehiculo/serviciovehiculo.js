@@ -27,7 +27,7 @@ function creaGridKendo(data) {
         dataSource: {
             data: data.resultado,
             //algrega el numero de registros a mostrar
-            pageSize: 5
+            pageSize: 3
         },
         pageable: true,
         columns: [
