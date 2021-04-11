@@ -131,6 +131,7 @@
     <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\GridKendoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarcaVehiculoController.cs" />
     <Compile Include="Controllers\PaisFabricanteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
@@ -319,6 +320,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jqueryui.js" />
+    <Content Include="Scripts\Login\Login.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\scriptGenerico.js" />
     <Content Include="Scripts\ServicioCliente\serviciocliente.js" />
@@ -381,6 +383,7 @@
     <Content Include="Views\Facturacion\FacturaNueva.cshtml" />
     <Content Include="Views\Principal\PaginaPrincipal.cshtml" />
     <Content Include="Views\Facturacion\EncabezadoFacModifica.cshtml" />
+    <Content Include="Views\Login\InicioSesion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

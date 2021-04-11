@@ -54,13 +54,13 @@
                         <div class="form-group">
                             <label for="fecha">Fecha: </label>
                             <input type="text" name="fecha" id="fecha" class="form-control" value=""
-                              placeholder="Seleccione la Fecha"/>
+                                   placeholder="Seleccione la Fecha" />
                         </div>
 
                         <div class="form-group">
                             <label>Monto Final:</label>
-                            <input type="text" name="MontoTotalServicio" id="MontoTotalServicio" class="form-control" 
-                               placeholder="Ingrese el Monto Total"/>
+                            <input type="text" name="MontoTotalServicio" id="MontoTotalServicio" class="form-control"
+                                   placeholder="Ingrese el Monto Total" />
                         </div>
 
                         <div class="form-check">
@@ -87,7 +87,7 @@
                         <a style="color:darkblue" href="~/Facturacion/EncabezadoFac"> Lista de Facturas</a>
                         <br />
                         <br />
-                        <input type="button" id="btMostrarDialog" value="Detalle Factura" class="btn btn-success" style=" border-color:black ; color:red" />
+                        <input type="button" id="btMostraDialog" value="Mostrar dialog" class="btn btn-success" style="border-color:black; color:red" />
                     </div>
                     <!--Fin Cuerpo Panel-->
                 </div>
@@ -97,48 +97,43 @@
         <!---->
     </form>
 
-    <div id="divDialog" hidden>
-        <h2>Inserta Detalle De La Factura</h2>
-        <form id="frmInserta">
-            <div class="form-group">
-                <label>Servicio o Producto:</label>
-                <select name="idServProduc" id="idServProduc" class="form-control">
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Cantidad SP:</label>
-                <input type="text" name="cantidadsp" id="cantidadsp" class="form-control" value=""
-                       placeholder="Ingrese La Cantidad " />
-            </div>
-            <br />
-            <div class="form-group">
-                <label>Precio Final:</label>
-                <input type="text" name="preciototal" id="preciototal" class="form-control"
-                       placeholder="Ingrese  El Precio Total" />
-            </div>
+        <div id="divDialog" hidden>
+            <h2>Inserta Detalle De La Factura</h2>
+            <form id="frmInserta">
+                <div class="form-group">
+                    <label>Servicio o Producto:</label>
+                    <select name="idServProduc" id="idServProduc" class="form-control">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Cantidad SP:</label>
+                    <input type="text" name="cantidadsp" id="cantidadsp" class="form-control" value=""
+                           placeholder="Ingrese La Cantidad " />
+                </div>
+                <br />
+                <div class="form-group">
+                    <label>Precio Final:</label>
+                    <input type="text" name="preciototal" id="preciototal" class="form-control"
+                           placeholder="Ingrese  El Precio Total" />
+                </div>
 
-            @*<div class="form-group">
-                <label>Precio Total:</label>
-                <input type="text" name="preciototal" id="preciototal" class="form-control" value=""
-                       placeholder="Ingrese El Precio Total" />
-            </div>*@
-            <br />
+                <br />
+                <div class="form-group">
+                    <label>Encabezado Factura:</label>
+                    <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control">
+                    </select>
+                </div>
+                <br />
+            </form>
             <div class="form-group">
-                <label>Encabezado Factura:</label>
-                <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control">
-                </select>
+                <div class="col-md-10">
+                    <button style="color:red" id="btnInsertar" class="btn btn-success"> Registrar</button>
+                </div>
             </div>
             <br />
-        </form>
-        <div class="form-group">
-            <div class="col-md-10">
-                <button style="color:black" id="btnInsertar" class="btn btn-success"> Registrar</button>
-            </div>
+            <br />
+            <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
         </div>
-        <br />
-        <br />
-        <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
-    </div>
     <div id="EstadoInfo"></div>
     <div id="message"></div>
 </body>

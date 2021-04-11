@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "InicioSesion";
+}
+
+@section css{
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/black-tie/jquery-ui.css" />
+    <link href="~/Content/imegenFondo.css" rel="stylesheet" />
+}
+<body class="imagenFondo">
+
+    <form id="frmlogin" method="post">
+        <!--Panel-->
+        <div class="panel panel-primary"
+             style=" text-align: left;
+        border: solid 5px white;
+        border-color: white;
+        filter: drop-shadow(15px 15px 20px #444);
+        margin-left: 250px;
+        margin-right: 250px;
+        margin-top: 15px">
+            <!--Encabezado Del Panel-->
+            <div class="panel-heading">
+                <div class="row" style="display: flex">
+                    <div style="margin-left: 10px; margin-top: 10px">
+
+                        <div style="margin-bottom: 10px; padding-left: 70px; padding-right: 40px">
+                            <h2 class="auto-style1">Inicio de Sesion </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Fin Encabezado Del Panel-->
+            <!--Cuerpo Del Panel-->
+            <div class="panel-body" style="background-color: cyan; color:black">
+
+                <!-- Columnnas Del Panel-->
+                <div class="row" style="display: flex">
+                    <!-- Primera Columnna Del Panel-->
+                    <div class="column" style="flex: 50%; padding: 10px;">
+
+                        <div class="form-group">
+                            <label><span class="fas fa-user"></span>Correo</label>
+                            <input class="form-control" ID="correo" runat="server" TextMode="Email" placeholder="Enter Email" required="required" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label><span class="fas fa-eye"></span>Contraseña</label>
+                            <input class="form-control" ID="contrasenia" runat="server" TextMode="Password" placeholder="Enter password" required="required" />
+                        </div>
+
+
+                        <div class="container-fluid" style="text-align: left">
+                            <div class="form-group" style="text-align: left">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <button style=" border-color:black ; color:red" id="btnAceptar" class="btn btn-success" > Registrar</button>
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
+                                    <div class="col-md-10">
+                                        <input type="submit" value="Registrar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
+                                    </div>*@
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                   
+                    </div>
+                    <!--Fin Cuerpo Panel-->
+                </div>
+                <!--Fin Panel-->
+
+            </div>
+
+        </div>
+        <!---->
+    </form>
+
+
+</body>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jqueryui.js"></script>
+    <script src="~/Scripts/Login/Login.js"></script>
+}
+
+
+
+
+
