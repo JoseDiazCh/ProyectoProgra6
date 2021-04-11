@@ -777,15 +777,6 @@ namespace ProyeProgra6.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaFacturaEnc", idEncabezadoFacParameter, idUsuarioParameter, idVehiculoParameter, fechaParameter, montoTotalServicioParameter, estadoFacturaParameter);
         }
     
-        public virtual ObjectResult<sp_RetornaFacturaEnc_ID_Result> sp_RetornaFacturaEnc_ID(Nullable<int> idEncabezadoFac)
-        {
-            var idEncabezadoFacParameter = idEncabezadoFac.HasValue ?
-                new ObjectParameter("idEncabezadoFac", idEncabezadoFac) :
-                new ObjectParameter("idEncabezadoFac", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_ID_Result>("sp_RetornaFacturaEnc_ID", idEncabezadoFacParameter);
-        }
-    
         public virtual ObjectResult<sp_ReporteSV_Result> sp_ReporteSV(string placa)
         {
             var placaParameter = placa != null ?
@@ -793,6 +784,15 @@ namespace ProyeProgra6.Models
                 new ObjectParameter("Placa", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_ReporteSV_Result>("sp_ReporteSV", placaParameter);
+        }
+    
+        public virtual ObjectResult<sp_RetornaFacturaEnc_ID_Result> sp_RetornaFacturaEnc_ID(Nullable<int> idEncabezadoFac)
+        {
+            var idEncabezadoFacParameter = idEncabezadoFac.HasValue ?
+                new ObjectParameter("idEncabezadoFac", idEncabezadoFac) :
+                new ObjectParameter("idEncabezadoFac", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_RetornaFacturaEnc_ID_Result>("sp_RetornaFacturaEnc_ID", idEncabezadoFacParameter);
         }
     }
 }

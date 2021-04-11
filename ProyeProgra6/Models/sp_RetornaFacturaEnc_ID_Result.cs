@@ -15,12 +15,11 @@ namespace ProyeProgra6.Models
     {
         public int idEncabezadoFac { get; set; }
         public int idUsuario { get; set; }
-        public string nombreUsuario { get; set; }
+        public string nombreCliente { get; set; }
         public int idVehiculo { get; set; }
         public string plcaVehiculo { get; set; }
         public System.DateTime Fecha { get; set; }
         public decimal MontoTotalServicio { get; set; }
         public string EstadoFactura { get; set; }
-        public string Column1 { get; set; }
     }
 }
