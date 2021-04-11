@@ -13,7 +13,9 @@ function creaValidaciones() {
         rules: {
             cedula: {
                 required: true,
-                digits: true
+                digits: true,
+                minlength: 4,
+                maxlength: 9
               
             },
             Genero: {
