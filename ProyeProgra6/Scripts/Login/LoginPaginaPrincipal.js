@@ -35,8 +35,8 @@ function invocarMetodoPost() {
     var url = '/Home/ValidarUsuario';
 
     var parametros = {
-        pcorreo: $("#correo").val(),
-        pcontrasenia: $("#contrasenia").val(),
+        pCorreo: $("#correo").val(),
+        pContrasenia: $("#contrasenia").val(),
     };
 
     ///invocar al metodo
@@ -79,7 +79,7 @@ function procesarResultadoMetodo(data) {
 ///muestra el nombre del usuario que inicion secion
 function procesarResultadoUsuario(data) {
     var resultadoFuntion = data.resultado;
-    var ddlTesto = $("#Bienvenida");
-    ddlTesto.text("Bienvenido al sistema: " + resultadoFuntion);
+    var ddlTexto = $("#Bienvenida");
+    ddlTexto.text("Bienvenido al sistema: " + resultadoFuntion);
 
 }

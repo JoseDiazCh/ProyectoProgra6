@@ -9,7 +9,7 @@
 }
 <body class="imagenFondo">
 
-    <form id="frmlogin" method="post">
+    <form id="frmIniciodeSesion" method="post">
         <!--Panel-->
         <div class="panel panel-primary"
              style=" text-align: left;
@@ -46,7 +46,7 @@
                         <br />
                         <div class="form-group">
                             <label><span class="fas fa-eye"></span>Contraseña</label>
-                            <input class="form-control" ID="contrasenia" runat="server" TextMode="Password" placeholder="Enter password" required="required" />
+                            <input type="password"  class="form-control" ID="contrasenia" runat="server" TextMode="Password" placeholder="Enter password" required="required" />
                         </div>
 
 
@@ -60,8 +60,8 @@
                                 @*<div class="form-group">
                                     <div class="col-md-10">
                                         <input type="submit" value="Registrar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
-                                    </div>*@
-                                </div>
+                                    </div>
+                                </div>*@
                             </div>
                         </div>
                         <br />
@@ -83,7 +83,8 @@
 @section scripts{
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jqueryui.js"></script>
-    <script src="~/Scripts/Login/Login.js"></script>
+    <script src="~/Scripts/Login/LoginPaginaPrincipal.js"></script>
+
 }
 
 
