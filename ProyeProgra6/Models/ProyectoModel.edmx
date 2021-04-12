@@ -1157,7 +1157,7 @@ FROM [dbo].[VehiculoCliente] AS [VehiculoCliente]</DefiningQuery>
           <Parameter Name="Placa" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_RetornaFacturaEnc_ID" ReturnType="Collection(proyectoprogra6Model.sp_RetornaFacturaEnc_ID_Result)">
-            <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
+          <Parameter Name="idEncabezadoFac" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_SelectVehiculo_Result">

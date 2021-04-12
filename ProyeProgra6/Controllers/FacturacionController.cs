@@ -34,7 +34,18 @@ namespace ProyeProgra6.Controllers
         /// INSERTA la nueva factura
         /// </summary>
         /// <returns></returns>
+        void AgregaUsuariosViewBag()
+        {
+            this.ViewBag.ListaUsuarios =
+                    this.modeloBD.sp_RetornaUsuarios("","").ToList();
+        }
 
+        void AgregaPlacaViewBag()
+        {
+            this.ViewBag.ListaPlaca =
+                    this.modeloBD.sp_RetornaVehiculos("").ToList();
+
+        }
         public ActionResult FacturaNueva()
         {
             return View();
@@ -115,7 +126,8 @@ namespace ProyeProgra6.Controllers
             //    ///utilizando el parametro 
             sp_RetornaFacturaEnc_ID_Result modeloVista = new sp_RetornaFacturaEnc_ID_Result();
             modeloVista = this.modeloBD.sp_RetornaFacturaEnc_ID(idEncabezadoFac).FirstOrDefault();
-
+            this.AgregaPlacaViewBag();
+            this.AgregaUsuariosViewBag();
             //    //enviar el modelo a la vista
             return View(modeloVista);
         }
@@ -159,7 +171,8 @@ namespace ProyeProgra6.Controllers
             }
             Response.Write("<script language=javascript>alert('" + resultado + "');</script>");
 
-
+            this.AgregaPlacaViewBag();
+            this.AgregaUsuariosViewBag();
             return View(modeloVista);
         }
 
