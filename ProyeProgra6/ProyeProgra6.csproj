@@ -320,7 +320,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jqueryui.js" />
-    <Content Include="Scripts\Login\Login.js" />
+    <Content Include="Scripts\Login\CerrarSesion.js" />
     <Content Include="Scripts\Login\LoginPaginaPrincipal.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\scriptGenerico.js" />

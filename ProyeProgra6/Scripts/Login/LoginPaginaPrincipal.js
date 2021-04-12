@@ -1,6 +1,7 @@
 ﻿$(function () {
     creaValidaciones();
     creaEventos();
+    
 });
 
 ///crea las validaciones para el formulario
@@ -32,7 +33,7 @@ function creaEventos() {
 ///se encarga de llamar al metodo del controlador y procesar el resultado
 ///pasamos los parametros ingresados por el usuario
 function invocarMetodoPost() {
-    var url = '/Home/ValidarUsuario';
+    var url = '/Login/Validar';
 
     var parametros = {
         pCorreo: $("#correo").val(),
@@ -47,7 +48,14 @@ function invocarMetodoPost() {
         contentType: 'application/json',
         data: JSON.stringify(parametros),
         success: function (data, textStatus, jQxhr) {
-            procesarResultadoMetodo(data);
+            alert(data.resultado);
+            if (data.estado === true) {
+                window.location.href = '/Principal/PaginaPrincipal';
+            }
+
+           // procesarResultadoMetodo(data);
+
+
         },
         error: function (jQxhr, textStatus, errorThrown) {
             alert(errorThrown);
@@ -60,20 +68,23 @@ function invocarMetodoPost() {
 ///Iniciar secion o mandar msj de error
 function procesarResultadoMetodo(data) {
 
+
     var resultadoFuncion = data.resultado;
+    var ddlMensaje = $("#mensaje");
+    ddlMensaje.text(resultadoFuncion);
 
-    if (resultadoFuncion.validado == true) {
+    //if (resultadoFuncion.validado == true) {
 
-        cargarDatosUsuario();
-        $("#myModal").modal();
+    //    cargarDatosUsuario();
+    //    $("#myModal").modal();
 
-        setTimeout(function () {
-            window.location.href = '/Home/PaginaPrincipal';
-        }, 5000);
-    }
-    else {
-        $("#myModal1").modal;
-    }
+    //    setTimeout(function () {
+    //        window.location.href = '/Principal/PaginaPrincipal';
+    //    }, 5000);
+    //}
+    //else {
+    //    $("#myModal1").modal;
+    //}
 }
 ///metodo que modifica la etiqueta por id bienvenida
 ///muestra el nombre del usuario que inicion secion
@@ -83,3 +94,4 @@ function procesarResultadoUsuario(data) {
     ddlTexto.text("Bienvenido al sistema: " + resultadoFuntion);
 
 }
+
