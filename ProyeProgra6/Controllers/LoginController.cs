@@ -20,58 +20,45 @@ namespace ProyeProgra6.Controllers
             return View();
         }
 
-        public ActionResult Validar()
+        public ActionResult Validar(string pCorreo, string pContrasenia)
         {
-            return View();
+            bool result = this.Validarusuario(pCorreo, pContrasenia);
+
+            return Json(new
+            {
+
+                resultado = result
+
+            });
         }
-        [HttpPost]
-        public ActionResult Validar(string correo, string contrasenia)
+
+        private bool Validarusuario(string pcorreo, string pcontrasenia)
         {
-            Session["correoVista"] = correo;
-            string url = "";
-            string mensaje = "";
-            try
+            //Session["correoVista"] = correo;
+            //string url = "";
+            //string mensaje = "";
+            //try
             {
-                sp_RetornaUsuarios_Result datosCliente = new sp_RetornaUsuarios_Result();
-                datosCliente = modeloBD.sp_RetornaUsuarios(correo, contrasenia).FirstOrDefault();
+                List<sp_RetornaUsuarios_Result> datosCliente = new List<sp_RetornaUsuarios_Result>();
+                datosCliente = modeloBD.sp_RetornaUsuarios(null, null).ToList();
 
-                if (datosCliente == null)
+                bool UsuarioVerificado = false;
+
+                for (int i = 0; i < datosCliente.Count; i++)
                 {
-                    Response.Write("<script>alert('Datos Invalidos')</script>"); ;
-                    this.Session.Add("Nombre", null);
-                    this.Session.Add("Tipo", null);
-                    this.Session.Add("Fecha", null);
-                    this.Session.Add("UsuarioLogeado", null);
-                }
-                else
-                {
-
-                    Session.Add("Nombre", datosCliente.@Nombre);
-                    Session.Add("Tipo", datosCliente.@TipoUsuario);
-                    Session.Add("Fecha", datosCliente.@FechaNacimiento);
-                    Session.Add("UsuarioLogeado", true);
-
-                    if (Convert.ToInt32(this.Session["Tipo"]) == 1)
+                    if (datosCliente[i].Correo.Equals(pcorreo)&& datosCliente[i].Contrasenia.Equals(pcontrasenia))
                     {
-                        url = Url.Action("Inicio", "Home");
-                        //Response.Redirect("~/Factura/ListaPreFactura");
+                        this.Session.Add("idclienteLogueado", datosCliente[i].idUsuario);
+                        this.Session.Add("tipocliente", datosCliente[i].TipoUsuario);
+
                     }
-                    else if (Convert.ToInt32(this.Session["Tipo"]) == 2)
-                    {
-                        url = Url.Action("ClientesVistaLista", "ClienteVista");
-                        //this.Response.Redirect("~/Servicios/ServicioLista");
-                    }
-                    mensaje = "Usted ha ingresado: " + Session["Nombre"];
+
                 }
+
+                return UsuarioVerificado;
+
+
             }
-            catch (Exception excepcionCapturada)
-            {
-                mensaje += $"Ocurrio un error:{excepcionCapturada.Message}";
-            }
-
-            return Json(new { resultado = mensaje, validado = Session["UsuarioLogeado"], url = url });
-
-
         }
     }
 }

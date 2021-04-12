@@ -39,10 +39,10 @@
                 <div class="row" style="display: flex">
                     <!-- Primera Columnna Del Panel-->
                     <div class="column" style="flex: 50%; padding: 10px;">
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <label>Encabezado Factura:</label>
                             <select name="idEncabezadoFac" id="idEncabezadoFac" class="form-control" value="@Model.idEncabezadoFac" readonly></select>
-                        </div>
+                        </div>*@
                         <br />
                         <div class="form-group">
                             <label>Usuario:</label>
@@ -54,9 +54,9 @@
                             <select name="idVehiculo" id="idVehiculo" class="form-control" value="@Model.idVehiculo" readonly></select>
                         </div>
                         <br />
-                          <div class="form-group">
-                              <label>Fecha:</label>
-                            <input type="text" name="Fecha" id="Fecha" class="form-control" value="@Model.Fecha ToShortDateString()"readonly />
+                        <div class="form-group">
+                            <label>Fecha:</label>
+                            <input type="text" name="Fecha" id="Fecha" class="form-control" value="@Model.Fecha.ToShortDateString()" readonly />
                         </div>
                         <br />
                         <div class="form-group">
@@ -64,10 +64,21 @@
                             <input type="text" name="MontoTotalServicio" id="MontoTotalServicio" class="form-control" value="@Model.MontoTotalServicio" readonly />
                         </div>
                         <br />
-                        <div class="form-group">
+                        <div class="form-check">
+                            <label>Estado Factura:  </label>
+                            <br />
+                            <input type="radio" name="EstadoFactura" value="Habilitada" class="form-check-input" @(Model.EstadoFactura == "Habilitada" ? "checked" : "") /> Habilitada
+                            <br />
+                            <input type="radio" name="EstadoFactura" value="Inhabilitada" class="form-check-input" @(Model.EstadoFactura == "Inhabilitada" ? "checked" : "") /> Inhabilitada
+                            <br />
+                        </div>
+                        <br />
+                        <br />
+
+                        @*<div class="form-group">
                             <label>Estado Factura:</label>
                             <input type="text" name="EstadoFactura" id="EstadoFactura" class="form-control" value="@Model.EstadoFactura" />
-                        </div>
+                        </div>*@
 
                         <div class="form-group">
                             <input type="submit" value="Modificar" id="btnAceptar" class="btn btn-success" style=" border-color:black ; color:red" />
