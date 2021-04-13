@@ -26,7 +26,7 @@
                     <div style="margin-left: 10px; margin-top: 10px">
 
                         <div style="margin-bottom: 10px; padding-left: 70px; padding-right: 40px">
-                            <h2 class="auto-style1">Inicio de Sesion </h2>
+                            <h2 class="auto-style1">Inicio de Sesión </h2>
                         </div>
                     </div>
                 </div>
@@ -43,12 +43,12 @@
 
                         <div class="form-group">
                             <label><span class="fas fa-user"></span>Correo</label>
-                            <input class="form-control" id="correoInicioSesion" type="Email" placeholder="Ingrese Su Correo" />
+                            <input class="form-control" id="correoInicioSesion" name="correoInicioSesion" type="Email" placeholder="Ingrese Su Correo" />
                         </div>
                         <br />
                         <div class="form-group">
                             <label><span class="fas fa-eye"></span>Contraseña</label>
-                            <input type="password" class="form-control" id="contraseniaInicioSesion" placeholder="Ingrese Su Clave" />
+                            <input type="password" class="form-control" id="contraseniaInicioSesion" name="contraseniaInicioSesion" placeholder="Ingrese Su Clave" />
                         </div>
 
 
@@ -56,15 +56,22 @@
                             <div class="form-group" style="text-align: left">
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        <button type="button" style=" border-color:black ; color:red" id="btnIniciarSesion" class="btn btn-success"> Iniciar Sesion </button>
+                                        <button type="button" style=" border-color:black ; color:red" id="btnIniciarSesion" class="btn btn-success"> Iniciar Sesión </button>
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-                        <br />
-                        <input type="button" id="btMostraDialog" value="Registarse" style="border-color:black; color:red" />
+                        <br /><div class="container-fluid" style="text-align: left">
+                            <div class="form-group" style="text-align: left">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <input type="button" class="btn btn-success" id="btMostraDialog" value="Registarse" style=" border-color:black ; color:red" />
+                                    </div>
+                                </div>
 
+                            </div>
+                        </div>
                     </div>
                     <!--Fin Cuerpo Panel-->
                 </div>
@@ -77,7 +84,7 @@
     </form>
     <div id="divDialog" hidden>
 
-        <form id="frmRegistrar" >
+        <form id="frmRegistrar">
             @*Panel*@
             <div class="panel panel-primary"
                  style=" text-align: left;
@@ -100,12 +107,12 @@
 
                 </div>
                 @*Fin Encabezado Del Panel
-                Cuerpo Del Panel*@
+                    Cuerpo Del Panel*@
                 <div class="panel-body" style="background-color: cyan; color:black">
 
-                     @*Columnnas Del Panel*@
+                    @*Columnnas Del Panel*@
                     <div class="row" style="display: flex">
-                         @*Primera Columnna Del Panel*@
+                        @*Primera Columnna Del Panel*@
                         <div class="column" style="flex: 50%; padding: 10px;">
 
                             <div class="form-group">
@@ -129,7 +136,7 @@
                                 <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" placeholder="Seleccione la fecha de nacimiento" />
                             </div>
 
-                            
+
                             <div class="form-group">
                                 <label>Nombre:</label>
                                 <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ingrese su nombre" />
@@ -183,7 +190,7 @@
                     </div>
                     @*Fin Panel*@
                 </div>
-                
+
             </div>
         </form>
 
@@ -202,12 +209,14 @@
 
 </body>
 @section scripts{
-    
+
     <script src="~/Scripts/jqueryui.js"></script>
     <script src="~/Scripts/Login/LoginPaginaPrincipal.js"></script>
     <script src="~/Scripts/Registarse/provinciasinsert.js"></script>
     <script src="~/Scripts/Registarse/registar.js"></script>
-<script src="~/Scripts/scriptGenerico.js"></script>
+    <script src="~/Scripts/scriptGenerico.js"></script>
+
+    <script src="~/Scripts/Login/ValidacionesInicioSecion.js"></script>
 }
 
 

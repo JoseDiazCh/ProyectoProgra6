@@ -1,24 +1,10 @@
 ﻿$(function () {
-    creaValidacionesInicioSesion();
+
     creaEventosInicioSesion();
 
 });
 
-///crea las validaciones para el formulario
-function creaValidacionesInicioSesion() {
-    $("#frmIniciodeSesion").validate({
-        ///objeto que contiene "las condiciones" que el formulario
-        ///debe cumplir para ser considerado válido
-        rules: {
-            correoInicioSesion: {
-                required: true
-            },
-            contraseniaInicioSesion: {
-                required: true
-            },
-        }
-    });
-}
+
 ///llamar eventos al iniciar secion
 function creaEventosInicioSesion() {
     $("#btnIniciarSesion").on("click", function () {
