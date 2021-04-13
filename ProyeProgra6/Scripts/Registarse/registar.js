@@ -135,7 +135,7 @@ function creaEventosRegistra() {
         ///Si El Formulario Es Valido
         ///Ejecutar la funcion invocaMetodosPost
         if (formulario.valid()) {
-            invocarMetodoPost();
+            invocarMetodoPostRegistro();
         }
     });
 }
@@ -146,17 +146,17 @@ function creaEventosRegistra() {
 
 ///se encarga de llamar al método del controlador y procesar el resultado
 ///Pasamos Los Parametros Ingresados Por El Usuario
-function invocarMetodoPost() {
-    var url = '/Registrarse/Registrar';
+function invocarMetodoPostRegistro() {
+    var url = '/Registrarse/registrar';
     ///Parametros del metodo, es CASE SENSITIVE
     var parametros = {
-        pCedula: $("#cedula").val(),
+        pCedula: $("#Cedula").val(),
         pGenero: $("#Genero").val(),
         pFechaNacimiento: $("#FechaNacimiento").val(),
         pNombre: $("#Nombre").val(),
         pApellido1: $("#Apellido1").val(),
         pApellido2: $("#Apellido2").val(),
-        pCorreo: $("#correo").val(),
+        pCorreo: $("#Correo").val(),
         pTipoUsuario: $("#TipoUsuario").val(),
         pid_Provincia: $("#id_Provincia").val(),
         pid_Canton: $("#id_Canton").val(),

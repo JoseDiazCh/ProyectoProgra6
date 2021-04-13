@@ -53,6 +53,10 @@ namespace ProyeProgra6.Controllers
                 this.modeloBD.sp_RetornaDistritos(null, id_Canton).ToList();
             return Json(distritos);
         }
+        public ActionResult Registrar()
+        {
+            return View();
+        }
 
         /// <summary>
         /// metodo de registrarse
