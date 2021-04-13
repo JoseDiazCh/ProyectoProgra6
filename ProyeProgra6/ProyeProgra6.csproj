@@ -285,6 +285,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Imagenes\ImagenFondo.jpg" />
+    <Content Include="Imagenes\logo.jpg" />
     <Content Include="Imagenes\Principal.png" />
     <Content Include="Imagenes\Provincias1.png" />
     <Content Include="Imagenes\Provincias2.png" />
@@ -394,7 +395,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
-    <Folder Include="Views\Registrarse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
