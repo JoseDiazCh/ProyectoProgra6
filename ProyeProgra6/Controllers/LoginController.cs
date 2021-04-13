@@ -84,88 +84,44 @@ namespace ProyeProgra6.Controllers
                 resultado = msj
             });
         }
-    }
-}
+        public ActionResult MostrarInfoUsuario()
+        {
+            int idUsuarioLogueado = Convert.ToInt32(this.Session["idClienteLogueado"]);
+            List<sp_RetornaUsuarios_ID_Result> modeloCliente = this.modeloBD.sp_RetornaUsuarios_ID(idUsuarioLogueado).ToList();
 
-/*
-public ActionResult MostrarInfoUsuario()
-{
-    int idUsuarioLogueado = Convert.ToInt32(this.Session["idClienteLoguedo"]);
-    List<sp_RetornaClientes_ID_Result> modeloCliente = this.ModeloBD.sp_RetornaClientes_ID(idUsuarioLogueado).ToList();
-
-    string msj = "";
-    int idUsuario = 0;
-    string tipoUsuarioConectado;
-    ///Validar Si La Variable De Session Esta Vacia
-    if (this.Session["tipoCliente"] == null)
-    {
-        tipoUsuarioConectado = "vacio";
-    }
-    else
-    {
-        tipoUsuarioConectado = this.Session["tipoCliente"].ToString();
-    }
-
-    ///Del Usuario Que Inicio Sesion, Por Medio
-    ///De La variable De Sesion Obtener Los Datos.
-    /// Recorrer Lista De Usuario Obtenido Por ID
-    /// Obtener ID y El Nombre De Usuario
-    for (int i = 0; i < modeloCliente.Count; i++)
-    {
-        msj = modeloCliente[i].NombreCompleto;
-        idUsuario = modeloCliente[i].idCliente;
-    }
-
-    return Json(new
-    {
-        resultado = msj,
-        usuarioActual = idUsuario,
-        tipoUsuario = tipoUsuarioConectado
-    });
-}
-*/
-/* Esto En JS
-function ocultarEtiquetas()
-{
-    ///dirección a donde se enviarán los datos
-    var url = '/Home/MostrarInfoUsuario';
-    ///parámetros del método, es CASE-SENSITIVE
-    var parametros = {
-    };
-    ///invocar el método
-    $.ajax({
-    url: url,
-        dataType: 'json',
-        type: 'post',
-        contentType: 'application/json',
-        data: JSON.stringify(parametros),
-        success: function(data, textStatus, jQxhr) {
-
-            var tipoUsuarioActual = data.tipoUsuario;
-            ///Si El usuario Es Cliente 
-            ///Quitar Etiquetas De La Vista
-            ///
-            if (tipoUsuarioActual === 'Cliente')
+            string msj = "";
+            int idUsuario = 0;
+            string tipoUsuarioConectado;
+            ///Validar Si La Variable De Session Esta Vacia
+            if (this.Session["tipoCliente"] == null)
             {
-
-                $("#admi").hide();
-                $("#admi1").hide();
-                $("#admi2").hide();
-                $("#admi3").hide();
-                $("#admi4").hide();
-                $("#admi5").hide();
-                $("#admi6").hide();
-                $("#admi7").hide();
-                $("#admi8").hide();
-                $("#admi9").hide();
-                $("#admi10").hide();
-                $("#admi11").hide();
-                $("#admi12").hide();
+                tipoUsuarioConectado = "vacio";
+            }
+            else
+            {
+                tipoUsuarioConectado = this.Session["tipoCliente"].ToString();
             }
 
-        },
-        error: function(jQxhr, textStatus, errorThrown) {
-            alert(errorThrown);
-        },
-    });
-}*/
+            ///Del Usuario Que Inicio Sesion, Por Medio
+            ///De La variable De Sesion Obtener Los Datos.
+            /// Recorrer Lista De Usuario Obtenido Por ID
+            /// Obtener ID y El Nombre De Usuario
+            for (int i = 0; i < modeloCliente.Count; i++)
+            {
+                msj = modeloCliente[i].Nombre+" "+modeloCliente[i].Apellido1+" "+ modeloCliente[i].Apellido2;
+                idUsuario = modeloCliente[i].idUsuario;
+            }
+
+            return Json(new
+            {
+                resultado = msj,
+                usuarioActual = idUsuario,
+                tipoUsuario = tipoUsuarioConectado
+            });
+        }
+
+    }
+}
+
+
+

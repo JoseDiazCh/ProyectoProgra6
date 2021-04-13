@@ -10,6 +10,8 @@
 <br />
 <br />
 <h1 style="align-content:center" color:white"> BIENVENIDOS A LA PÁGINA PRINCIPAL</h1>
+<h1 id="Bienvenida"></h1>
+<h2 id="tipoUsuarioActual"></h2>
 <br />
 <p style="align-content:center" color:white">SISTEMA DE CONTROL DE LAVADO Y MANTENIMIENTO DE VEHÍCULOS</p>
 <body class="imagenFondo" align="center">
@@ -22,8 +24,8 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Usuarios <span class="caret"></span></a>
                             <ul class="dropdown-menu">
 
-                                <li><a href="~/Usuarios/UsuarioNuevo">Insertar</a></li>
-                                <li><a href="~/Usuarios/UsuariosLista">Listar</a></li>
+                                <li><a id="admi" href="~/Usuarios/UsuarioNuevo">Insertar</a></li>
+                                <li><a id="admi1" href="~/Usuarios/UsuariosLista">Listar</a></li>
 
                             </ul>
                         </li>
@@ -94,7 +96,7 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Facturación <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a id="admi" href="~/Facturacion/EncabezadoFac">Lista Factura</a></li>
+                                <li><a href="~/Facturacion/EncabezadoFac">Lista Factura</a></li>
                                 <li><a href="~/Facturacion/FacturaNueva">Nueva Factura</a></li>
 
                             </ul>
@@ -134,7 +136,7 @@
                         </li>
                     </ul>
                 </div>
-               
+
 
                 <div id="mensaje">
 
@@ -181,15 +183,6 @@
                         </div>
 
 
-                        @*<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Anterior</span>
-                            </a>
-                            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Siguiente</span>
-                            </a>*@
-
                     </div>
                 </div>
             </div>
@@ -198,21 +191,14 @@
     </div>
     <br />
 </body>
+
+
+
+
+
 @section scripts{
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jqueryui.js"></script>
     <script src="~/Scripts/Login/CerrarSesion.js"></script>
+    <script src="~/Scripts/Login/cargardatosusuario.js"></script>
 }
-
-
-<footer style="text-align: center">
-    <div class="container-fluid">
-        <br />
-        <p class="fa fa-map-marker" style="height: 20px">Dirección: Puriscal,San Jose</p>
-        <p class="fa fa-copyright" style="height: 20px">Todos los derechos resevados</p>
-        <p class="fa fa-cogs" style="height: 20px">DEVELOPERS</p>
-        <p class="fa fa-user" style="height: 20px">Manuel Arias </p>
-        <p class="fa fa-user" style="height: 20px">Daniel Díaz </p>
-        <br />
-    </div>
-</footer>

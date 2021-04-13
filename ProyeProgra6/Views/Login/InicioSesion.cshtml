@@ -9,7 +9,7 @@
 }
 <body class="imagenFondo">
 
-    <form id="frmIniciodeSesion" method="post">
+    <form id="frmIniciodeSesion">
         <!--Panel-->
         <div class="panel panel-primary"
              style=" text-align: left;
@@ -43,12 +43,12 @@
                      
                         <div class="form-group">
                             <label><span class="fas fa-user"></span>Correo</label>
-                            <input class="form-control" id="correo"  TextMode="Email" placeholder="Enter Email" required="required" />
+                            <input class="form-control" id="correoInicioSesion"  type="Email" placeholder="Ingrese Su Correo"  />
                         </div>
                         <br />
                         <div class="form-group">
                             <label><span class="fas fa-eye"></span>Contraseña</label>
-                            <input type="password"  class="form-control" id="contrasenia"  TextMode="Password" placeholder="Enter password" required="required" />
+                            <input type="password"  class="form-control" id="contraseniaInicioSesion"  placeholder="Ingrese Su Clave" />
                         </div>
 
 
@@ -56,7 +56,7 @@
                             <div class="form-group" style="text-align: left">
                                 <div class="form-group">
                                     <div class="col-md-10">
-                                        <button style=" border-color:black ; color:red" id="btnAceptar" class="btn btn-success" > Registrar</button>
+                                        <button type="button" style=" border-color:black ; color:red" id="btnIniciarSesion" class="btn btn-success" > Iniciar Sesion </button>
                                     </div>
                                 </div>
                                 @*<div class="form-group">
@@ -83,7 +83,7 @@
 
 </body>
 @section scripts{
-    <script src="~/Scripts/jquery.validate.js"></script>
+    
     <script src="~/Scripts/jqueryui.js"></script>
     <script src="~/Scripts/Login/LoginPaginaPrincipal.js"></script>
 

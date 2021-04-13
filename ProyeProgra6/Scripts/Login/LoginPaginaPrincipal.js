@@ -1,27 +1,27 @@
 ﻿$(function () {
-    creaValidaciones();
-    creaEventos();
-    
+    creaValidacionesInicioSesion();
+    creaEventosInicioSesion();
+
 });
 
 ///crea las validaciones para el formulario
-function creaValidaciones() {
+function creaValidacionesInicioSesion() {
     $("#frmIniciodeSesion").validate({
         ///objeto que contiene "las condiciones" que el formulario
         ///debe cumplir para ser considerado válido
         rules: {
-            correo: {
+            correoInicioSesion: {
                 required: true
             },
-            contrasenia: {
+            contraseniaInicioSesion: {
                 required: true
             },
         }
     });
 }
 ///llamar eventos al iniciar secion
-function creaEventos() {
-    $("#btnAceptar").on("click", function () {
+function creaEventosInicioSesion() {
+    $("#btnIniciarSesion").on("click", function () {
         var formulario = $('#frmIniciodeSesion');
         formulario.validate();
 
@@ -36,8 +36,8 @@ function invocarMetodoPost() {
     var url = '/Login/Validar';
 
     var parametros = {
-        pCorreo: $("#correo").val(),
-        pContrasenia: $("#contrasenia").val(),
+        pCorreo: $("#correoInicioSesion").val(),
+        pContrasenia: $("#contraseniaInicioSesion").val(),
     };
 
     ///invocar al metodo
@@ -53,7 +53,7 @@ function invocarMetodoPost() {
                 window.location.href = '/Principal/PaginaPrincipal';
             }
 
-           // procesarResultadoMetodo(data);
+            // procesarResultadoMetodo(data);
 
 
         },

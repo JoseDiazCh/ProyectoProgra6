@@ -320,6 +320,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jqueryui.js" />
+    <Content Include="Scripts\Login\cargardatosusuario.js" />
     <Content Include="Scripts\Login\CerrarSesion.js" />
     <Content Include="Scripts\Login\LoginPaginaPrincipal.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
@@ -424,7 +425,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>63947</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:63947/</IISUrl>
+          <IISUrl>http://localhost:63948/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

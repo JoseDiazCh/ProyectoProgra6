@@ -29,16 +29,27 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" >
         @RenderBody()
         <hr />
-        <footer>
+        <footer style="text-align:center">
+
+            <br />
+            <p class="fa fa-map-marker" style="height: 20px">Dirección: Puriscal,San Jose</p>
+            <p class="fa fa-copyright" style="height: 20px">Todos los derechos resevados</p>
+            <p class="fa fa-cogs" style="height: 20px">DEVELOPERS</p>
+            <p class="fa fa-user" style="height: 20px">Manuel Arias </p>
+            <p class="fa fa-user" style="height: 20px">Daniel Díaz </p>
+            <br />
             <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
         </footer>
     </div>
 
+
     @Scripts.Render("~/bundles/bundleJquery")
     @Scripts.Render("~/bundles/bootstrap")
+
     @RenderSection("scripts", required: false)
+
 </body>
 </html>
