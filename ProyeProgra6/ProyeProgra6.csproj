@@ -136,6 +136,7 @@
     <Compile Include="Controllers\PaisFabricanteController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\ProvinciasController.cs" />
+    <Compile Include="Controllers\RegistrarseController.cs" />
     <Compile Include="Controllers\ServicioOProductoController.cs" />
     <Compile Include="Controllers\TiposVehiculosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -324,6 +325,8 @@
     <Content Include="Scripts\Login\CerrarSesion.js" />
     <Content Include="Scripts\Login\LoginPaginaPrincipal.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Registarse\provinciasinsert.js" />
+    <Content Include="Scripts\Registarse\registar.js" />
     <Content Include="Scripts\scriptGenerico.js" />
     <Content Include="Scripts\ServicioCliente\serviciocliente.js" />
     <Content Include="Scripts\ServicioVehiculo\serviciovehiculo.js" />
@@ -390,6 +393,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\Registrarse\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

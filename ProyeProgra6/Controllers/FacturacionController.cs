@@ -195,9 +195,9 @@ namespace ProyeProgra6.Controllers
             return Json(encabezado);
 
         }
-
+        //-------------------------------------------------------------------------------------------
         /// <summary>
-        /// metodo que Inserta una Empresa
+        /// metodo que Isertar  detalle factura
         /// /// </summary>
         /// <returns></returns>
         /// 
