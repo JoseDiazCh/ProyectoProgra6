@@ -53,9 +53,9 @@ namespace ProyeProgra6.Controllers
                 this.modeloBD.sp_RetornaDistritos(null, id_Canton).ToList();
             return Json(distritos);
         }
-        public ActionResult Registrar()
+        public ActionResult RegistrarU()
         {
-            return View();
+           return View();
         }
 
         /// <summary>

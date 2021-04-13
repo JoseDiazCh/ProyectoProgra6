@@ -117,11 +117,11 @@
                             <div class="form-check">
                                 <label>Genero:  </label>
                                 <br />
-                                <input type="radio" name="Genero" value="Femenino" class="form-check-input" /> Femenino
+                                <input type="radio" id="genero" name="Genero" value="Femenino" class="form-check-input" /> Femenino
                                 <br />
-                                <input type="radio" name="Genero" value="Masculino" class="form-check-input" /> Masculino
+                                <input type="radio" id="genero1" name="Genero" value="Masculino" class="form-check-input" /> Masculino
                                 <br />
-                                <input type="radio" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
+                                <input type="radio" id="genero2" name="Genero" value="Indefinido" class="form-check-input" /> Indefinido
                             </div>
                             <br />
                             <div class="form-group">
@@ -129,7 +129,7 @@
                                 <input type="text" name="FechaNacimiento" id="FechaNacimiento" class="form-control" placeholder="Seleccione la fecha de nacimiento" />
                             </div>
 
-
+                            
                             <div class="form-group">
                                 <label>Nombre:</label>
                                 <input type="text" name="Nombre" id="Nombre" class="form-control" placeholder="Ingrese su nombre" />
@@ -153,9 +153,9 @@
                             <div class="form-check">
                                 <label>Tipo De Usuario:  </label>
                                 <br />
-                                <input type="radio" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
+                                <input type="radio" id="tipoUsuario" name="TipoUsuario" value="Cliente" class="form-check-input" /> Cliente
                                 <br />
-                                <input type="radio" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
+                                <input type="radio" id="tipoUsuario1" name="TipoUsuario" value="Administrador" class="form-check-input" /> Administrador
                                 <br />
                             </div>
                             <br />
@@ -194,7 +194,7 @@
 
             <br />
             <br />
-            <button " id="btCerrar" class="btn btn-success">Cerrar ventana</button>
+            <button id="btCerrar" class="btn btn-success">Cerrar ventana</button>
         </div>
     </div>
     <div id="EstadoInfo"></div>
@@ -207,7 +207,7 @@
     <script src="~/Scripts/Login/LoginPaginaPrincipal.js"></script>
     <script src="~/Scripts/Registarse/provinciasinsert.js"></script>
     <script src="~/Scripts/Registarse/registar.js"></script>
-
+<script src="~/Scripts/scriptGenerico.js"></script>
 }
 
 

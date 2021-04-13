@@ -147,17 +147,17 @@ function creaEventosRegistra() {
 ///se encarga de llamar al método del controlador y procesar el resultado
 ///Pasamos Los Parametros Ingresados Por El Usuario
 function invocarMetodoPostRegistro() {
-    var url = '/Registrarse/registrar';
+    var url = '/Registrarse/Registrar';
     ///Parametros del metodo, es CASE SENSITIVE
     var parametros = {
-        pCedula: $("#Cedula").val(),
-        pGenero: $("#Genero").val(),
+        pCedula: $("#cedula").val(),
+        pGenero: $('input:radio[name=Genero]:checked').val(),
         pFechaNacimiento: $("#FechaNacimiento").val(),
         pNombre: $("#Nombre").val(),
         pApellido1: $("#Apellido1").val(),
         pApellido2: $("#Apellido2").val(),
-        pCorreo: $("#Correo").val(),
-        pTipoUsuario: $("#TipoUsuario").val(),
+        pCorreo: $("#correo").val(),
+        pTipoUsuario: $('input:radio[name=TipoUsuario]:checked').val(),
         pid_Provincia: $("#id_Provincia").val(),
         pid_Canton: $("#id_Canton").val(),
         pid_Distrito: $("#id_Distrito").val(),
