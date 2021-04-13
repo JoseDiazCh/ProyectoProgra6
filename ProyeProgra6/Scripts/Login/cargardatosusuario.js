@@ -64,6 +64,21 @@ function ocultarEtiquetas() {
 
                 $("#admi").hide();
                 $("#admi1").hide();
+                $("#admi2").hide();
+                $("#admi3").hide();
+                $("#admi4").hide();
+                $("#admi5").hide();
+                $("#admi6").hide();
+                $("#admi7").hide();
+                $("#admi8").hide();
+                $("#admi9").hide();
+                $("#admi10").hide();
+                $("#admi11").hide();
+                $("#admi12").hide();
+                $("#admi13").hide();
+                $("#admi14").hide();
+                $("#admi15").hide();
+                $("#admi16").hide();
             }
 
         },

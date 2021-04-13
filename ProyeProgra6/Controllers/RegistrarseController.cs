@@ -9,9 +9,14 @@ namespace ProyeProgra6.Controllers
     public class RegistrarseController : Controller
     {
 
+
+        #region Conexion con la base Datos
         //conexxion a la base datos
         proyectoprogra6Entities modeloBD = new proyectoprogra6Entities();
+        #endregion
 
+
+        #region Controladores de Registar Usuario
         // GET: Registrarse
         public ActionResult Index()
         {
@@ -55,7 +60,7 @@ namespace ProyeProgra6.Controllers
         }
         public ActionResult RegistrarU()
         {
-           return View();
+            return View();
         }
 
         /// <summary>
@@ -132,5 +137,7 @@ namespace ProyeProgra6.Controllers
         }
 
     }
+    #endregion
+   
 }
 
